@@ -13,14 +13,15 @@ modalClose.addEventListener('click', function (e) {
 modalSave.addEventListener('click', function (e) {
     trgt.classList.remove('buildings-modal-open');
 });
+const apartmentApi = "http://localhost:8080/project/apartment";
 
 function start() {
     getApartments(renderApartments);
 }
 start();
-var apartmentApi = "http://localhost:8080/project/apartment";
 
 function getApartments(callback) {
+    console.log("Fetching data from:", apartmentApi);
     fetch(apartmentApi)
         .then(function (response) {
             return response.json();
