@@ -13,6 +13,7 @@ modalClose.addEventListener('click', function (e) {
 modalSave.addEventListener('click', function (e) {
     trgt.classList.remove('buildings-modal-open');
 });
+
 const apartmentApi = "http://localhost:8080/project/apartment";
 
 function start() {
@@ -21,13 +22,18 @@ function start() {
 start();
 
 function getApartments(callback) {
-    console.log("Fetching data from:", apartmentApi);
     fetch(apartmentApi)
         .then(function (response) {
             return response.json();
         })
-        .then(callback);
+        .then(function (data) {
+            callback(data);
+        })
+        .catch(function (error) {
+            console.error("Fetch error:", error);  // In lỗi nếu có
+        });
 }
+
 
 function createNewApartment(data, callback) {
     var options = {
