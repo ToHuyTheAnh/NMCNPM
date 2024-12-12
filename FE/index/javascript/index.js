@@ -10,11 +10,15 @@ openCommonTab.addEventListener('click', function (e) {
     for (var i = 0; i < x.length; i++) {
         x[i].style.display = 'none';
     }
-    console.log(x);
     var y = document.getElementsByClassName('common-tab-all');
     for (var i = 0; i < y.length; i++) {
         y[i].style.display = 'block';
     }
+    var z = document.getElementsByClassName('sidebar-body-item');
+    for (var i = 0; i < z.length; i++) {
+        z[i].classList.remove('tab-sidebar-active');
+    }
+    this.classList.add('tab-sidebar-active');
 });
 
 openDonationTab.addEventListener('click', function (e) {
@@ -26,6 +30,11 @@ openDonationTab.addEventListener('click', function (e) {
     for (var i = 0; i < y.length; i++) {
         y[i].style.display = 'block';
     }
+    var z = document.getElementsByClassName('sidebar-body-item');
+    for (var i = 0; i < z.length; i++) {
+        z[i].classList.remove('tab-sidebar-active');
+    }
+    this.classList.add('tab-sidebar-active');
 });
 
 openServiceTab.addEventListener('click', function (e) {
@@ -37,6 +46,11 @@ openServiceTab.addEventListener('click', function (e) {
     for (var i = 0; i < y.length; i++) {
         y[i].style.display = 'block';
     }
+    var z = document.getElementsByClassName('sidebar-body-item');
+    for (var i = 0; i < z.length; i++) {
+        z[i].classList.remove('tab-sidebar-active');
+    }
+    this.classList.add('tab-sidebar-active');
 });
 
 openBuildingsTab.addEventListener('click', function (e) {
@@ -48,6 +62,11 @@ openBuildingsTab.addEventListener('click', function (e) {
     for (var i = 0; i < y.length; i++) {
         y[i].style.display = 'block';
     }
+    var z = document.getElementsByClassName('sidebar-body-item');
+    for (var i = 0; i < z.length; i++) {
+        z[i].classList.remove('tab-sidebar-active');
+    }
+    this.classList.add('tab-sidebar-active');
 });
 
 openHistoryTab.addEventListener('click', function (e) {
@@ -59,6 +78,11 @@ openHistoryTab.addEventListener('click', function (e) {
     for (var i = 0; i < y.length; i++) {
         y[i].style.display = 'block';
     }
+    var z = document.getElementsByClassName('sidebar-body-item');
+    for (var i = 0; i < z.length; i++) {
+        z[i].classList.remove('tab-sidebar-active');
+    }
+    this.classList.add('tab-sidebar-active');
 });
 
 openSettingsTab.addEventListener('click', function (e) {
@@ -70,4 +94,9 @@ openSettingsTab.addEventListener('click', function (e) {
     for (var i = 0; i < y.length; i++) {
         y[i].style.display = 'block';
     }
+    var z = document.getElementsByClassName('sidebar-body-item');
+    for (var i = 0; i < z.length; i++) {
+        z[i].classList.remove('tab-sidebar-active');
+    }
+    this.classList.add('tab-sidebar-active');
 });
