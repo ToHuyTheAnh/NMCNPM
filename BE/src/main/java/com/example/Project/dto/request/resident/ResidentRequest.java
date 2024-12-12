@@ -16,11 +16,13 @@ import java.time.LocalDate;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class ResidentRequest {
 
-    @NotNull(message = "Id căn hộ không được để trống")
+    @NotNull(message = "Căn hộ không được để trống")
     String apartmentId;
 
     @NotNull(message = "Tên cư dân không được để trống")
     String residentName;
+
+    Number idNumber;
 
     @Builder.Default
     Enums.ResidentRole role = Enums.ResidentRole.NON_OWNER;

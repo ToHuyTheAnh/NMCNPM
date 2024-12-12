@@ -14,6 +14,7 @@ public class ResidentResponse {
     String apartmentId;
     String apartmentName;
     String residentName;
+    Number idNumber;
     Enums.ResidentRole role;
     String phoneNumber;
     LocalDate birthday;
