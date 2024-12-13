@@ -6,6 +6,10 @@
     background-color: #fff;
 }
 
+#sidebar-container .tab-sidebar-active {
+    background: #a2d2ff;
+}
+
 #sidebar-container .sidebar-header {
     display: flex;
     padding: 15px;

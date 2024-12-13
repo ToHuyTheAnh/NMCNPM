@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/FE//left layout/sidebar/sidebar.css">
-    <link rel="stylesheet" href="/FE//index/css/index.css">
-    <link rel="stylesheet" href="/FE//right layout/navbar/navbar.css">
-    <link rel="stylesheet" href="/FE//right layout/tabs/common tab/common-tab.css">
-    <link rel="stylesheet" href="/FE//right layout/tabs/buildings tab/buildings-tab.css">
-    <link rel="stylesheet" href="/FE//right layout/tabs/donation tab/donation-tab.css">
-    <link rel="stylesheet" href="/FE//right layout/tabs/history tab/history-tab.css">
-    <link rel="stylesheet" href="/FE//right layout/tabs/service tab/service-tab.css">
-    <link rel="stylesheet" href="/FE//right layout/tabs/settings tab/settings-tab.css">
+    <title> PK </title>
+    <link rel="stylesheet" href="/FE/left layout/sidebar/sidebar.css">
+    <link rel="stylesheet" href="/FE/index/css/index.css">
+    <link rel="stylesheet" href="/FE/right layout/navbar/navbar.css">
+    <link rel="stylesheet" href="/FE/right layout/tabs/common tab/common-tab.css">
+    <link rel="stylesheet" href="/FE/right layout/tabs/buildings tab/buildings-tab.css">
+    <link rel="stylesheet" href="/FE/right layout/tabs/donation tab/donation-tab.css">
+    <link rel="stylesheet" href="/FE/right layout/tabs/history tab/history-tab.css">
+    <link rel="stylesheet" href="/FE/right layout/tabs/service tab/service-tab.css">
+    <link rel="stylesheet" href="/FE/right layout/tabs/settings tab/settings-tab.css">
 </head>
 
 <body>
@@ -86,7 +86,7 @@
                 <span class="sidebar-header-text">Hồng Nguỵn<br>Pi Kay</span>
             </div>
             <div class="sidebar-body">
-                <a href="#" class="sidebar-body-item" id="common-icon">
+                <a href="#" class="sidebar-body-item tab-sidebar-active" id="common-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                         fill="inherit" class="sidebar-icon">
                         <path
@@ -425,6 +425,22 @@
                                 <span class="buildings-modal-title-text"> Thêm mới căn hộ </span>
                             </div>
                             <div class="buildings-modal-input">
+                                <div class="input-apartment-name input-item">
+                                    <span> Căn hộ </span>
+                                    <input type="text" name="buildings-apartmentName">
+                                </div>
+                                <div class="input-apartment-floor input-item">
+                                    <span> Tầng </span>
+                                    <input type="text" name="buildings-floorNumber">
+                                </div>
+                                <div class="input-apartment-number input-item">
+                                    <span> Số phòng </span>
+                                    <input type="text" name="buildings-apartmentNumber">
+                                </div>
+                                <div class="input-apartment-name input-item">
+                                    <span> Diện tích </span>
+                                    <input type="text" name="buildings-area">
+                                </div>
                             </div>
                             <div class="buildings-modal-footer">
                                 <div></div>
@@ -438,23 +454,71 @@
                                 </div>
                             </div>
                         </div>
+
+                    </div>
+                    <div class="edit-buildings-modal-container">
+                        <div class="edit-buildings-modal">
+                            <div class="edit-buildings-modal-title">
+                                <span class="edit-buildings-modal-title-text"> Chỉnh sửa căn hộ </span>
+                            </div>
+                            <div class="edit-buildings-modal-input">
+                                <div class="input-apartment-name edit-input-item">
+                                    <span> Căn hộ </span>
+                                    <input type="text" name="edit-buildings-apartmentName">
+                                </div>
+                                <div class="input-apartment-floor edit-input-item">
+                                    <span> Tầng </span>
+                                    <input type="text" name="edit-buildings-floorNumber">
+                                </div>
+                                <div class="input-apartment-number edit-input-item">
+                                    <span> Số phòng </span>
+                                    <input type="text" name="edit-buildings-apartmentNumber">
+                                </div>
+                                <div class="input-apartment-name edit-input-item">
+                                    <span> Diện tích </span>
+                                    <input type="text" name="edit-buildings-area">
+                                </div>
+                            </div>
+                            <div class="edit-buildings-modal-footer">
+                                <div></div>
+                                <div class="edit-buildings-modal-button">
+                                    <button class="edit-buildings-modal-close-button">
+                                        <span class="edit-buildings-modal-close-button-text"> Hủy </span>
+                                    </button>
+                                    <button class="edit-buildings-modal-save-button">
+                                        <span class="edit-buildings-modal-save-button-text"> Lưu </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="buildings-tab-body">
                         <table class="buildings-table">
                             <tr class="table-header">
                                 <th> Căn hộ </th>
-                                <th> Loại phí đóng góp </th>
-                                <th> Số tiền đã đóng </th>
-                                <th> Phương thức </th>
+                                <th> Tầng </th>
+                                <th> Số phòng </th>
+                                <th> Diện tích </th>
+                                <th> Trạng thái </th>
                                 <th></th>
                             </tr>
                         </table>
                     </div>
                 </div>
-
             </div>
             <div id="history-tab" class="history-tab-all website-tab">
-                <h1> Đây là trang lịch sử </h1>
+                <div class="history-tab-header">
+                    <span class="history-tab-title"> Lịch sử </span>
+                    <div class="history-tab-filter">
+                        <div class="history-tab-filter-people">
+                            <span> Người thực hiện </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="#0a0908">
+                                <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="settings-tab" class="settings-tab-all website-tab">
                 <h1> Đây là trang cài đặt </h1>

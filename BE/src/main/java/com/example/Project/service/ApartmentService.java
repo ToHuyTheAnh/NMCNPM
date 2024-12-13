@@ -1,6 +1,5 @@
 package com.example.Project.service;
 
-
 import com.example.Project.dto.request.apartment.ApartmentRequest;
 import com.example.Project.dto.request.apartment.ApartmentSearchRequest;
 import com.example.Project.entity.Apartment;
@@ -49,7 +48,7 @@ public class ApartmentService {
         return apartmentRepository.save(apartment);
     }
 
-    public List<Apartment> getAll(){
+    public List<Apartment> getAll() {
         return apartmentRepository.findAll();
     }
 
@@ -71,7 +70,7 @@ public class ApartmentService {
         apartmentRepository.deleteById(id);
     }
 
-    public void deleteAll(){
+    public void deleteAll() {
         apartmentRepository.deleteAll();
     }
 
