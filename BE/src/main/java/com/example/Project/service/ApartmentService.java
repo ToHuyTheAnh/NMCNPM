@@ -1,6 +1,5 @@
 package com.example.Project.service;
 
-
 import com.example.Project.dto.request.apartment.ApartmentRequest;
 import com.example.Project.dto.request.apartment.ApartmentSearchRequest;
 import com.example.Project.entity.Apartment;
@@ -49,7 +48,7 @@ public class ApartmentService {
         return apartmentRepository.save(apartment);
     }
 
-    public List<Apartment> getAll(){
+    public List<Apartment> getAll() {
         return apartmentRepository.findAll();
     }
 
@@ -71,21 +70,11 @@ public class ApartmentService {
         apartmentRepository.deleteById(id);
     }
 
-    public void deleteAll(){
+    public void deleteAll() {
         apartmentRepository.deleteAll();
     }
 
     public Apartment updateById(String id, ApartmentRequest apartmentRequest) {
-        Optional<Resident> resident = residentRepository.findById(apartmentRequest.getOwnerId());
-        if (resident.isEmpty()) {
-            if (apartmentRequest.getStatus() != Enums.ApartmentStatus.AVAILABLE) {
-                throw new NoSuchElementException("Không tìm thấy cư dân");
-            }
-        } else {
-            if (Enums.ApartmentStatus.AVAILABLE.equals(apartmentRequest.getStatus())) {
-                throw new NoSuchElementException("Cần cập nhật lại trạng thái căn hộ");
-            }
-        }
         Apartment apartment = getById(id);
         apartmentMapper.mapApartment(apartment, apartmentRequest);
         return apartmentRepository.save(apartment);
