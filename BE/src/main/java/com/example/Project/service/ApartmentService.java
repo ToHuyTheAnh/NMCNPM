@@ -76,16 +76,6 @@ public class ApartmentService {
     }
 
     public Apartment updateById(String id, ApartmentRequest apartmentRequest) {
-        Optional<Resident> resident = residentRepository.findById(apartmentRequest.getOwnerId());
-        if (resident.isEmpty()) {
-            if (apartmentRequest.getStatus() != Enums.ApartmentStatus.AVAILABLE) {
-                throw new NoSuchElementException("Không tìm thấy cư dân");
-            }
-        } else {
-            if (Enums.ApartmentStatus.AVAILABLE.equals(apartmentRequest.getStatus())) {
-                throw new NoSuchElementException("Cần cập nhật lại trạng thái căn hộ");
-            }
-        }
         Apartment apartment = getById(id);
         apartmentMapper.mapApartment(apartment, apartmentRequest);
         return apartmentRepository.save(apartment);

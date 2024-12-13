@@ -65,7 +65,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         // Thêm các địa chỉ mà bạn muốn cho phép CORS
-        configuration.setAllowedOrigins(List.of("http://127.0.0.1:5500", "https://theanh-fmenu.web.app"));  // Chấp nhận yêu cầu từ frontend
+        configuration.setAllowedOrigins(List.of("http://127.0.0.1:5500"));  // Chấp nhận yêu cầu từ frontend
         configuration.setAllowedMethods(List.of("GET", "POST", "PATCH", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("Authorization", "Content-Type"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
