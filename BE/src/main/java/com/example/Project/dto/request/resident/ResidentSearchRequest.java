@@ -15,6 +15,8 @@ public class ResidentSearchRequest {
 
     String residentName;
 
+    Number idNumber;
+
     Enums.ResidentRole role;
 
     String phoneNumber;

@@ -57,6 +57,21 @@ public class ResidentController {
                 .build();
     }
 
+    @GetMapping("getInApartment/{apartmentId}")
+    ApiResponse<List<ResidentResponse>> getInApartment(@PathVariable String apartmentId){
+        List<Resident> residents = residentService.getInApartment(apartmentId);
+        List<ResidentResponse> responses = new ArrayList<>();
+        for(Resident resident : residents) {
+            ResidentResponse response = residentMapper.toResidentResponse(resident);
+            responses.add(response);
+        }
+        return ApiResponse.<List<ResidentResponse>>builder()
+                .code(HttpStatus.OK.value())
+                .message("Thành công")
+                .result(responses)
+                .build();
+    }
+
     @GetMapping("/{id}")
     ApiResponse<ResidentResponse> getById(@PathVariable String id){
         Resident resident = residentService.getById(id);

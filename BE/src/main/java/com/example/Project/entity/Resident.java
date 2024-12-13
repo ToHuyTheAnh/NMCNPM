@@ -23,11 +23,12 @@ public class Resident {
     @JoinColumn(name = "apartment_id", referencedColumnName = "id")
     Apartment apartment;
 
-    String username;
+    String residentName;
     @Enumerated(EnumType.STRING)
     Enums.ResidentRole role;
     String phoneNumber;
     LocalDate birthday;
+    Number idNumber;
     String permanentAddress;
     String temporaryAddress;
     LocalDateTime createAt;

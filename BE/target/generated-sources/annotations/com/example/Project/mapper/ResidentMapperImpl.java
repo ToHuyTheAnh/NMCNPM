@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-12-13T09:16:31+0700",
+    date = "2024-12-13T11:32:38+0700",
     comments = "version: 1.5.3.Final, compiler: Eclipse JDT (IDE) 3.40.0.z20241112-1021, environment: Java 17.0.13 (Eclipse Adoptium)"
 )
 @Component
@@ -24,8 +24,10 @@ public class ResidentMapperImpl implements ResidentMapper {
         Resident resident = new Resident();
 
         resident.setBirthday( request.getBirthday() );
+        resident.setIdNumber( request.getIdNumber() );
         resident.setPermanentAddress( request.getPermanentAddress() );
         resident.setPhoneNumber( request.getPhoneNumber() );
+        resident.setResidentName( request.getResidentName() );
         resident.setRole( request.getRole() );
         resident.setTemporaryAddress( request.getTemporaryAddress() );
 
@@ -45,8 +47,10 @@ public class ResidentMapperImpl implements ResidentMapper {
         residentResponse.setId( resident.getId() );
         residentResponse.setBirthday( resident.getBirthday() );
         residentResponse.setCreateAt( resident.getCreateAt() );
+        residentResponse.setIdNumber( resident.getIdNumber() );
         residentResponse.setPermanentAddress( resident.getPermanentAddress() );
         residentResponse.setPhoneNumber( resident.getPhoneNumber() );
+        residentResponse.setResidentName( resident.getResidentName() );
         residentResponse.setRole( resident.getRole() );
         residentResponse.setTemporaryAddress( resident.getTemporaryAddress() );
         residentResponse.setUpdateAt( resident.getUpdateAt() );
@@ -63,11 +67,17 @@ public class ResidentMapperImpl implements ResidentMapper {
         if ( request.getBirthday() != null ) {
             resident.setBirthday( request.getBirthday() );
         }
+        if ( request.getIdNumber() != null ) {
+            resident.setIdNumber( request.getIdNumber() );
+        }
         if ( request.getPermanentAddress() != null ) {
             resident.setPermanentAddress( request.getPermanentAddress() );
         }
         if ( request.getPhoneNumber() != null ) {
             resident.setPhoneNumber( request.getPhoneNumber() );
+        }
+        if ( request.getResidentName() != null ) {
+            resident.setResidentName( request.getResidentName() );
         }
         if ( request.getRole() != null ) {
             resident.setRole( request.getRole() );

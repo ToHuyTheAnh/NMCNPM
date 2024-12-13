@@ -49,6 +49,10 @@ public class ResidentService {
         return residentRepository.findAll();
     }
 
+    public List<Resident> getInApartment(String apartmentId) {
+        return residentRepository.findByApartmentId(apartmentId);
+    }
+
     public Resident getById(String id){
         return residentRepository.findById(id)
                 .orElseThrow(()-> new NoSuchElementException("Không tìm thấy cư dân"));
