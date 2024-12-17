@@ -32,6 +32,7 @@ public class Resident {
     LocalDate birthday; 
     Number identityNumber; // Căn cước công dân
     String placeOfBirth; // Nơi sinh
+    String nationality; // Quốc tịch
     String ethnicity; // Dân tộc   
     String educationLevel; // Trình độ học vấn
     String languageProficiency; // Trình độ ngoại ngữ

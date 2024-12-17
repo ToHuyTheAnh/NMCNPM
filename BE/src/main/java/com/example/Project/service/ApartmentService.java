@@ -3,8 +3,6 @@ package com.example.Project.service;
 import com.example.Project.dto.request.apartment.ApartmentRequest;
 import com.example.Project.dto.request.apartment.ApartmentSearchRequest;
 import com.example.Project.entity.Apartment;
-import com.example.Project.entity.Resident;
-import com.example.Project.enums.Enums;
 import com.example.Project.mapper.ApartmentMapper;
 import com.example.Project.repository.ApartmentRepository;
 import com.example.Project.repository.ResidentRepository;
@@ -22,7 +20,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @Data
 @Service

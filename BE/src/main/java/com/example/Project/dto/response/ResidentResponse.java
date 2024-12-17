@@ -25,6 +25,8 @@ public class ResidentResponse {
     LocalDateTime updateAt;
     Number identityNumber; // Căn cước công dân
     String placeOfBirth; // Nơi sinh
+    String nationality; // Quốc tịch
+    String ethnicLanguage; // Ngôn ngữ
     String ethnicity; // Dân tộc   
     String educationLevel; // Trình độ học vấn
     String languageProficiency; // Trình độ ngoại ngữ
