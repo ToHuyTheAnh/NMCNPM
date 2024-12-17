@@ -2,7 +2,6 @@ package com.example.Project.dto.response;
 
 import com.example.Project.enums.Enums;
 
-import jakarta.persistence.Enumerated;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 

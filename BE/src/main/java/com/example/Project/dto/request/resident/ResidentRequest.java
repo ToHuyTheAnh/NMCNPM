@@ -2,8 +2,6 @@ package com.example.Project.dto.request.resident;
 
 import com.example.Project.enums.Enums;
 
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.*;

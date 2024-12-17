@@ -2,8 +2,6 @@ package com.example.Project.dto.request.resident;
 
 import com.example.Project.enums.Enums;
 
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
