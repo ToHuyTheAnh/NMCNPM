@@ -1,6 +1,8 @@
 package com.example.Project.dto.response;
 
 import com.example.Project.enums.Enums;
+
+import jakarta.persistence.Enumerated;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -14,7 +16,6 @@ public class ResidentResponse {
     String apartmentId;
     String apartmentName;
     String residentName;
-    Number idNumber;
     Enums.ResidentRole role;
     String phoneNumber;
     LocalDate birthday;
@@ -22,4 +23,17 @@ public class ResidentResponse {
     String temporaryAddress;
     LocalDateTime createAt;
     LocalDateTime updateAt;
+    Number identityNumber; // Căn cước công dân
+    String placeOfBirth; // Nơi sinh
+    String ethnicity; // Dân tộc   
+    String educationLevel; // Trình độ học vấn
+    String languageProficiency; // Trình độ ngoại ngữ
+    String occupation; // Nghề nghiệp
+    String aliasName; // Tên khác
+    Enums.ResidentGender gender; // Giói tính
+    String hometown; // Quê quán
+    String religion; // Tôn giáo
+    String passportNumber; // Số hộ chiếu
+    String professionalQualification; // Trình độ chuyên môn
+    String workplace; // Nơi làm việc
 }

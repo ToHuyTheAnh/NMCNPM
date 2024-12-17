@@ -3,8 +3,10 @@ package com.example.Project.controller;
 
 import com.example.Project.dto.request.resident.ResidentRequest;
 import com.example.Project.dto.request.resident.ResidentSearchRequest;
+import com.example.Project.dto.response.ApartmentChargeResponse;
 import com.example.Project.dto.response.ApiResponse;
 import com.example.Project.dto.response.ResidentResponse;
+import com.example.Project.entity.ApartmentCharge;
 import com.example.Project.entity.Resident;
 import com.example.Project.mapper.ResidentMapper;
 import com.example.Project.service.ResidentService;
@@ -83,7 +85,7 @@ public class ResidentController {
                 .build();
     }
 
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     ApiResponse<ResidentResponse> updateById(@PathVariable String id,@RequestBody @Valid ResidentRequest request){
         Resident resident = residentService.updateById(id, request);
         ResidentResponse response = residentMapper.toResidentResponse(resident);
@@ -105,11 +107,13 @@ public class ResidentController {
     }
 
     @GetMapping("/search")
-    public ApiResponse<List<Resident>> search(@RequestBody @Valid ResidentSearchRequest request) {
-        return ApiResponse.<List<Resident>>builder()
+    public ApiResponse<List<ResidentResponse>> search(@RequestBody @Valid ResidentSearchRequest request) {
+        List<Resident> residentList = residentService.search(request);
+        List<ResidentResponse> responses = residentMapper.toResidentResponseList(residentList);
+        return ApiResponse.<List<ResidentResponse>>builder()
                 .code(HttpStatus.OK.value())
                 .message("Thành công")
-                .result(residentService.search(request))
+                .result(responses)
                 .build();
     }
 }

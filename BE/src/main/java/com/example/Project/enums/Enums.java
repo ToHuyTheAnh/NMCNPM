@@ -5,6 +5,10 @@ public class Enums {
         OWNER,
         NON_OWNER;
     }
+    public enum ResidentGender {
+        MALE,
+        FEMALE,
+    }
     public enum ApartmentStatus {
         AVAILABLE,
         OCCUPIED;

@@ -24,13 +24,30 @@ public class Resident {
     Apartment apartment;
 
     String residentName;
+
     @Enumerated(EnumType.STRING)
     Enums.ResidentRole role;
+
     String phoneNumber;
-    LocalDate birthday;
-    Number idNumber;
-    String permanentAddress;
-    String temporaryAddress;
+    LocalDate birthday; 
+    Number identityNumber; // Căn cước công dân
+    String placeOfBirth; // Nơi sinh
+    String ethnicity; // Dân tộc   
+    String educationLevel; // Trình độ học vấn
+    String languageProficiency; // Trình độ ngoại ngữ
+    String occupation; // Nghề nghiệp
+    String aliasName; // Tên khác
+    
+    @Enumerated(EnumType.STRING)
+    Enums.ResidentGender gender; // Giói tính
+
+    String hometown; // Quê quán
+    String religion; // Tôn giáo
+    String passportNumber; // Số hộ chiếu
+    String professionalQualification; // Trình độ chuyên môn
+    String workplace; // Nơi làm việc
+    String permanentAddress; // Địa chỉ thường trú
+    String temporaryAddress; // Địa chỉ tạm trú
     LocalDateTime createAt;
     LocalDateTime updateAt;
 

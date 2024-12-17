@@ -1,6 +1,9 @@
 package com.example.Project.dto.request.resident;
 
 import com.example.Project.enums.Enums;
+
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.*;
@@ -22,8 +25,6 @@ public class ResidentRequest {
     @NotNull(message = "Tên cư dân không được để trống")
     String residentName;
 
-    Number idNumber;
-
     @Builder.Default
     Enums.ResidentRole role = Enums.ResidentRole.NON_OWNER;
 
@@ -39,4 +40,21 @@ public class ResidentRequest {
 
     String temporaryAddress;
 
+    @NotNull(message = "Căn cước không được để trống")
+    Number identityNumber; // Căn cước công dân
+
+    String placeOfBirth; // Nơi sinh
+    String ethnicity; // Dân tộc   
+    String educationLevel; // Trình độ học vấn
+    String languageProficiency; // Trình độ ngoại ngữ
+    String occupation; // Nghề nghiệp
+    String aliasName; // Tên khác
+    
+    Enums.ResidentGender gender;
+
+    String hometown; // Quê quán
+    String religion; // Tôn giáo
+    String passportNumber; // Số hộ chiếu
+    String professionalQualification; // Trình độ chuyên môn
+    String workplace; // Nơi làm việc
 }
