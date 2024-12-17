@@ -159,7 +159,6 @@ function updateApartment(id, data, callback) {
             alert("Lỗi: Không thể cập nhật căn hộ: " + error.message);
         });
 }
-
 function handleUpdateApartment(id) {
     edittrgt.classList.add('edit-buildings-modal-open');
     apartmentSelect = document.getElementById(`apartment-${id}`);
@@ -180,6 +179,7 @@ function handleUpdateApartment(id) {
             apartmentNumber: apartmentNumber,
             area: area
         }
+
         updateApartment(id, editedApartment, function (response) {
             console.log(response);
             if (response.code === 200) {
@@ -192,6 +192,7 @@ function handleUpdateApartment(id) {
             }
 
         })
+        console.log(listApartments);
     })
 }
 
@@ -204,7 +205,6 @@ var apartmentStatusColor = {
     'AVAILABLE': 'style="color: #bc4749; font-weight: bold;"',
     'OCCUPIED': 'style="color: #40916c;font-weight: bold;"'
 }
-
 function renderApartments(apartments) {
     if (!apartments || !Array.isArray(apartments)) {
         console.warn("Invalid apartment data:", apartments);
