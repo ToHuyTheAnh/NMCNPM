@@ -518,7 +518,7 @@
             <div id="resident-tab" class="resident-tab-all website-tab">
                 <div class="resident-tab-header">
                     <div class="resident-tab-search">
-                        <input type="text"></input>
+                        <input type="text" name="residentSearchInput"></input>
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                             fill="#212529" class="resident-tab-search-icon">
                             <path
@@ -874,37 +874,37 @@
                                 </div>
                                 <div class="resident-input-colum-fill">
                                     <div class="resident-input-name resident-input-colum-fill-item">
-                                        <input type="text" name="createResidentResidentName">
+                                        <input type="text" name="residentResidentName">
                                     </div>
                                     <div class="resident-input-date-of-birth resident-input-colum-fill-item">
-                                        <input type="date" name="createResidentBirthday" class="dob">
+                                        <input type="date" name="residentBirthday" class="dob">
                                     </div>
                                     <div class="resident-input-born-place resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput01">
+                                        <input type="text" name="residentPlaceOfBirth">
                                     </div>
                                     <div class="resident-input-people resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput02">
+                                        <input type="text" name="residentEthnicity">
                                     </div>
                                     <div class="resident-input-nation resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput03">
+                                        <input type="text" name="residentNationality">
                                     </div>
                                     <div class="resident-input-cccd resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput04">
+                                        <input type="text" name="residentIdentityNumber">
                                     </div>
                                     <div class="resident-input-permanent-address resident-input-colum-fill-item">
-                                        <input type="text" name="createResidentPermanentAddress">
+                                        <input type="text" name="residentPermanentAddress">
                                     </div>
                                     <div class="resident-input-study1 resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput05">
+                                        <input type="text" name="residentEducationLevel">
                                     </div>
                                     <div class="resident-input-study2 resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput06">
+                                        <input type="text" name="residentLanguageProficiency">
                                     </div>
                                     <div class="resident-input-job resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput07">
+                                        <input type="text" name="residentOccupation">
                                     </div>
                                     <div class="resident-input-apartment resident-input-colum-fill-item">
-                                        <input type="text" name="createResidentApartmentName">
+                                        <input type="text" name="residentApartmentName">
                                     </div>
                                 </div>
                                 <div class="resident-input-colum-text">
@@ -944,7 +944,7 @@
                                 </div>
                                 <div class="resident-input-colum-fill">
                                     <div class="resident-input-other-name resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput08">
+                                        <input type="text" name="residentAliasName">
                                     </div>
                                     <div class="resident-input-sex resident-input-colum-fill-item">
                                         <div class="resident-input-sex-body">
@@ -955,10 +955,10 @@
                                             </svg>
                                         </div>
                                         <ul class="resident-input-sex-list">
-                                            <li name="male" class="resident-input-sex-list-item">
+                                            <li name="MALE" class="resident-input-sex-list-item">
                                                 <span> Nam </span>
                                             </li>
-                                            <li name="female" class="resident-input-sex-list-item">
+                                            <li name="FEMALE" class="resident-input-sex-list-item">
                                                 <span> Nữ </span>
                                             </li>
                                             <li name="otherSex" class="resident-input-sex-list-item">
@@ -967,28 +967,28 @@
                                         </ul>
                                     </div>
                                     <div class="resident-input-hometown resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput09">
+                                        <input type="text" name="residentHometown">
                                     </div>
                                     <div class="resident-input-religion resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput10">
+                                        <input type="text" name="residentReligion">
                                     </div>
                                     <div class="resident-input-phone resident-input-colum-fill-item">
-                                        <input type="text" name="createResidentPhoneNumber">
+                                        <input type="text" name="residentPhoneNumber">
                                     </div>
                                     <div class="resident-input-passport resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput11">
+                                        <input type="text" name="residentPassportNumber">
                                     </div>
                                     <div class="resident-input-temporary-address resident-input-colum-fill-item">
-                                        <input type="text" name="createResidentTemporaryAddress">
+                                        <input type="text" name="residentTemporaryAddress">
                                     </div>
                                     <div class="resident-input-study3 resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput12">
+                                        <input type="text" name="residentProfessionalQualification">
                                     </div>
                                     <div class="resident-input-language resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput13">
+                                        <input type="text" name="residentEthnicLanguage">
                                     </div>
                                     <div class="resident-input-work-place resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput14">
+                                        <input type="text" name="residentWorkplace">
                                     </div>
                                     <div class="resident-input-apartment-role resident-input-colum-fill-item">
                                         <div class="resident-input-apartment-role-body">
@@ -1065,37 +1065,37 @@
                                 </div>
                                 <div class="resident-input-colum-fill">
                                     <div class="resident-input-name resident-input-colum-fill-item">
-                                        <input type="text" name="createResidentResidentName">
+                                        <input type="text" name="residentResidentName">
                                     </div>
                                     <div class="resident-input-date-of-birth resident-input-colum-fill-item">
-                                        <input type="date" name="createResidentBirthday" class="dob">
+                                        <input type="date" name="residentBirthday" class="dob">
                                     </div>
                                     <div class="resident-input-born-place resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput01">
+                                        <input type="text" name="residentPlaceOfBirth">
                                     </div>
                                     <div class="resident-input-people resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput02">
+                                        <input type="text" name="residentEthnicity">
                                     </div>
                                     <div class="resident-input-nation resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput03">
+                                        <input type="text" name="residentNationality">
                                     </div>
                                     <div class="resident-input-cccd resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput04">
+                                        <input type="text" name="residentIdentityNumber">
                                     </div>
                                     <div class="resident-input-permanent-address resident-input-colum-fill-item">
-                                        <input type="text" name="createResidentPermanentAddress">
+                                        <input type="text" name="residentPermanentAddress">
                                     </div>
                                     <div class="resident-input-study1 resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput05">
+                                        <input type="text" name="residentEducationLevel">
                                     </div>
                                     <div class="resident-input-study2 resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput06">
+                                        <input type="text" name="residentLanguageProficiency">
                                     </div>
                                     <div class="resident-input-job resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput07">
+                                        <input type="text" name="residentOccupation">
                                     </div>
                                     <div class="resident-input-apartment resident-input-colum-fill-item">
-                                        <input type="text" name="createResidentApartmentName">
+                                        <input type="text" name="residentApartmentName">
                                     </div>
                                 </div>
                                 <div class="resident-input-colum-text">
@@ -1135,7 +1135,7 @@
                                 </div>
                                 <div class="resident-input-colum-fill">
                                     <div class="resident-input-other-name resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput08">
+                                        <input type="text" name="residentAliasName">
                                     </div>
                                     <div class="resident-input-sex resident-input-colum-fill-item">
                                         <div class="resident-input-sex-body">
@@ -1158,28 +1158,28 @@
                                         </ul>
                                     </div>
                                     <div class="resident-input-hometown resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput09">
+                                        <input type="text" name="residentHometown">
                                     </div>
                                     <div class="resident-input-religion resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput10">
+                                        <input type="text" name="residentReligion">
                                     </div>
                                     <div class="resident-input-phone resident-input-colum-fill-item">
-                                        <input type="text" name="createResidentPhoneNumber">
+                                        <input type="text" name="residentPhoneNumber">
                                     </div>
                                     <div class="resident-input-passport resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput11">
+                                        <input type="text" name="residentPassportNumber">
                                     </div>
                                     <div class="resident-input-temporary-address resident-input-colum-fill-item">
-                                        <input type="text" name="createResidentTemporaryAddress">
+                                        <input type="text" name="residentTemporaryAddress">
                                     </div>
                                     <div class="resident-input-study3 resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput12">
+                                        <input type="text" name="residentProfessionalQualification">
                                     </div>
                                     <div class="resident-input-language resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput13">
+                                        <input type="text" name="residentEthnicLanguage">
                                     </div>
                                     <div class="resident-input-work-place resident-input-colum-fill-item">
-                                        <input type="text" name="residentInput14">
+                                        <input type="text" name="residentWorkplace">
                                     </div>
                                     <div class="resident-input-apartment-role resident-input-colum-fill-item">
                                         <div class="resident-input-apartment-role-body">
@@ -1228,10 +1228,17 @@
             </div>
             <div id="history-tab" class="history-tab-all website-tab">
                 <div class="history-tab-header">
-                    <span class="history-tab-title"> Lịch sử </span>
+                    <span class="history-tab-title"> LỊCH SỬ </span>
                     <div class="history-tab-filter">
                         <div class="history-tab-filter-people">
                             <span> Người thực hiện </span>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="#0a0908">
+                                <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+                            </svg>
+                        </div>
+                        <div class="history-tab-filter-action">
+                            <span> Hành động </span>
                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                                 fill="#0a0908">
                                 <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />

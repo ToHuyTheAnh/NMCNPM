@@ -4,12 +4,14 @@ import com.example.Project.dto.request.resident.ResidentRequest;
 import com.example.Project.dto.response.ResidentResponse;
 import com.example.Project.entity.Apartment;
 import com.example.Project.entity.Resident;
+import java.util.ArrayList;
+import java.util.List;
 import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-12-17T16:23:44+0700",
+    date = "2024-12-18T19:46:26+0700",
     comments = "version: 1.5.3.Final, compiler: Eclipse JDT (IDE) 3.40.0.z20241112-1021, environment: Java 17.0.13 (Eclipse Adoptium)"
 )
 @Component
@@ -23,13 +25,27 @@ public class ResidentMapperImpl implements ResidentMapper {
 
         Resident resident = new Resident();
 
+        resident.setAliasName( request.getAliasName() );
         resident.setBirthday( request.getBirthday() );
-        resident.setIdNumber( request.getIdNumber() );
+        resident.setEducationLevel( request.getEducationLevel() );
+        resident.setEthnicLanguage( request.getEthnicLanguage() );
+        resident.setEthnicity( request.getEthnicity() );
+        resident.setGender( request.getGender() );
+        resident.setHometown( request.getHometown() );
+        resident.setIdentityNumber( request.getIdentityNumber() );
+        resident.setLanguageProficiency( request.getLanguageProficiency() );
+        resident.setNationality( request.getNationality() );
+        resident.setOccupation( request.getOccupation() );
+        resident.setPassportNumber( request.getPassportNumber() );
         resident.setPermanentAddress( request.getPermanentAddress() );
         resident.setPhoneNumber( request.getPhoneNumber() );
+        resident.setPlaceOfBirth( request.getPlaceOfBirth() );
+        resident.setProfessionalQualification( request.getProfessionalQualification() );
+        resident.setReligion( request.getReligion() );
         resident.setResidentName( request.getResidentName() );
         resident.setRole( request.getRole() );
         resident.setTemporaryAddress( request.getTemporaryAddress() );
+        resident.setWorkplace( request.getWorkplace() );
 
         return resident;
     }
@@ -45,17 +61,45 @@ public class ResidentMapperImpl implements ResidentMapper {
         residentResponse.setApartmentId( residentApartmentId( resident ) );
         residentResponse.setApartmentName( residentApartmentApartmentName( resident ) );
         residentResponse.setId( resident.getId() );
+        residentResponse.setAliasName( resident.getAliasName() );
         residentResponse.setBirthday( resident.getBirthday() );
         residentResponse.setCreateAt( resident.getCreateAt() );
-        residentResponse.setIdNumber( resident.getIdNumber() );
+        residentResponse.setEducationLevel( resident.getEducationLevel() );
+        residentResponse.setEthnicLanguage( resident.getEthnicLanguage() );
+        residentResponse.setEthnicity( resident.getEthnicity() );
+        residentResponse.setGender( resident.getGender() );
+        residentResponse.setHometown( resident.getHometown() );
+        residentResponse.setIdentityNumber( resident.getIdentityNumber() );
+        residentResponse.setLanguageProficiency( resident.getLanguageProficiency() );
+        residentResponse.setNationality( resident.getNationality() );
+        residentResponse.setOccupation( resident.getOccupation() );
+        residentResponse.setPassportNumber( resident.getPassportNumber() );
         residentResponse.setPermanentAddress( resident.getPermanentAddress() );
         residentResponse.setPhoneNumber( resident.getPhoneNumber() );
+        residentResponse.setPlaceOfBirth( resident.getPlaceOfBirth() );
+        residentResponse.setProfessionalQualification( resident.getProfessionalQualification() );
+        residentResponse.setReligion( resident.getReligion() );
         residentResponse.setResidentName( resident.getResidentName() );
         residentResponse.setRole( resident.getRole() );
         residentResponse.setTemporaryAddress( resident.getTemporaryAddress() );
         residentResponse.setUpdateAt( resident.getUpdateAt() );
+        residentResponse.setWorkplace( resident.getWorkplace() );
 
         return residentResponse;
+    }
+
+    @Override
+    public List<ResidentResponse> toResidentResponseList(List<Resident> residentList) {
+        if ( residentList == null ) {
+            return null;
+        }
+
+        List<ResidentResponse> list = new ArrayList<ResidentResponse>( residentList.size() );
+        for ( Resident resident : residentList ) {
+            list.add( toResidentResponse( resident ) );
+        }
+
+        return list;
     }
 
     @Override
@@ -64,17 +108,56 @@ public class ResidentMapperImpl implements ResidentMapper {
             return;
         }
 
+        if ( request.getAliasName() != null ) {
+            resident.setAliasName( request.getAliasName() );
+        }
         if ( request.getBirthday() != null ) {
             resident.setBirthday( request.getBirthday() );
         }
-        if ( request.getIdNumber() != null ) {
-            resident.setIdNumber( request.getIdNumber() );
+        if ( request.getEducationLevel() != null ) {
+            resident.setEducationLevel( request.getEducationLevel() );
+        }
+        if ( request.getEthnicLanguage() != null ) {
+            resident.setEthnicLanguage( request.getEthnicLanguage() );
+        }
+        if ( request.getEthnicity() != null ) {
+            resident.setEthnicity( request.getEthnicity() );
+        }
+        if ( request.getGender() != null ) {
+            resident.setGender( request.getGender() );
+        }
+        if ( request.getHometown() != null ) {
+            resident.setHometown( request.getHometown() );
+        }
+        if ( request.getIdentityNumber() != null ) {
+            resident.setIdentityNumber( request.getIdentityNumber() );
+        }
+        if ( request.getLanguageProficiency() != null ) {
+            resident.setLanguageProficiency( request.getLanguageProficiency() );
+        }
+        if ( request.getNationality() != null ) {
+            resident.setNationality( request.getNationality() );
+        }
+        if ( request.getOccupation() != null ) {
+            resident.setOccupation( request.getOccupation() );
+        }
+        if ( request.getPassportNumber() != null ) {
+            resident.setPassportNumber( request.getPassportNumber() );
         }
         if ( request.getPermanentAddress() != null ) {
             resident.setPermanentAddress( request.getPermanentAddress() );
         }
         if ( request.getPhoneNumber() != null ) {
             resident.setPhoneNumber( request.getPhoneNumber() );
+        }
+        if ( request.getPlaceOfBirth() != null ) {
+            resident.setPlaceOfBirth( request.getPlaceOfBirth() );
+        }
+        if ( request.getProfessionalQualification() != null ) {
+            resident.setProfessionalQualification( request.getProfessionalQualification() );
+        }
+        if ( request.getReligion() != null ) {
+            resident.setReligion( request.getReligion() );
         }
         if ( request.getResidentName() != null ) {
             resident.setResidentName( request.getResidentName() );
@@ -84,6 +167,9 @@ public class ResidentMapperImpl implements ResidentMapper {
         }
         if ( request.getTemporaryAddress() != null ) {
             resident.setTemporaryAddress( request.getTemporaryAddress() );
+        }
+        if ( request.getWorkplace() != null ) {
+            resident.setWorkplace( request.getWorkplace() );
         }
     }
 
