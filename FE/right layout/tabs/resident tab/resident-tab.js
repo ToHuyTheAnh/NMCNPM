@@ -329,6 +329,9 @@ function handleUpdateResident(id) {
         let languageProficiencyInput = editResidentContainer.querySelector('input[name="residentLanguageProficiency"]').value;
         let occupationInput = editResidentContainer.querySelector('input[name="residentOccupation"]').value;
         let apartmentNameInput = editResidentContainer.querySelector('input[name="residentApartmentName"]').value;
+        let apartmentIdInput = listApartments.find(function (resident, index) {
+            return resident.apartmentName === apartmentNameInput;
+        }).id;
         let aliasNameInput = editResidentContainer.querySelector('input[name="residentAliasName"]').value;
         let hometownInput = editResidentContainer.querySelector('input[name="residentHometown"]').value;
         let religionInput = editResidentContainer.querySelector('input[name="residentReligion"]').value;
@@ -352,7 +355,7 @@ function handleUpdateResident(id) {
             educationLevel: educationLevelInput,
             languageProficiency: languageProficiencyInput,
             occupation: occupationInput,
-            apartmentName: apartmentNameInput,
+            apartmentId: apartmentIdInput,
             aliasName: aliasNameInput,
             hometown: hometownInput,
             religion: religionInput,
@@ -391,6 +394,11 @@ function handleUpdateResident(id) {
                 listAtrributes.workplace = workplaceInput;
                 listAtrributes.role = roleInput;
                 listAtrributes.gender = genderInput;
+                let residentEditedTable = document.querySelector('.resident-table');
+                residentEditedTable.querySelector('.resident-apartment-name').textContent = apartmentNameInput;
+                residentEditedTable.querySelector('.resident-name').textContent = residentNameInput;
+                residentEditedTable.querySelector('.resident-role').textContent = residentRoles[roleInput];
+                residentEditedTable.querySelector('.resident-phone-number').textContent = phoneInput;
             } else {
                 alert("Lỗi: Không thể thêm căn hộ. Vui lòng điền đầy đủ thông tin!");
             }

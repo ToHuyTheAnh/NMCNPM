@@ -201,6 +201,66 @@
                             <button class="common-tab-create-btn"> Tạo mới </button>
                         </div>
                     </div>
+                    <div class="common-modal-container">
+                        <div class="common-modal">
+                            <div class="common-modal-title">
+                                <span class="common-modal-title-text"> Thêm mới phí </span>
+                            </div>
+                            <div class="common-modal-input">
+                                <div class="common-modal-charge-name input-item">
+                                    <span> Tên phí: </span>
+                                    <input type="text" name="commonChargeName">
+                                </div>
+                                <div class="common-modal-type input-item">
+                                    <div class="common-modal-type-body-title">
+                                        <span> Loại: </span>
+                                    </div>
+                                    <div class="common-modal-type-body">
+                                        <span class="common-modal-type-body-text"> Loại phí </span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                            width="24px" fill="#343a40">
+                                            <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+                                        </svg>
+                                    </div>
+                                    <ul class="common-type-list">
+                                        <li class="common-type-list-item">
+                                            <span>Phí đóng góp, ủng hộ</span>
+                                        </li>
+                                        <li class="common-type-list-item">
+                                            <span>Phí quản lý chung cư</span>
+                                        </li>
+                                        <li class="common-type-list-item">
+                                            <span>Phí dịch vụ</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="common-modal-unit-amount input-item">
+                                    <span> Phí/Đơn vị: </span>
+                                    <input type="number" name="commonUnitAmount input-item">
+                                </div>
+                                <div class="common-modal-unit-measurement input-item">
+                                    <span> Đơn vị đo lường: </span>
+                                    <input type="text" name="commonUnitMeasurement input-item">
+                                </div>
+                                <div class="common-modal-description input-item">
+                                    <span> Mô tả: </span>
+                                    <input type="text" name="commonDescription input-item">
+                                </div>
+                            </div>
+                            <div class="common-modal-footer">
+                                <div></div>
+                                <div class="common-modal-button">
+                                    <button class="common-modal-close-button">
+                                        <span class="common-modal-close-button-text"> Hủy </span>
+                                    </button>
+                                    <button class="common-modal-save-button">
+                                        <span class="common-modal-save-button-text"> Lưu </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="charge-container">
                         <div class="service-charge">
                             <div class="charge-header">
@@ -210,51 +270,8 @@
                                 </svg>
                                 <span> Phí dịch vụ </span>
                             </div>
-                            <div class="charge-body">
-                                <div class="charge-item service-charge-item-1">
-                                    <div class="charge-item-num">
-                                        <span> 1 </span>
-                                    </div>
-                                    <span class="charge-item-text"> Phí điện </span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                                        width="24px" fill="#212529" class="charge-item-icon">
-                                        <path
-                                            d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" />
-                                    </svg>
-                                </div>
-                                <div class="charge-item service-charge-item-2">
-                                    <div class="charge-item-num">
-                                        <span> 2 </span>
-                                    </div>
-                                    <span class="charge-item-text"> Phí nước </span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                                        width="24px" fill="#212529" class="charge-item-icon">
-                                        <path
-                                            d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" />
-                                    </svg>
-                                </div>
-                                <div class="charge-item service-charge-item-3">
-                                    <div class="charge-item-num">
-                                        <span> 3 </span>
-                                    </div>
-                                    <span class="charge-item-text"> Dịch vụ chung </span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                                        width="24px" fill="#212529" class="charge-item-icon">
-                                        <path
-                                            d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" />
-                                    </svg>
-                                </div>
-                                <div class="charge-item service-charge-item-4">
-                                    <div class="charge-item-num">
-                                        <span> 4 </span>
-                                    </div>
-                                    <span class="charge-item-text"> Phí gửi xe </span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                                        width="24px" fill="#212529" class="charge-item-icon">
-                                        <path
-                                            d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" />
-                                    </svg>
-                                </div>
+                            <div class="service-charge-body charge-body">
+
                             </div>
                         </div>
                         <div class="donation-charge">
@@ -265,18 +282,8 @@
                                 </svg>
                                 <span> Phí ủng hộ, đóng góp </span>
                             </div>
-                            <div class="charge-body">
-                                <div class="charge-item donation-charge-item-1">
-                                    <div class="charge-item-num">
-                                        <span> 1 </span>
-                                    </div>
-                                    <span class="charge-item-text"> Quỹ từ thiện </span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                                        width="24px" fill="#212529" class="charge-item-icon">
-                                        <path
-                                            d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" />
-                                    </svg>
-                                </div>
+                            <div class="donation-charge-body charge-body">
+
                             </div>
                         </div>
                         <div class="management-charge">
@@ -287,34 +294,12 @@
                                 </svg>
                                 <span> Phí quản lý chung cư </span>
                             </div>
-                            <div class="charge-body">
-                                <div class="charge-item donation-charge-item-1">
-                                    <div class="charge-item-num">
-                                        <span> 1 </span>
-                                    </div>
-                                    <span class="charge-item-text"> Đảm bảo an ninh </span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                                        width="24px" fill="#212529" class="charge-item-icon">
-                                        <path
-                                            d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" />
-                                    </svg>
-                                </div>
-                                <div class="charge-item donation-charge-item-2">
-                                    <div class="charge-item-num">
-                                        <span> 2 </span>
-                                    </div>
-                                    <span class="charge-item-text"> Chăm sóc cây cối </span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                                        width="24px" fill="#212529" class="charge-item-icon">
-                                        <path
-                                            d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" />
-                                    </svg>
-                                </div>
+                            <div class="management-charge-body charge-body">
+
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div id="donation-tab" class="donation-tab-all website-tab">
                     <div class="donation-tab-header">
                         <div class="donation-tab-search">
@@ -1331,6 +1316,7 @@
     <script src="/FE/right layout/tabs/buildings tab/buildings-tab.js"></script>
     <script src="/FE/right layout/tabs/donation tab/donation-tab.js"></script>
     <script src="/FE/right layout/tabs/resident tab/resident-tab.js"></script>
+    <script src="/FE/right layout/tabs/common tab/common-tab.js"></script>
 </body>
 
 </html>

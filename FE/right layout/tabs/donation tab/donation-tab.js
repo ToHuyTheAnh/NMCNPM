@@ -1,10 +1,25 @@
-// var chargeApi = "http://localhost:3000/apartment";
-// function start() {
-//     getAllCharges(renderCharges);
-//     console.log("Khởi tạo thành công");
-// }
+var chargeApi = "http://localhost:8080/project/charge";
+function start() {
+    getAllCharges(renderCharges);
+    console.log("Khởi tạo thành công");
+}
 
 // start();
+
+const donationModalOpen = document.querySelector('.donation-tab-create-btn');
+const donationModalSave = document.querySelector('.donation-modal-save-button');
+const donationModalClose = document.querySelector('.donation-modal-close-button');
+const donationContainer = document.querySelector('.donation-modal-container');
+// console.log(donationModalOpen, donationModalSave, donationModalClose);
+donationModalOpen.addEventListener('click', function (e) {
+    donationContainer.classList.add('donation-modal-open');
+});
+donationModalClose.addEventListener('click', function (e) {
+    donationContainer.classList.remove('donation-modal-open');
+})
+donationModalSave.addEventListener('click', function (e) {
+    donationContainer.classList.remove('donation-modal-open');
+});
 
 // var donationTypeSelector = document.querySelectorAll('.donation-type-list-item');
 // const donationTypeList = document.querySelector('.donation-type-list');
@@ -56,19 +71,7 @@
 //     })
 // }));
 
-// const modalOpen = document.querySelector('.donation-tab-button');
-// const modalSave = document.querySelector('.donation-modal-save-button');
-// const modalClose = document.querySelector('.donation-modal-close-button');
-// const trgt = document.querySelector('.donation-modal-container');
-// modalOpen.addEventListener('click', function (e) {
-//     trgt.classList.add('donation-modal-open');
-// });
-// modalClose.addEventListener('click', function (e) {
-//     trgt.classList.remove('donation-modal-open');
-// })
-// modalSave.addEventListener('click', function (e) {
-//     trgt.classList.remove('donation-modal-open');
-// });
+
 
 // const createMethodSelector = document.querySelectorAll('.input-method-list-item');
 // createMethodSelector.forEach(method => method.addEventListener('click', function (e) {
