@@ -41,8 +41,8 @@ function createNewCharges(data, callback = () => { }) {
         .then(function (response) {
             if (!response.ok) {
                 console.log('Dữ liệu của throww:', response);
-                console.error("Error fetching residents:", response.status);
-                throw new Error("Failed to fetch residents: " + response.statusText);
+                console.error("Error fetching charges:", response.status);
+                throw new Error("Failed to fetch charges: " + response.statusText);
             }
             return response.json();
         })
@@ -59,31 +59,31 @@ function createNewCharges(data, callback = () => { }) {
 function handleCreateNewCharges() {
     const saveButtonClick = document.querySelector('.common-modal-save-button');
     const chargeInputContainer = document.querySelector('.common-modal-container');
+    console.log(saveButtonClick, chargeInputContainer);
     saveButtonClick.addEventListener('click', function (e) {
         let chargeNameInput = chargeInputContainer.querySelector('input[name="commonChargeName"]').value;
-        let chargeTypeInput = listCommons[chargeInputContainer.querySelector('.common-modal-type-body-text').textContent.trim()];
-        let chargeUnitAmountInput = chargeInputContainer.querySelector('input[name="commonUnitAmount"]').value;
+        let chargeTypeInput = commonCharges[chargeInputContainer.querySelector('.common-modal-type-body-text').textContent.trim()];
+        let chargeUnitAmountInput = chargeInputContainer.querySelector('input[name="commonUnitAmount"]');
         let chargeUnitMeasurementInput = chargeInputContainer.querySelector('input[name="commonUnitMeasurement"]').value;
         let chargeDescriptionInput = chargeInputContainer.querySelector('input[name="commonDescription"]').value;
-
         var newCharge = {
             chargeName: chargeNameInput,
-            chargeType: chargeTypeInput,
-            chargeUnitAmount: chargeUnitAmountInput,
-            chargeUnitMeasurement: chargeUnitMeasurementInput,
-            chargeDescription: chargeDescriptionInput
+            type: chargeTypeInput,
+            unitAmount: chargeUnitAmountInput,
+            unitMeasurement: chargeUnitMeasurementInput,
+            description: chargeDescriptionInput
         };
         console.log(newCharge);
-        // createNewCharges(newCharge, function (response) {
-        //     if (response.code === 200) {
-        //         console.log('Dữ liệu phản hồi: ', response);
-        //         listCommons.push(response.result);
-        //         // listResidentsValue.push(newResidentValue);
-        //         renderCommons([response.result]);
-        //     } else {
-        //         alert("Lỗi: Không thể thêm căn hộ. Vui lòng điền đầy đủ thông tin!");
-        //     }
-        // });
+        createNewCharges(newCharge, function (response) {
+            if (response.code === 200) {
+                console.log('Dữ liệu phản hồi: ', response);
+                listCommons.push(response.result);
+                // listResidentsValue.push(newResidentValue);
+                renderCommons([response.result]);
+            } else {
+                alert("Lỗi: Không thể thêm căn hộ. Vui lòng điền đầy đủ thông tin!");
+            }
+        });
     });
 }
 // Xuất dữ liệu
