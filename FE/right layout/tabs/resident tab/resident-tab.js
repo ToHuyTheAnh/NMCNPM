@@ -182,7 +182,7 @@ function handleCreateNewResident() {
         let ethnicLanguageInput = createContainer.querySelector('input[name="residentEthnicLanguage"]').value;
         let workplaceInput = createContainer.querySelector('input[name="residentWorkplace"]').value;
         let roleInput = createContainer.querySelector('.resident-input-apartment-role-list-item').getAttribute('name');
-        let genderInput = createContainer.querySelector('.resident-input-sex-list-item').getAttribute('name');
+        let genderInput = residentGenders2[createContainer.querySelector('.resident-input-sex-text').textContent.trim()];
 
         var newResident = {
             residentName: residentNameInput,
@@ -316,9 +316,7 @@ function handleUpdateResident(id) {
     editResidentContainer.querySelector('.resident-input-apartment-role-text').textContent = residentRoles[listAtrributes.role];
     editResidentContainer.querySelector('.resident-input-sex-text').textContent = residentGenders[listAtrributes.gender];
 
-
     let editSaveButton = document.querySelector('.edit-resident-modal-save-button');
-
     editSaveButton.addEventListener('click', function () {
         let residentNameInput = editResidentContainer.querySelector('input[name="residentResidentName"]').value;
         let birthdayInput = editResidentContainer.querySelector('input[name="residentBirthday"]').value;
@@ -341,7 +339,7 @@ function handleUpdateResident(id) {
         let ethnicLanguageInput = editResidentContainer.querySelector('input[name="residentEthnicLanguage"]').value;
         let workplaceInput = editResidentContainer.querySelector('input[name="residentWorkplace"]').value;
         let roleInput = editResidentContainer.querySelector('.resident-input-apartment-role-list-item').getAttribute('name');
-        let genderInput = editResidentContainer.querySelector('.resident-input-sex-list-item').getAttribute('name');
+        let genderInput = residentGenders2[editResidentContainer.querySelector('.resident-input-sex-text').textContent.trim()];
 
         var editedResident = {
             residentName: residentNameInput,
@@ -488,6 +486,10 @@ var residentRoles = {
 var residentGenders = {
     'MALE': 'Nam',
     'FEMALE': 'Nữ'
+}
+var residentGenders2 = {
+    'Nam': 'MALE',
+    'Nữ': 'FEMALE'
 }
 function renderResidents(residents) {
     if (!residents || !Array.isArray(residents)) {
