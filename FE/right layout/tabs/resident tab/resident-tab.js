@@ -285,10 +285,8 @@ function updateResident(id, data, callback) {
             alert("Lỗi: Không thể cập nhật căn hộ: " + error.message);
         });
 }
-const tableSelect = document.querySelector('.resident-table');
 function handleUpdateResident(id) {
     editResidentContainer.classList.add('edit-resident-modal-open');
-    let editCresidentResidentSelect = document.getElementById(`resident-${id}`);
     let listAtrributes = listResidents.find(function (cur) {
         return cur.id === id;
     })

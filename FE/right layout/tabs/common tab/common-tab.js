@@ -13,6 +13,15 @@ commonModalSave.addEventListener('click', function (e) {
     commonContainer.classList.remove('common-modal-open');
 });
 
+// Đóng mở modal chỉnh sửa
+var editChargeModalContainer = document.querySelector('.edit-common-modal-container');
+var editChargeModalClose = document.querySelector('.edit-common-modal-close-button');
+
+editChargeModalClose.addEventListener('click', function (e) {
+    editChargeModalContainer.classList.remove('edit-common-modal-open');
+});
+
+
 // Lựa chọn các loại phi ở trong mục Tạo mới
 const commonTypeListItem = document.querySelectorAll('.common-type-list-item');
 const commonTypeList = document.querySelector('.common-type-list');
@@ -25,6 +34,21 @@ commonTypeListItem.forEach(type => type.addEventListener('click', function (e) {
     commonTypeList.classList.add('hidden');
     setTimeout(() => {
         commonTypeList.classList.remove('hidden');
+    }, 100);
+}));
+
+// Lựa chọn các loại phi ở trong mục Chỉnh sửa
+const editCommonTypeListItem = document.querySelectorAll('.edit-common-type-list-item');
+const editCommonTypeList = document.querySelector('.edit-common-type-list');
+editCommonTypeListItem.forEach(type => type.addEventListener('click', function (e) {
+    const liSelector = e.target.closest('li');
+    const textSelector = liSelector.querySelector('span').textContent;
+    const typeText = document.querySelector('.edit-common-modal-type-body-text');
+    typeText.textContent = textSelector;
+    typeText.classList.add('text-active');
+    editCommonTypeList.classList.add('hidden');
+    setTimeout(() => {
+        editCommonTypeList.classList.remove('hidden');
     }, 100);
 }));
 
@@ -59,11 +83,11 @@ function createNewCharges(data, callback = () => { }) {
 function handleCreateNewCharges() {
     const saveButtonClick = document.querySelector('.common-modal-save-button');
     const chargeInputContainer = document.querySelector('.common-modal-container');
-    console.log(saveButtonClick, chargeInputContainer);
+    // console.log(saveButtonClick, chargeInputContainer);
     saveButtonClick.addEventListener('click', function (e) {
         let chargeNameInput = chargeInputContainer.querySelector('input[name="commonChargeName"]').value;
         let chargeTypeInput = commonCharges[chargeInputContainer.querySelector('.common-modal-type-body-text').textContent.trim()];
-        let chargeUnitAmountInput = chargeInputContainer.querySelector('input[name="commonUnitAmount"]');
+        let chargeUnitAmountInput = chargeInputContainer.querySelector('input[name="commonUnitAmount"]').value;
         let chargeUnitMeasurementInput = chargeInputContainer.querySelector('input[name="commonUnitMeasurement"]').value;
         let chargeDescriptionInput = chargeInputContainer.querySelector('input[name="commonDescription"]').value;
         var newCharge = {
@@ -73,19 +97,135 @@ function handleCreateNewCharges() {
             unitMeasurement: chargeUnitMeasurementInput,
             description: chargeDescriptionInput
         };
-        console.log(newCharge);
+        // console.log(newCharge);
         createNewCharges(newCharge, function (response) {
             if (response.code === 200) {
                 console.log('Dữ liệu phản hồi: ', response);
                 listCommons.push(response.result);
-                // listResidentsValue.push(newResidentValue);
                 renderCommons([response.result]);
             } else {
                 alert("Lỗi: Không thể thêm căn hộ. Vui lòng điền đầy đủ thông tin!");
             }
+            chargeInputContainer.querySelector('input[name="commonChargeName"]').value = "";
+            chargeInputContainer.querySelector('.common-modal-type-body-text').textContent = "";
+            chargeInputContainer.querySelector('input[name="commonUnitAmount"]').value = "";
+            chargeInputContainer.querySelector('input[name="commonUnitMeasurement"]').value = "";
+            chargeInputContainer.querySelector('input[name="commonDescription"]').value = "";
         });
     });
 }
+
+// Xóa dữ liệu
+function handleDeleteCharge(id) {
+    var options = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id: id })
+    }
+    fetch(commonApi + '/' + id, options)
+        .then(function (response) {
+            if (!response.ok) {
+                console.error("Error deleting charge:", response.status);
+                throw new Error("Failed to delete charge: " + response.statusText);
+            }
+            return response.json();
+        })
+        .then(function () {
+            let chargeSelect = document.getElementById('charge-' + id);
+            console.log(chargeSelect);
+            if (chargeSelect) {
+                console.log('Đã xóa thành công');
+                chargeSelect.remove();
+            }
+        })
+}
+
+// Cập nhật dữ liệu
+function updateCharge(id, data, callback) {
+    var options = {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }
+    fetch(commonApi + '/' + id, options)
+        .then(function (response) {
+            if (!response.ok) {
+                console.error("Error updating charge:", response.status);
+                throw new Error("Failed to update charge: " + response.statusText);
+            }
+            return response.json();
+        })
+        .then(function (data) {
+            if (data.code === 200) {
+                callback(data);
+            } else {
+                alert("Cập nhật thất bại: " + data.message);
+            }
+        })
+        .catch(function (error) {
+            console.error("Fetch error:", error.message);
+            alert("Lỗi: Không thể cập nhật phí: " + error.message);
+        });
+}
+
+function handleUpdateCharge(id) {
+    editChargeModalContainer.classList.add('edit-common-modal-open');
+    let listAtrributes = listCommons.find(function (cur) {
+        return cur.id === id;
+    })
+    // console.log(listAtrributes);
+    editChargeModalContainer.querySelector('input[name="editCommonChargeName"]').value = listAtrributes.chargeName;
+    editChargeModalContainer.querySelector('input[name="editCommonUnitAmount"]').value = listAtrributes.unitAmount;
+    editChargeModalContainer.querySelector('input[name="editCommonUnitMeasurement"]').value = listAtrributes.unitMeasurement;
+    editChargeModalContainer.querySelector('input[name="editCommonDescription"]').value = listAtrributes.description;
+    let typeText = editChargeModalContainer.querySelector('.edit-common-modal-type-body-text');
+    typeText.textContent = listChargeTypes[listAtrributes.type];
+    typeText.classList.add('text-active');
+    let editChargeModalSave = document.querySelector('.edit-common-modal-save-button');
+
+    editChargeModalSave.addEventListener('click', function (e) {
+        editChargeModalContainer.classList.remove('edit-common-modal-open');
+        let chargeNameInput = editChargeModalContainer.querySelector('input[name="editCommonChargeName"]').value;
+        let chargeTypeInput = commonCharges[editChargeModalContainer.querySelector('.edit-common-modal-type-body-text').textContent.trim()];
+        let chargeUnitAmountInput = editChargeModalContainer.querySelector('input[name="editCommonUnitAmount"]').value;
+        let chargeUnitMeasurementInput = editChargeModalContainer.querySelector('input[name="editCommonUnitMeasurement"]').value;
+        let chargeDescriptionInput = editChargeModalContainer.querySelector('input[name="editCommonDescription"]').value;
+        var editedCharge = {
+            chargeName: chargeNameInput,
+            type: chargeTypeInput,
+            unitAmount: chargeUnitAmountInput,
+            unitMeasurement: chargeUnitMeasurementInput,
+            description: chargeDescriptionInput
+        };
+        updateCharge(id, editedCharge, function (response) {
+            console.log('phản hồi:', response.code, response);
+            if (response.code === 200) {
+                listAtrributes.chargeName = chargeNameInput;
+                listAtrributes.type = chargeTypeInput;
+                listAtrributes.unitAmount = chargeUnitAmountInput;
+                listAtrributes.unitMeasurement = chargeUnitMeasurementInput;
+                listAtrributes.description = chargeDescriptionInput;
+                let chargeEditedTable = document.getElementById('charge-' + id);
+                chargeEditedTable.querySelector('.charge-item-text').textContent = chargeNameInput;
+                let chargeContainer = document.querySelector('.charge-container');
+                let serviceContainer = chargeContainer.querySelector('.service-charge-body');
+                let managementContainer = chargeContainer.querySelector('.management-charge-body');
+                let donationContainer = chargeContainer.querySelector('.donation-charge-body');
+                if (serviceContainer.hasChildNodes()) serviceContainer.innerHTML = "";
+                if (managementContainer.hasChildNodes()) managementContainer.innerHTML = "";
+                if (donationContainer.hasChildNodes()) donationContainer.innerHTML = "";
+                getCommons(renderCommons(listCommons));
+            } else {
+                alert("Cập nhật thất bại: " + response.message);
+            }
+        })
+    });
+}
+
 // Xuất dữ liệu
 var commonApi = "http://localhost:8080/project/charge";
 var listCommons = [];
@@ -93,6 +233,7 @@ var code = 0;
 function start() {
     getCommons(renderCommons);
     handleCreateNewCharges();
+    // console.log('chạy thành công');
 }
 
 start();
@@ -123,36 +264,65 @@ var commonCharges = {
     'Phí quản lý chung cư': 'MANAGEMENT',
     'Phí dịch vụ': 'SERVICE'
 }
+var listChargeTypes = {
+    'DONATION': 'Phí đóng góp, ủng hộ',
+    'MANAGEMENT': 'Phí quản lý chung cư',
+    'SERVICE': 'Phí dịch vụ'
+}
+
 // Xuất dữ liệu
 function renderCommons(commons) {
     if (!commons || !Array.isArray(commons)) {
         console.warn("Invalid apartment data:", commons);
         return;
     }
-    const chargeContainer = document.querySelector('.charge-container');
-    const typeSelect = commonCharges[commonContainer.querySelector('.common-modal-type-body-text').textContent.trim()];
-    var htmls = commons.filter(function (comli) {
-        return comli.type === typeSelect;
+    var chargeContainer = document.querySelector('.charge-container');
+    var serviceContainer = chargeContainer.querySelector('.service-charge-body');
+    var managementContainer = chargeContainer.querySelector('.management-charge-body');
+    var donationContainer = chargeContainer.querySelector('.donation-charge-body');
+    var htmlservice = commons.filter(function (comli) {
+        return comli.type === "SERVICE";
     }).map(function (common) {
         return `
-            <div class="charge-item" id="common-${common.id}">
+            <div class="charge-item" id="charge-${common.id}" onclick="handleUpdateCharge('${common.id}')">
                 <span class="charge-item-text"> ${common.chargeName} </span>
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                    width="24px" fill="#212529" class="charge-item-icon">
-                    <path
-                        d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" />
+                        width="24px" fill="#6c757d" class="charge-item-icon" onclick="handleDeleteCharge('${common.id}')">
+                        <path
+                            d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
                 </svg>
             </div>
         `;
     });
-    if (typeSelect === "SERVICE") {
-        const serviceContainer = chargeContainer.querySelector('.service-charge-body');
-        serviceContainer.innerHTML += htmls.join('');
-    } else if (typeSelect === "MANAGEMENT") {
-        const managementContainer = chargeContainer.querySelector('.management-charge-body');
-        managementContainer.innerHTML += htmls.join('');
-    } else {
-        const donationContainer = chargeContainer.querySelector('.donation-charge-body');
-        donationContainer.innerHTML += htmls.join('');
-    }
+    var htmlmanagement = commons.filter(function (comli) {
+        return comli.type === "MANAGEMENT";
+    }).map(function (common) {
+        return `
+            <div class="charge-item" id="charge-${common.id}" onclick="handleUpdateCharge('${common.id}')">
+                <span class="charge-item-text"> ${common.chargeName} </span>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                        width="24px" fill="#6c757d" class="charge-item-icon" onclick="handleDeleteCharge('${common.id}')">
+                        <path
+                            d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
+                </svg>
+            </div>
+        `;
+    });
+    var htmldonation = commons.filter(function (comli) {
+        return comli.type === "DONATION";
+    }).map(function (common) {
+        return `
+            <div class="charge-item" id="charge-${common.id}" onclick="handleUpdateCharge('${common.id}')">
+                <span class="charge-item-text"> ${common.chargeName} </span>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                        width="24px" fill="#6c757d" class="charge-item-icon" onclick="handleDeleteCharge('${common.id}')">
+                        <path
+                            d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
+                </svg>  
+            </div>
+        `;
+    });
+    serviceContainer.innerHTML += htmlservice.join('');
+    managementContainer.innerHTML += htmlmanagement.join('');
+    donationContainer.innerHTML += htmldonation.join('');
 }
