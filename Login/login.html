@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./login-css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar section-content"> <!-- Thẻ nav để chứa tổ hợp các đường link (các thẻ a) -->
+            <a href="#" class="nav-logo"> <!-- Thẻ a để chứa một đường link -->
+                <h1 class="logo-text"> 🤒 PK </h1>
+            </a>
+            <ul class="nav-menu"> <!-- Thẻ chứa một danh sách không có thứ tự -->
+                <button id="menu-close-button" class="fas fa-times"> </button>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link"> Home </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link"> Menu </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link"> About </a>
+                </li>
+            </ul>
+            <button id="menu-open-button" class="fas fa-bars"> </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="section-content">
+                <div class="hero-details">
+                    <h2 class="title"> Best coffee </h2>
+                    <h3 class="subtitle"> Make beautiful day </h3>
+                    <p class="description"> Welcome to our coffee paradise,
+                        where every bean tells a story and every cup parks joy</p>
+
+                    <div class="buttons">
+                        <a href="#" class="button order-now"> Order now </a>
+                        <a href="#" class="button contact-us"> Contact us </a>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="./images/coffee-hero-section.png" alt="" class="hero-image">
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="section-content">
+                <div class="about-image-wrapper">
+                    <img src="images/about-image.jpg" alt="About" class="about-image">
+                </div>
+                <div class="about-details">
+                    <h2 class="section-title"> About us </h2>
+                    <p class="text"> Lorem ipsum dolor sit amet
+                        consectetur adipisicing elit. Necessitatibus sunt cumque, fugit dolorum veniam quibusdam quidem
+                        illum. Nam expedita quibusdam, dicta cumque
+                        eaque quasi molestias quaerat repellendus nesciunt soluta quia!</p>
+                    <div class="social-link-list">
+                        <a href="#" class="social-link">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="testimonials-section">
+            <h2 class="section-title"> Testimonials </h2>
+            <div class="section-content">
+                <div class="section-container swiper">
+                    <div class="slide-wrapper">
+                        <ul class="testimonials-list swiper-wrapper">
+                            <li class="testimonial swiper-slide">
+                                <img src=" /images/user-1.jpg" alt="User" class="user-image">
+                                <h3 class="name"> Sarah </h3>
+                                <i class="feedback"> "abcd" </i>
+                            </li>
+                            <li class="testimonial swiper-slide">
+                                <img src=" /images/user-2.jpg" alt="User" class="user-image">
+                                <h3 class="name"> Sarah </h3>
+                                <i class="feedback"> "abcd" </i>
+                            </li>
+                            <li class="testimonial swiper-slide">
+                                <img src=" /images/user-3.jpg" alt="User" class="user-image">
+                                <h3 class="name"> Sarah </h3>
+                                <i class="feedback"> "abcd"" </i>
+                            </li>
+                            <li class="testimonial swiper-slide">
+                                <img src=" /images/user-4.jpg" alt="User" class="user-image">
+                                <h3 class="name"> Sarah </h3>
+                                <i class="feedback"> "abcd" </i>
+                            </li>
+                            <li class="testimonial swiper-slide">
+                                <img src="/images/user-5.jpg" alt="User" class="user-image">
+                                <h3 class="name"> Sarah </h3>
+                                <i class="feedback"> "abcd" </i>
+                            </li>
+                        </ul>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-slide-button swiper-button-prev"></div>
+                        <div class="swiper-slide-button swiper-button-next"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./login-js.js"></script>
+</body>
+
+</html>

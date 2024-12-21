@@ -28,7 +28,7 @@
     justify-content: space-between;
     gap: 10xp;
     padding: 6px;
-    width: 150px;
+    width: 250px;
     background-color: #fff;
     border: 1px solid #495057;
     color: #ced4da;
@@ -59,7 +59,7 @@
 #donation-tab .donation-tab-search-type .donation-type-list .donation-type-list-item {
     font-size: 1.1rem;
     color: #343a40;
-    padding-bottom: 7px;
+    padding-bottom: 10px;
     display: block;
     cursor: pointer;
 }
@@ -190,7 +190,8 @@ th {
 
 /*  create new modal */
 
-#donation-tab .donation-modal-container {
+#donation-tab .donation-modal-container,
+#donation-tab .edit-donation-modal-container {
     background-color: rgba(0, 0, 0, 0.3);
     position: fixed;
     display: flex;
@@ -206,12 +207,14 @@ th {
     z-index: 30;
 }
 
-#donation-tab .donation-modal-open {
+#donation-tab .donation-modal-open,
+#donation-tab .edit-donation-modal-open {
     opacity: 1;
     pointer-events: auto;
 }
 
-#donation-tab .donation-modal-container .donation-modal {
+#donation-tab .donation-modal-container .donation-modal,
+#donation-tab .edit-donation-modal-container .edit-donation-modal {
     background: #fff;
     width: 700px;
     max-width: 100%;
@@ -219,24 +222,28 @@ th {
     border-radius: 5px;
 }
 
-#donation-tab .donation-modal-container .donation-modal .donation-modal-title {
+#donation-tab .donation-modal-container .donation-modal .donation-modal-title,
+#donation-tab .edit-donation-modal-container .edit-donation-modal .edit-donation-modal-title {
     font-size: 20px;
     font-weight: 550;
     margin-bottom: 20px;
     color: #5e60ce;
 }
 
-#donation-tab .donation-modal-input {
+#donation-tab .donation-modal-input,
+#donation-tab .edit-donation-modal-input {
     display: block;
 }
 
-#donation-tab .donation-modal-container .donation-modal .input-item {
+#donation-tab .donation-modal-container .donation-modal .input-item,
+#donation-tab .edit-donation-modal-container .edit-donation-modal .edit-input-item {
     font-size: 1.1rem;
     padding-bottom: 30px;
     color: #03045e;
 }
 
-#donation-tab .donation-modal-container .donation-modal .input-item input {
+#donation-tab .donation-modal-container .donation-modal .input-item input,
+#donation-tab .edit-donation-modal-container .edit-donation-modal .edit-input-item input {
     width: 100%;
     height: 25px;
     border-radius: 4px;
@@ -246,13 +253,66 @@ th {
     padding: 5px;
 }
 
+#donation-tab .input-charge-type,
+#donation-tab .edit-input-charge-type {
+    position: relative;
+    padding-top: 5px;
+    margin-bottom: 11px;
+}
+
+#donation-tab .donation-input-type-body,
+#donation-tab .edit-donation-input-type-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 4px;
+    border: 1px solid #5390d9;
+    font-size: 1rem;
+    width: 100%;
+    height: 25px;
+    padding: 5px;
+    background-color: #fff;
+}
+
+#donation-tab .donation-input-type-list,
+#donation-tab .edit-donation-input-type-list {
+    position: absolute;
+    width: 100%;
+    top: 63px;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+#donation-tab .input-charge-type:hover .donation-input-type-list:not(.hidden),
+#donation-tab .edit-input-charge-type:hover .edit-donation-input-type-list:not(.hidden) {
+    display: block;
+}
+
+#donation-tab .input-charge-type:hover .donation-input-type-list-item,
+#donation-tab .edit-input-charge-type:hover .edit-donation-input-type-list-item {
+    font-size: 1.1rem;
+    padding: 4px 14px;
+    display: block;
+    cursor: pointer;
+}
+
+#donation-tab .input-charge-type:hover .donation-input-type-list-item:hover,
+#donation-tab .edit-input-charge-type:hover .edit-donation-input-type-list-item:hover {
+    color: #5390d9;
+}
+
 /* payment method in modal */
 
-#donation-tab .input-method {
+#donation-tab .input-method,
+#donation-tab .edit-input-method {
     position: relative;
 }
 
-#donation-tab .input-method-list {
+#donation-tab .input-method-list,
+#donation-tab .edit-input-method-list {
     position: absolute;
     width: 100%;
     top: 60px;
@@ -264,11 +324,13 @@ th {
     display: none;
 }
 
-#donation-tab .input-method:hover .input-method-list:not(.hidden) {
+#donation-tab .input-method:hover .input-method-list:not(.hidden),
+#donation-tab .edit-input-method:hover .edit-input-method-list:not(.hidden) {
     display: block;
 }
 
-#donation-tab .input-method-list-item {
+#donation-tab .input-method-list-item,
+#donation-tab .edit-input-method-list-item {
     font-size: 1.1rem;
     color: #03045e;
     padding-bottom: 7px;
@@ -276,18 +338,21 @@ th {
     cursor: pointer;
 }
 
-#donation-tab .input-method-list-item:hover {
+#donation-tab .input-method-list-item:hover,
+#donation-tab .edit-input-method-list-item:hover {
     color: #5390d9;
 }
 
 /* button in modal */
 
-#donation-tab .donation-modal-footer {
+#donation-tab .donation-modal-footer,
+#donation-tab .edit-donation-modal-footer {
     display: flex;
     justify-content: space-between;
 }
 
-#donation-tab .donation-modal-container .donation-modal-close-button {
+#donation-tab .donation-modal-close-button,
+#donation-tab .edit-donation-modal-close-button {
     font-size: 1.3rem;
     padding: 5px 10px;
     border-radius: 5px;
@@ -298,7 +363,8 @@ th {
     cursor: pointer;
 }
 
-#donation-tab .donation-modal-container .donation-modal-save-button {
+#donation-tab .donation-modal-save-button,
+#donation-tab .edit-donation-modal-save-button {
     font-size: 1.3rem;
     padding: 5px 10px;
     border-radius: 5px;

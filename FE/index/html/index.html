@@ -201,6 +201,124 @@
                             <button class="common-tab-create-btn"> Tạo mới </button>
                         </div>
                     </div>
+                    <div class="common-modal-container">
+                        <div class="common-modal">
+                            <div class="common-modal-title">
+                                <span class="common-modal-title-text"> Thêm mới phí </span>
+                            </div>
+                            <div class="common-modal-input">
+                                <div class="common-modal-charge-name input-item">
+                                    <span> Tên phí: </span>
+                                    <input type="text" name="commonChargeName">
+                                </div>
+                                <div class="common-modal-type input-item">
+                                    <div class="common-modal-type-body-title">
+                                        <span> Loại: </span>
+                                    </div>
+                                    <div class="common-modal-type-body">
+                                        <span class="common-modal-type-body-text"> Loại phí </span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                            width="24px" fill="#343a40">
+                                            <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+                                        </svg>
+                                    </div>
+                                    <ul class="common-type-list">
+                                        <li class="common-type-list-item">
+                                            <span>Phí đóng góp, ủng hộ</span>
+                                        </li>
+                                        <li class="common-type-list-item">
+                                            <span>Phí quản lý chung cư</span>
+                                        </li>
+                                        <li class="common-type-list-item">
+                                            <span>Phí dịch vụ</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="common-modal-unit-amount input-item">
+                                    <span> Phí/Đơn vị: </span>
+                                    <input type="number" name="commonUnitAmount">
+                                </div>
+                                <div class="common-modal-unit-measurement input-item">
+                                    <span> Đơn vị đo lường: </span>
+                                    <input type="text" name="commonUnitMeasurement">
+                                </div>
+                                <div class="common-modal-description input-item">
+                                    <span> Mô tả: </span>
+                                    <input type="text" name="commonDescription">
+                                </div>
+                            </div>
+                            <div class="common-modal-footer">
+                                <div></div>
+                                <div class="common-modal-button">
+                                    <button class="common-modal-close-button">
+                                        <span class="common-modal-close-button-text"> Hủy </span>
+                                    </button>
+                                    <button class="common-modal-save-button">
+                                        <span class="common-modal-save-button-text"> Lưu </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-common-modal-container">
+                        <div class="edit-common-modal">
+                            <div class="edit-common-modal-title">
+                                <span class="edit-common-modal-title-text"> Chỉnh sửa phí </span>
+                            </div>
+                            <div class="edit-common-modal-input">
+                                <div class="edit-common-modal-charge-name input-item">
+                                    <span> Tên phí: </span>
+                                    <input type="text" name="editCommonChargeName">
+                                </div>
+                                <div class="edit-common-modal-type input-item">
+                                    <div class="edit-common-modal-type-body-title">
+                                        <span> Loại: </span>
+                                    </div>
+                                    <div class="edit-common-modal-type-body">
+                                        <span class="edit-common-modal-type-body-text"> Loại phí </span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                            width="24px" fill="#343a40">
+                                            <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+                                        </svg>
+                                    </div>
+                                    <ul class="edit-common-type-list">
+                                        <li class="edit-common-type-list-item">
+                                            <span>Phí đóng góp, ủng hộ</span>
+                                        </li>
+                                        <li class="edit-common-type-list-item">
+                                            <span>Phí quản lý chung cư</span>
+                                        </li>
+                                        <li class="edit-common-type-list-item">
+                                            <span>Phí dịch vụ</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="edit-common-modal-unit-amount input-item">
+                                    <span> Phí/Đơn vị: </span>
+                                    <input type="number" name="editCommonUnitAmount">
+                                </div>
+                                <div class="edit-common-modal-unit-measurement input-item">
+                                    <span> Đơn vị đo lường: </span>
+                                    <input type="text" name="editCommonUnitMeasurement">
+                                </div>
+                                <div class="edit-common-modal-description input-item">
+                                    <span> Mô tả: </span>
+                                    <input type="text" name="editCommonDescription">
+                                </div>
+                            </div>
+                            <div class="edit-common-modal-footer">
+                                <div></div>
+                                <div class="edit-common-modal-button">
+                                    <button class="edit-common-modal-close-button">
+                                        <span class="edit-common-modal-close-button-text"> Hủy </span>
+                                    </button>
+                                    <button class="edit-common-modal-save-button">
+                                        <span class="edit-common-modal-save-button-text"> Lưu </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="charge-container">
                         <div class="service-charge">
                             <div class="charge-header">
@@ -210,51 +328,8 @@
                                 </svg>
                                 <span> Phí dịch vụ </span>
                             </div>
-                            <div class="charge-body">
-                                <div class="charge-item service-charge-item-1">
-                                    <div class="charge-item-num">
-                                        <span> 1 </span>
-                                    </div>
-                                    <span class="charge-item-text"> Phí điện </span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                                        width="24px" fill="#212529" class="charge-item-icon">
-                                        <path
-                                            d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" />
-                                    </svg>
-                                </div>
-                                <div class="charge-item service-charge-item-2">
-                                    <div class="charge-item-num">
-                                        <span> 2 </span>
-                                    </div>
-                                    <span class="charge-item-text"> Phí nước </span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                                        width="24px" fill="#212529" class="charge-item-icon">
-                                        <path
-                                            d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" />
-                                    </svg>
-                                </div>
-                                <div class="charge-item service-charge-item-3">
-                                    <div class="charge-item-num">
-                                        <span> 3 </span>
-                                    </div>
-                                    <span class="charge-item-text"> Dịch vụ chung </span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                                        width="24px" fill="#212529" class="charge-item-icon">
-                                        <path
-                                            d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" />
-                                    </svg>
-                                </div>
-                                <div class="charge-item service-charge-item-4">
-                                    <div class="charge-item-num">
-                                        <span> 4 </span>
-                                    </div>
-                                    <span class="charge-item-text"> Phí gửi xe </span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                                        width="24px" fill="#212529" class="charge-item-icon">
-                                        <path
-                                            d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" />
-                                    </svg>
-                                </div>
+                            <div class="service-charge-body charge-body">
+
                             </div>
                         </div>
                         <div class="donation-charge">
@@ -265,18 +340,8 @@
                                 </svg>
                                 <span> Phí ủng hộ, đóng góp </span>
                             </div>
-                            <div class="charge-body">
-                                <div class="charge-item donation-charge-item-1">
-                                    <div class="charge-item-num">
-                                        <span> 1 </span>
-                                    </div>
-                                    <span class="charge-item-text"> Quỹ từ thiện </span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                                        width="24px" fill="#212529" class="charge-item-icon">
-                                        <path
-                                            d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" />
-                                    </svg>
-                                </div>
+                            <div class="donation-charge-body charge-body">
+
                             </div>
                         </div>
                         <div class="management-charge">
@@ -287,34 +352,12 @@
                                 </svg>
                                 <span> Phí quản lý chung cư </span>
                             </div>
-                            <div class="charge-body">
-                                <div class="charge-item donation-charge-item-1">
-                                    <div class="charge-item-num">
-                                        <span> 1 </span>
-                                    </div>
-                                    <span class="charge-item-text"> Đảm bảo an ninh </span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                                        width="24px" fill="#212529" class="charge-item-icon">
-                                        <path
-                                            d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" />
-                                    </svg>
-                                </div>
-                                <div class="charge-item donation-charge-item-2">
-                                    <div class="charge-item-num">
-                                        <span> 2 </span>
-                                    </div>
-                                    <span class="charge-item-text"> Chăm sóc cây cối </span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                                        width="24px" fill="#212529" class="charge-item-icon">
-                                        <path
-                                            d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" />
-                                    </svg>
-                                </div>
+                            <div class="management-charge-body charge-body">
+
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div id="donation-tab" class="donation-tab-all website-tab">
                     <div class="donation-tab-header">
                         <div class="donation-tab-search">
@@ -325,8 +368,7 @@
                                     <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
                                 </svg>
                                 <ul class="donation-type-list">
-                                    <li name="donation-all-type" class="donation-type-list-item"
-                                        onclick="filterTypeClick('all-type')">
+                                    <li name="donation-all-type" class="donation-type-list-item">
                                         <span> Tất cả </span>
                                     </li>
                                 </ul>
@@ -365,19 +407,27 @@
                             <div class="donation-modal-input">
                                 <div class="input-apartment input-item">
                                     <label> Căn hộ </label> <br>
-                                    <input type="text" name="apartmentName">
+                                    <input type="text" name="donationApartmentName">
                                 </div>
-                                <div class="input-charge input-item">
+                                <div class="input-charge-type input-item">
                                     <label> Phí </label> <br>
-                                    <input type="text" name="chargeName">
+                                    <div class="donation-input-type-body">
+                                        <span class="donation-input-type-text"> </span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                            width="24px" fill="#343a40">
+                                            <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+                                        </svg>
+                                    </div>
+                                    <ul class="donation-input-type-list">
+                                    </ul>
                                 </div>
                                 <div class="input-amountPaid input-item">
                                     <label> Số tiền </label> <br>
-                                    <input type="number" name="amountPaid">
+                                    <input type="number" name="apartmentAmountPaid">
                                 </div>
                                 <div class="input-method input-item">
                                     <label> Phương thức thanh toán </label> <br>
-                                    <input type="text" name="paymentMethod">
+                                    <input type="text" name="apartmentPaymentMethod">
                                     <ul class="input-method-list">
                                         <li class="input-method-list-item">
                                             <span name="CASH"> Tiền mặt </span>
@@ -417,7 +467,59 @@
                     </div>
                 </div>
                 <div id="service-tab" class="service-tab-all website-tab">
-                    <h1> Đây là trang phí dịch vụ </h1>
+                    <div class="service-tab-header">
+                        <div class="service-tab-search">
+                            <input type="text" name="serviceSearchInput"></input>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="#212529" class="service-tab-search-icon">
+                                <path
+                                    d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
+                            </svg>
+                        </div>
+                        <div class="service-tab-button">
+                            <button class="service-tab-create-btn"> Tạo mới </button>
+                        </div>
+                    </div>
+                    <div class="service-tab-modal">
+
+                    </div>
+                    <div class="service-tab-body">
+                        <table class="service-table">
+                            <thead>
+                                <tr class="table-header">
+                                    <th> Căn hộ </th>
+                                    <th> Tháng/Năm </th>
+                                    <th> Đã thanh toán </th>
+                                    <th> Trạng thái </th>
+                                    <th> Phương thức thanh toán </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-row">
+                                    <td> A191 </td>
+                                    <td> 1/2024 </td>
+                                    <td> 0 </td>
+                                    <td> Còn thiếu </td>
+                                    <td> Tiền mặt </td>
+                                    <td class="table-icons">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                            width="24px" fill="#6c757d" class="table-icon"
+                                            onclick="handleUpdateResident('${resident.id}')">
+                                            <path
+                                                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h357l-80 80H200v560h560v-278l80-80v358q0 33-23.5 56.5T760-120H200Zm280-360ZM360-360v-170l367-367q12-12 27-18t30-6q16 0 30.5 6t26.5 18l56 57q11 12 17 26.5t6 29.5q0 15-5.5 29.5T897-728L530-360H360Zm481-424-56-56 56 56ZM440-440h56l232-232-28-28-29-28-231 231v57Zm260-260-29-28 29 28 28 28-28-28Z" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                            width="24px" fill="#6c757d" class="table-icon"
+                                            onclick="handleDeleteResident('${resident.id}')">
+                                            <path
+                                                d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
+                                        </svg>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div id="buildings-tab" class="buildings-tab-all website-tab">
                     <div class="buildings-tab-header">
@@ -514,256 +616,650 @@
                         </table>
                     </div>
                 </div>
-            </div>
-            <div id="resident-tab" class="resident-tab-all website-tab">
-                <div class="resident-tab-header">
-                    <div class="resident-tab-search">
-                        <input type="text" name="residentSearchInput"></input>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                            fill="#212529" class="resident-tab-search-icon">
-                            <path
-                                d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
-                        </svg>
-                    </div>
-                    <div class="resident-tab-button">
-                        <button class="resident-tab-btn resident-tab-tmp-regis-btn"> Đăng ký tạm trú </button>
-                        <button class="resident-tab-btn resident-tab-tmp-absence-btn"> Đăng ký tạm vắng </button>
-                        <button class="resident-tab-btn resident-tab-death-btn"> Khai tử </button>
-                        <button class="resident-tab-btn resident-tab-create-btn"> Tạo mới </button>
-                    </div>
-                    <div class="resident-tmp-regis-modal-comtainer">
-                        <div class="resident-tmp-regis-modal">
-                            <div class="resident-tmp-regis-modal-title">
-                                <span> Đăng ký tạm trú </span>
-                            </div>
-                            <div class="resident-tmp-regis-modal-input">
-                                <div class="resident-input-colum-text">
-                                    <div class="resident-tmp-regis-name-input resident-input-colum-text-item">
-                                        <span> Họ và tên: </span>
-                                    </div>
-                                    <div class="resident-tmp-regis-date-of-birth-input resident-input-colum-text-item">
-                                        <span> Ngày sinh: </span>
-                                    </div>
-                                    <div class="resident-tmp-regis-cccd-input resident-input-colum-text-item">
-                                        <span> Số CMT/CCCD: </span>
-                                    </div>
-                                    <div class="resident-tmp-regis-live-input resident-input-colum-text-item">
-                                        <span> Địa chỉ thường trú: </span>
-                                    </div>
-                                    <div class="resident-tmp-regis-reason-input resident-input-colum-text-item">
-                                        <span> Lý do tạm trú: </span>
-                                    </div>
-                                </div>
-                                <div class="resident-input-colum-fill">
-                                    <div class="resident-tmp-regis-name-input  resident-regis-input-colum-fill-item">
-                                        <input type="text">
-                                    </div>
-                                    <div
-                                        class="resident-tmp-regis-date-of-birth-input  resident-regis-input-colum-fill-item">
-                                        <input type="date">
-                                    </div>
-                                    <div class="resident-tmp-regis-cccd-input  resident-regis-input-colum-fill-item">
-                                        <input type="text">
-                                    </div>
-                                    <div class="resident-tmp-regis-live-input  resident-regis-input-colum-fill-item">
-                                        <input type="text">
-                                    </div>
-                                    <div class="resident-tmp-regis-reason-input  resident-regis-input-colum-fill-item">
-                                        <textarea name="" id=""></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="resident-tmp-regis-modal-footer">
-                                <div></div>
-                                <div class="resident-tmp-regis-modal-button">
-                                    <button class="resident-tmp-regis-modal-close-button">
-                                        <span class="resident-tmp-regis-modal-close-button-text"> Hủy </span>
-                                    </button>
-                                    <button class="resident-tmp-regis-modal-save-button">
-                                        <span class="resident-tmp-regis-modal-save-button-text"> Lưu </span>
-                                    </button>
-                                </div>
-                            </div>
+                <div id="resident-tab" class="resident-tab-all website-tab">
+                    <div class="resident-tab-header">
+                        <div class="resident-tab-search">
+                            <input type="text" name="residentSearchInput"></input>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="#212529" class="resident-tab-search-icon">
+                                <path
+                                    d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
+                            </svg>
                         </div>
-                    </div>
-                    <div class="resident-tmp-absence-modal-comtainer">
-                        <div class="resident-tmp-absence-modal">
-                            <div class="resident-tmp-absence-modal-title">
-                                <span> Đăng ký tạm vắng </span>
-                            </div>
-                            <div class="resident-tmp-absence-modal-input">
-                                <div class="resident-input-colum-text">
-                                    <div class="resident-tmp-absence-name-input resident-input-colum-text-item">
-                                        <span> Họ và tên: </span>
-                                    </div>
-                                    <div
-                                        class="resident-tmp-absence-date-of-birth-input resident-input-colum-text-item">
-                                        <span> Ngày sinh: </span>
-                                    </div>
-                                    <div class="resident-tmp-absence-cccd-input resident-input-colum-text-item">
-                                        <span> Số CMT/CCCD: </span>
-                                    </div>
-                                    <div class="resident-tmp-absence-live-input resident-input-colum-text-item">
-                                        <span> Địa chỉ thường trú: </span>
-                                    </div>
-                                    <div class="resident-tmp-absence-live-input resident-input-colum-text-item">
-                                        <span> Địa chỉ tạm trú: </span>
-                                    </div>
-                                    <div class="resident-tmp-absence-live-input resident-input-colum-text-item">
-                                        <span> Địa chỉ thường trú: </span>
-                                    </div>
-                                    <div class="resident-tmp-absence-live-input resident-input-colum-text-item">
-                                        <span> Nơi ở hiện tại: </span>
-                                    </div>
-                                    <div class="resident-tmp-absence-date-input resident-input-colum-text-item">
-                                        <span> Tạm vắng từ ngày: </span>
-                                    </div>
-                                    <div class="resident-tmp-absence-date-input resident-input-colum-text-item">
-                                        <span> Đến ngày: </span>
-                                    </div>
-                                    <div class="resident-tmp-absence-live-input resident-input-colum-text-item">
-                                        <span> Địa chỉ nơi đến: </span>
-                                    </div>
-                                    <div class="resident-tmp-absence-reason-input resident-input-colum-text-item">
-                                        <span> Lý do tạm vắng: </span>
-                                    </div>
-                                </div>
-                                <div class="resident-input-colum-fill">
-                                    <div class="resident-tmp-absence-name-input  resident-regis-input-colum-fill-item">
-                                        <input type="text">
-                                    </div>
-                                    <div
-                                        class="resident-tmp-absence-date-of-birth-input  resident-regis-input-colum-fill-item">
-                                        <input type="date">
-                                    </div>
-                                    <div class="resident-tmp-absence-cccd-input  resident-regis-input-colum-fill-item">
-                                        <input type="text">
-                                    </div>
-                                    <div class="resident-tmp-absence-live-input  resident-regis-input-colum-fill-item">
-                                        <input type="text">
-                                    </div>
-                                    <div class="resident-tmp-absence-live-input  resident-regis-input-colum-fill-item">
-                                        <input type="text">
-                                    </div>
-                                    <div class="resident-tmp-absence-live-input  resident-regis-input-colum-fill-item">
-                                        <input type="text">
-                                    </div>
-                                    <div class="resident-tmp-absence-live-input  resident-regis-input-colum-fill-item">
-                                        <input type="text">
-                                    </div>
-                                    <div
-                                        class="resident-tmp-absence-from-date-input  resident-regis-input-colum-fill-item">
-                                        <input type="date">
-                                    </div>
-                                    <div
-                                        class="resident-tmp-absence-to-date-input  resident-regis-input-colum-fill-item">
-                                        <input type="date">
-                                    </div>
-                                    <div class="resident-tmp-absence-live-input  resident-regis-input-colum-fill-item">
-                                        <input type="text">
-                                    </div>
-                                    <div
-                                        class="resident-tmp-absence-reason-input  resident-regis-input-colum-fill-item">
-                                        <textarea name="" id=""></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="resident-tmp-absence-modal-footer">
-                                <div></div>
-                                <div class="resident-tmp-absence-modal-button">
-                                    <button class="resident-tmp-absence-modal-close-button">
-                                        <span class="resident-tmp-absence-modal-close-button-text"> Hủy </span>
-                                    </button>
-                                    <button class="resident-tmp-absence-modal-save-button">
-                                        <span class="resident-tmp-absence-modal-save-button-text"> Lưu </span>
-                                    </button>
-                                </div>
-                            </div>
+                        <div class="resident-tab-button">
+                            <button class="resident-tab-btn resident-tab-tmp-regis-btn"> Đăng ký tạm trú </button>
+                            <button class="resident-tab-btn resident-tab-tmp-absence-btn"> Đăng ký tạm vắng </button>
+                            <button class="resident-tab-btn resident-tab-death-btn"> Khai tử </button>
+                            <button class="resident-tab-btn resident-tab-create-btn"> Tạo mới </button>
                         </div>
-                    </div>
-                    <div class="resident-death-modal-container">
-                        <div class="resident-death-modal">
-                            <div class="resident-death-modal-title">
-                                <span> Đăng ký khai tử </span>
-                            </div>
-                            <div class="resident-death-modal-input">
-                                <div class="resident-death-modal-input-body-1">
+                        <div class="resident-tmp-regis-modal-comtainer">
+                            <div class="resident-tmp-regis-modal">
+                                <div class="resident-tmp-regis-modal-title">
+                                    <span> Đăng ký tạm trú </span>
+                                </div>
+                                <div class="resident-tmp-regis-modal-input">
                                     <div class="resident-input-colum-text">
-                                        <div class="resident-death-name-input resident-input-colum-text-item">
+                                        <div class="resident-tmp-regis-name-input resident-input-colum-text-item">
                                             <span> Họ và tên: </span>
                                         </div>
-                                        <div class="resident-death-live-input resident-input-colum-text-item">
-                                            <span> Nơi cư trú: </span>
+                                        <div
+                                            class="resident-tmp-regis-date-of-birth-input resident-input-colum-text-item">
+                                            <span> Ngày sinh: </span>
                                         </div>
-                                        <div class="resident-death-cccd-input resident-input-colum-text-item">
+                                        <div class="resident-tmp-regis-cccd-input resident-input-colum-text-item">
                                             <span> Số CMT/CCCD: </span>
                                         </div>
-                                        <div class="resident-death-relationship-input resident-input-colum-text-item">
-                                            <span> Quan hệ với người đã chết: </span>
+                                        <div class="resident-tmp-regis-live-input resident-input-colum-text-item">
+                                            <span> Địa chỉ thường trú: </span>
+                                        </div>
+                                        <div class="resident-tmp-regis-reason-input resident-input-colum-text-item">
+                                            <span> Lý do tạm trú: </span>
                                         </div>
                                     </div>
                                     <div class="resident-input-colum-fill">
-                                        <div class="resident-death-name-input  resident-death-input-colum-fill-item">
-                                            <input type="text">
-                                        </div>
-                                        <div class="resident-death-live-input  resident-death-input-colum-fill-item">
-                                            <input type="text">
-                                        </div>
-                                        <div class="resident-death-cccd-input  resident-death-input-colum-fill-item">
+                                        <div
+                                            class="resident-tmp-regis-name-input  resident-regis-input-colum-fill-item">
                                             <input type="text">
                                         </div>
                                         <div
-                                            class="resident-death-relationship-input  resident-death-input-colum-fill-item">
+                                            class="resident-tmp-regis-date-of-birth-input  resident-regis-input-colum-fill-item">
+                                            <input type="date">
+                                        </div>
+                                        <div
+                                            class="resident-tmp-regis-cccd-input  resident-regis-input-colum-fill-item">
                                             <input type="text">
+                                        </div>
+                                        <div
+                                            class="resident-tmp-regis-live-input  resident-regis-input-colum-fill-item">
+                                            <input type="text">
+                                        </div>
+                                        <div
+                                            class="resident-tmp-regis-reason-input  resident-regis-input-colum-fill-item">
+                                            <textarea name="" id=""></textarea>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="resident-death-modal-input-body-text">
-                                    <span> Đăng ký chứng tử cho người có tên
-                                        dưới đây: </span>
+                                <div class="resident-tmp-regis-modal-footer">
+                                    <div></div>
+                                    <div class="resident-tmp-regis-modal-button">
+                                        <button class="resident-tmp-regis-modal-close-button">
+                                            <span class="resident-tmp-regis-modal-close-button-text"> Hủy </span>
+                                        </button>
+                                        <button class="resident-tmp-regis-modal-save-button">
+                                            <span class="resident-tmp-regis-modal-save-button-text"> Lưu </span>
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="resident-death-modal-input-body-2">
+                            </div>
+                        </div>
+                        <div class="resident-tmp-absence-modal-comtainer">
+                            <div class="resident-tmp-absence-modal">
+                                <div class="resident-tmp-absence-modal-title">
+                                    <span> Đăng ký tạm vắng </span>
+                                </div>
+                                <div class="resident-tmp-absence-modal-input">
                                     <div class="resident-input-colum-text">
-                                        <div class="resident-death-name-input resident-input-colum-text-item">
+                                        <div class="resident-tmp-absence-name-input resident-input-colum-text-item">
                                             <span> Họ và tên: </span>
                                         </div>
-                                        <div class="resident-death-live-input resident-input-colum-text-item">
-                                            <span> Giới tính: </span>
+                                        <div
+                                            class="resident-tmp-absence-date-of-birth-input resident-input-colum-text-item">
+                                            <span> Ngày sinh: </span>
                                         </div>
-                                        <div class="resident-death-date-of-birth-input resident-input-colum-text-item">
-                                            <span> Ngày tháng năm sinh: </span>
-                                        </div>
-                                        <div class="resident-death-people-input resident-input-colum-text-item">
-                                            <span> Dân tộc: </span>
-                                        </div>
-                                        <div class="resident-death-nation-input resident-input-colum-text-item">
-                                            <span> Quốc tịch: </span>
-                                        </div>
-                                        <div class="resident-death-last-place-input resident-input-colum-text-item">
-                                            <span> Nơi cư trú cuối cùng: </span>
-                                        </div>
-                                        <div class="resident-death-cccd-input resident-input-colum-text-item">
+                                        <div class="resident-tmp-absence-cccd-input resident-input-colum-text-item">
                                             <span> Số CMT/CCCD: </span>
                                         </div>
-                                        <div class="resident-death-date-of-death-input resident-input-colum-text-item">
-                                            <span> Đã chết vào lúc: </span>
+                                        <div class="resident-tmp-absence-live-input resident-input-colum-text-item">
+                                            <span> Địa chỉ thường trú: </span>
                                         </div>
-                                        <div class="resident-death-date-of-death-input resident-input-colum-text-item">
-                                            <span> Ngày: </span>
+                                        <div class="resident-tmp-absence-live-input resident-input-colum-text-item">
+                                            <span> Địa chỉ tạm trú: </span>
                                         </div>
-                                        <div class="resident-death-place-input resident-input-colum-text-item">
-                                            <span> Nơi chết: </span>
+                                        <div class="resident-tmp-absence-live-input resident-input-colum-text-item">
+                                            <span> Địa chỉ thường trú: </span>
                                         </div>
-                                        <div class="resident-death-reason-input resident-input-colum-text-item">
-                                            <span> Nguyên nhân chết: </span>
+                                        <div class="resident-tmp-absence-live-input resident-input-colum-text-item">
+                                            <span> Nơi ở hiện tại: </span>
                                         </div>
-                                        <div class="resident-death-paper-input resident-input-colum-text-item">
-                                            <span> Số giấy báo tử: </span>
+                                        <div class="resident-tmp-absence-date-input resident-input-colum-text-item">
+                                            <span> Tạm vắng từ ngày: </span>
+                                        </div>
+                                        <div class="resident-tmp-absence-date-input resident-input-colum-text-item">
+                                            <span> Đến ngày: </span>
+                                        </div>
+                                        <div class="resident-tmp-absence-live-input resident-input-colum-text-item">
+                                            <span> Địa chỉ nơi đến: </span>
+                                        </div>
+                                        <div class="resident-tmp-absence-reason-input resident-input-colum-text-item">
+                                            <span> Lý do tạm vắng: </span>
                                         </div>
                                     </div>
                                     <div class="resident-input-colum-fill">
-                                        <div class="resident-death-name-input resident-input-colum-fill-item">
+                                        <div
+                                            class="resident-tmp-absence-name-input  resident-regis-input-colum-fill-item">
                                             <input type="text">
+                                        </div>
+                                        <div
+                                            class="resident-tmp-absence-date-of-birth-input  resident-regis-input-colum-fill-item">
+                                            <input type="date">
+                                        </div>
+                                        <div
+                                            class="resident-tmp-absence-cccd-input  resident-regis-input-colum-fill-item">
+                                            <input type="text">
+                                        </div>
+                                        <div
+                                            class="resident-tmp-absence-live-input  resident-regis-input-colum-fill-item">
+                                            <input type="text">
+                                        </div>
+                                        <div
+                                            class="resident-tmp-absence-live-input  resident-regis-input-colum-fill-item">
+                                            <input type="text">
+                                        </div>
+                                        <div
+                                            class="resident-tmp-absence-live-input  resident-regis-input-colum-fill-item">
+                                            <input type="text">
+                                        </div>
+                                        <div
+                                            class="resident-tmp-absence-live-input  resident-regis-input-colum-fill-item">
+                                            <input type="text">
+                                        </div>
+                                        <div
+                                            class="resident-tmp-absence-from-date-input  resident-regis-input-colum-fill-item">
+                                            <input type="date">
+                                        </div>
+                                        <div
+                                            class="resident-tmp-absence-to-date-input  resident-regis-input-colum-fill-item">
+                                            <input type="date">
+                                        </div>
+                                        <div
+                                            class="resident-tmp-absence-live-input  resident-regis-input-colum-fill-item">
+                                            <input type="text">
+                                        </div>
+                                        <div
+                                            class="resident-tmp-absence-reason-input  resident-regis-input-colum-fill-item">
+                                            <textarea name="" id=""></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="resident-tmp-absence-modal-footer">
+                                    <div></div>
+                                    <div class="resident-tmp-absence-modal-button">
+                                        <button class="resident-tmp-absence-modal-close-button">
+                                            <span class="resident-tmp-absence-modal-close-button-text"> Hủy </span>
+                                        </button>
+                                        <button class="resident-tmp-absence-modal-save-button">
+                                            <span class="resident-tmp-absence-modal-save-button-text"> Lưu </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="resident-death-modal-container">
+                            <div class="resident-death-modal">
+                                <div class="resident-death-modal-title">
+                                    <span> Đăng ký khai tử </span>
+                                </div>
+                                <div class="resident-death-modal-input">
+                                    <div class="resident-death-modal-input-body-1">
+                                        <div class="resident-input-colum-text">
+                                            <div class="resident-death-name-input resident-input-colum-text-item">
+                                                <span> Họ và tên: </span>
+                                            </div>
+                                            <div class="resident-death-live-input resident-input-colum-text-item">
+                                                <span> Nơi cư trú: </span>
+                                            </div>
+                                            <div class="resident-death-cccd-input resident-input-colum-text-item">
+                                                <span> Số CMT/CCCD: </span>
+                                            </div>
+                                            <div
+                                                class="resident-death-relationship-input resident-input-colum-text-item">
+                                                <span> Quan hệ với người đã chết: </span>
+                                            </div>
+                                        </div>
+                                        <div class="resident-input-colum-fill">
+                                            <div
+                                                class="resident-death-name-input  resident-death-input-colum-fill-item">
+                                                <input type="text">
+                                            </div>
+                                            <div
+                                                class="resident-death-live-input  resident-death-input-colum-fill-item">
+                                                <input type="text">
+                                            </div>
+                                            <div
+                                                class="resident-death-cccd-input  resident-death-input-colum-fill-item">
+                                                <input type="text">
+                                            </div>
+                                            <div
+                                                class="resident-death-relationship-input  resident-death-input-colum-fill-item">
+                                                <input type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="resident-death-modal-input-body-text">
+                                        <span> Đăng ký chứng tử cho người có tên
+                                            dưới đây: </span>
+                                    </div>
+                                    <div class="resident-death-modal-input-body-2">
+                                        <div class="resident-input-colum-text">
+                                            <div class="resident-death-name-input resident-input-colum-text-item">
+                                                <span> Họ và tên: </span>
+                                            </div>
+                                            <div class="resident-death-live-input resident-input-colum-text-item">
+                                                <span> Giới tính: </span>
+                                            </div>
+                                            <div
+                                                class="resident-death-date-of-birth-input resident-input-colum-text-item">
+                                                <span> Ngày tháng năm sinh: </span>
+                                            </div>
+                                            <div class="resident-death-people-input resident-input-colum-text-item">
+                                                <span> Dân tộc: </span>
+                                            </div>
+                                            <div class="resident-death-nation-input resident-input-colum-text-item">
+                                                <span> Quốc tịch: </span>
+                                            </div>
+                                            <div class="resident-death-last-place-input resident-input-colum-text-item">
+                                                <span> Nơi cư trú cuối cùng: </span>
+                                            </div>
+                                            <div class="resident-death-cccd-input resident-input-colum-text-item">
+                                                <span> Số CMT/CCCD: </span>
+                                            </div>
+                                            <div
+                                                class="resident-death-date-of-death-input resident-input-colum-text-item">
+                                                <span> Đã chết vào lúc: </span>
+                                            </div>
+                                            <div
+                                                class="resident-death-date-of-death-input resident-input-colum-text-item">
+                                                <span> Ngày: </span>
+                                            </div>
+                                            <div class="resident-death-place-input resident-input-colum-text-item">
+                                                <span> Nơi chết: </span>
+                                            </div>
+                                            <div class="resident-death-reason-input resident-input-colum-text-item">
+                                                <span> Nguyên nhân chết: </span>
+                                            </div>
+                                            <div class="resident-death-paper-input resident-input-colum-text-item">
+                                                <span> Số giấy báo tử: </span>
+                                            </div>
+                                        </div>
+                                        <div class="resident-input-colum-fill">
+                                            <div class="resident-death-name-input resident-input-colum-fill-item">
+                                                <input type="text">
+                                            </div>
+                                            <div class="resident-input-sex resident-input-colum-fill-item">
+                                                <div class="resident-input-sex-body">
+                                                    <span class="resident-input-sex-text"> </span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                                                        viewBox="0 -960 960 960" width="24px" fill="#343a40">
+                                                        <path
+                                                            d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+                                                    </svg>
+                                                </div>
+                                                <ul class="resident-input-sex-list">
+                                                    <li name="male" class="resident-input-sex-list-item">
+                                                        <span> Nam </span>
+                                                    </li>
+                                                    <li name="female" class="resident-input-sex-list-item">
+                                                        <span> Nữ </span>
+                                                    </li>
+                                                    <li name="otherSex" class="resident-input-sex-list-item">
+                                                        <span> Khác </span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div
+                                                class="resident-death-date-of-birth-input resident-input-colum-fill-item">
+                                                <input type="date">
+                                            </div>
+                                            <div class="resident-death-people-input resident-input-colum-fill-item">
+                                                <input type="text">
+                                            </div>
+                                            <div class="resident-death-nation-input resident-input-colum-fill-item">
+                                                <input type="text">
+                                            </div>
+                                            <div class="resident-death-last-place-input resident-input-colum-fill-item">
+                                                <input type="text">
+                                            </div>
+                                            <div class="resident-death-cccd-input resident-input-colum-fill-item">
+                                                <input type="text">
+                                            </div>
+                                            <div
+                                                class="resident-death-date-of-death-input resident-input-colum-fill-item">
+                                                <input type="time">
+                                            </div>
+                                            <div
+                                                class="resident-death-date-of-death-input resident-input-colum-fill-item">
+                                                <input type="date">
+                                            </div>
+                                            <div class="resident-death-place-input resident-input-colum-fill-item">
+                                                <input type="text">
+                                            </div>
+                                            <div class="resident-death-reason-input resident-input-colum-fill-item">
+                                                <textarea name="" id=""></textarea>
+                                            </div>
+                                            <div class="resident-death-paper-input resident-input-colum-fill-item">
+                                                <input type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="resident-death-modal-footer">
+                                    <div></div>
+                                    <div class="resident-death-modal-button">
+                                        <button class="resident-death-modal-close-button">
+                                            <span class="resident-death-modal-close-button-text"> Hủy </span>
+                                        </button>
+                                        <button class="resident-death-modal-save-button">
+                                            <span class="resident-death-modal-save-button-text"> Lưu </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="create-resident-modal-container">
+                            <div class="create-resident-modal">
+                                <div class="create-resident-modal-title">
+                                    <span class="create-resident-modal-title-text"> Thêm mới nhân khẩu </span>
+                                </div>
+                                <div class="create-resident-modal-input">
+                                    <div class="resident-input-colum-text">
+                                        <div class="resident-input-name resident-input-colum-text-item">
+                                            <span> Họ và tên: </span>
+                                        </div>
+                                        <div class="resident-input-date-of-birth resident-input-colum-text-item">
+                                            <span> Ngày tháng năm sinh: </span>
+                                        </div>
+                                        <div class="resident-input-born-place resident-input-colum-text-item">
+                                            <span> Nơi sinh: </span>
+                                        </div>
+                                        <div class="resident-input-people resident-input-colum-text-item">
+                                            <span> Dân tộc: </span>
+                                        </div>
+                                        <div class="resident-input-nation  resident-input-colum-text-item">
+                                            <span> Quốc tịch: </span>
+                                        </div>
+                                        <div class="resident-input-cccd resident-input-colum-text-item">
+                                            <span> Số CMT/CCCD: </span>
+                                        </div>
+                                        <div class="resident-input-permanent-address resident-input-colum-text-item">
+                                            <span> Địa chỉ thường trú: </span>
+                                        </div>
+                                        <div class="resident-input-study1 resident-input-colum-text-item">
+                                            <span> Trình độ học vấn: </span>
+                                        </div>
+                                        <div class="resident-input-study2 resident-input-colum-text-item">
+                                            <span> Trình độ ngoại ngữ: </span>
+                                        </div>
+                                        <div class="resident-input-job resident-input-colum-text-item">
+                                            <span> Nghề nghiệp: </span>
+                                        </div>
+                                        <div class="resident-input-apartment resident-input-colum-text-item">
+                                            <span> Mã căn hộ: </span>
+                                        </div>
+                                    </div>
+                                    <div class="resident-input-colum-fill">
+                                        <div class="resident-input-name resident-input-colum-fill-item">
+                                            <input type="text" name="residentResidentName">
+                                        </div>
+                                        <div class="resident-input-date-of-birth resident-input-colum-fill-item">
+                                            <input type="date" name="residentBirthday" class="dob">
+                                        </div>
+                                        <div class="resident-input-born-place resident-input-colum-fill-item">
+                                            <input type="text" name="residentPlaceOfBirth">
+                                        </div>
+                                        <div class="resident-input-people resident-input-colum-fill-item">
+                                            <input type="text" name="residentEthnicity">
+                                        </div>
+                                        <div class="resident-input-nation resident-input-colum-fill-item">
+                                            <input type="text" name="residentNationality">
+                                        </div>
+                                        <div class="resident-input-cccd resident-input-colum-fill-item">
+                                            <input type="text" name="residentIdentityNumber">
+                                        </div>
+                                        <div class="resident-input-permanent-address resident-input-colum-fill-item">
+                                            <input type="text" name="residentPermanentAddress">
+                                        </div>
+                                        <div class="resident-input-study1 resident-input-colum-fill-item">
+                                            <input type="text" name="residentEducationLevel">
+                                        </div>
+                                        <div class="resident-input-study2 resident-input-colum-fill-item">
+                                            <input type="text" name="residentLanguageProficiency">
+                                        </div>
+                                        <div class="resident-input-job resident-input-colum-fill-item">
+                                            <input type="text" name="residentOccupation">
+                                        </div>
+                                        <div class="resident-input-apartment resident-input-colum-fill-item">
+                                            <input type="text" name="residentApartmentName">
+                                        </div>
+                                    </div>
+                                    <div class="resident-input-colum-text">
+                                        <div class="resident-input-other-name resident-input-colum-text-item">
+                                            <span> Tên khác (nếu có): </span>
+                                        </div>
+                                        <div class="resident-input-sex resident-input-colum-text-item">
+                                            <span> Giới tính: </span>
+                                        </div>
+                                        <div class="resident-input-hometown resident-input-colum-text-item">
+                                            <span> Quê quán: </span>
+                                        </div>
+                                        <div class="resident-input-religion resident-input-colum-text-item">
+                                            <span> Tôn giáo: </span>
+                                        </div>
+                                        <div class="resident-input-phone resident-input-colum-text-item">
+                                            <span> Số điện thoại: </span>
+                                        </div>
+                                        <div class="resident-input-passport resident-input-colum-text-item">
+                                            <span> Số hộ chiếu: </span>
+                                        </div>
+                                        <div class="resident-input-temporary-address resident-input-colum-text-item">
+                                            <span> Địa chỉ tạm trú: </span>
+                                        </div>
+                                        <div class="resident-input-study3 resident-input-colum-text-item">
+                                            <span> Trình độ chuyên môn: </span>
+                                        </div>
+                                        <div class="resident-input-language resident-input-colum-text-item">
+                                            <span> Biết tiếng dân tộc: </span>
+                                        </div>
+                                        <div class="resident-input-work-place resident-input-colum-text-item">
+                                            <span> Nơi làm việc: </span>
+                                        </div>
+                                        <div class="resident-input-apartment-role resident-input-colum-text-item">
+                                            <span> Vai trò trong căn hộ: </span>
+                                        </div>
+                                    </div>
+                                    <div class="resident-input-colum-fill">
+                                        <div class="resident-input-other-name resident-input-colum-fill-item">
+                                            <input type="text" name="residentAliasName">
+                                        </div>
+                                        <div class="resident-input-sex resident-input-colum-fill-item">
+                                            <div class="resident-input-sex-body">
+                                                <span class="resident-input-sex-text"> </span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                                                    viewBox="0 -960 960 960" width="24px" fill="#343a40">
+                                                    <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+                                                </svg>
+                                            </div>
+                                            <ul class="resident-input-sex-list">
+                                                <li name="MALE" class="resident-input-sex-list-item">
+                                                    <span> Nam </span>
+                                                </li>
+                                                <li name="FEMALE" class="resident-input-sex-list-item">
+                                                    <span> Nữ </span>
+                                                </li>
+                                                <li name="otherSex" class="resident-input-sex-list-item">
+                                                    <span> Khác </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="resident-input-hometown resident-input-colum-fill-item">
+                                            <input type="text" name="residentHometown">
+                                        </div>
+                                        <div class="resident-input-religion resident-input-colum-fill-item">
+                                            <input type="text" name="residentReligion">
+                                        </div>
+                                        <div class="resident-input-phone resident-input-colum-fill-item">
+                                            <input type="text" name="residentPhoneNumber">
+                                        </div>
+                                        <div class="resident-input-passport resident-input-colum-fill-item">
+                                            <input type="text" name="residentPassportNumber">
+                                        </div>
+                                        <div class="resident-input-temporary-address resident-input-colum-fill-item">
+                                            <input type="text" name="residentTemporaryAddress">
+                                        </div>
+                                        <div class="resident-input-study3 resident-input-colum-fill-item">
+                                            <input type="text" name="residentProfessionalQualification">
+                                        </div>
+                                        <div class="resident-input-language resident-input-colum-fill-item">
+                                            <input type="text" name="residentEthnicLanguage">
+                                        </div>
+                                        <div class="resident-input-work-place resident-input-colum-fill-item">
+                                            <input type="text" name="residentWorkplace">
+                                        </div>
+                                        <div class="resident-input-apartment-role resident-input-colum-fill-item">
+                                            <div class="resident-input-apartment-role-body">
+                                                <span class="resident-input-apartment-role-text"> </span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                                                    viewBox="0 -960 960 960" width="24px" fill="#343a40">
+                                                    <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+                                                </svg>
+                                            </div>
+                                            <ul class="resident-input-apartment-role-list">
+                                                <li name="OWNER" class="resident-input-apartment-role-list-item">
+                                                    <span> Chủ hộ </span>
+                                                </li>
+                                                <li name="NON_OWNER" class="resident-input-apartment-role-list-item">
+                                                    <span> Thành viên </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="create-resident-modal-footer">
+                                    <div></div>
+                                    <div class="create-resident-modal-button">
+                                        <button class="create-resident-modal-close-button">
+                                            <span class="create-resident-modal-close-button-text"> Hủy </span>
+                                        </button>
+                                        <button class="create-resident-modal-save-button">
+                                            <span class="create-resident-modal-save-button-text"> Lưu </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="edit-resident-modal-container">
+                            <div class="edit-resident-modal">
+                                <div class="edit-resident-modal-title">
+                                    <span class="edit-resident-modal-title-text"> Chỉnh sửa </span>
+                                </div>
+                                <div class="edit-resident-modal-input">
+                                    <div class="resident-input-colum-text">
+                                        <div class="resident-input-name resident-input-colum-text-item">
+                                            <span> Họ và tên: </span>
+                                        </div>
+                                        <div class="resident-input-date-of-birth resident-input-colum-text-item">
+                                            <span> Ngày tháng năm sinh: </span>
+                                        </div>
+                                        <div class="resident-input-born-place resident-input-colum-text-item">
+                                            <span> Nơi sinh: </span>
+                                        </div>
+                                        <div class="resident-input-people resident-input-colum-text-item">
+                                            <span> Dân tộc: </span>
+                                        </div>
+                                        <div class="resident-input-nation  resident-input-colum-text-item">
+                                            <span> Quốc tịch: </span>
+                                        </div>
+                                        <div class="resident-input-cccd resident-input-colum-text-item">
+                                            <span> Số CMT/CCCD: </span>
+                                        </div>
+                                        <div class="resident-input-permanent-address resident-input-colum-text-item">
+                                            <span> Địa chỉ thường trú: </span>
+                                        </div>
+                                        <div class="resident-input-study1 resident-input-colum-text-item">
+                                            <span> Trình độ học vấn: </span>
+                                        </div>
+                                        <div class="resident-input-study2 resident-input-colum-text-item">
+                                            <span> Trình độ ngoại ngữ: </span>
+                                        </div>
+                                        <div class="resident-input-job resident-input-colum-text-item">
+                                            <span> Nghề nghiệp: </span>
+                                        </div>
+                                        <div class="resident-input-apartment resident-input-colum-text-item">
+                                            <span> Mã căn hộ: </span>
+                                        </div>
+                                    </div>
+                                    <div class="resident-input-colum-fill">
+                                        <div class="resident-input-name resident-input-colum-fill-item">
+                                            <input type="text" name="residentResidentName">
+                                        </div>
+                                        <div class="resident-input-date-of-birth resident-input-colum-fill-item">
+                                            <input type="date" name="residentBirthday" class="dob">
+                                        </div>
+                                        <div class="resident-input-born-place resident-input-colum-fill-item">
+                                            <input type="text" name="residentPlaceOfBirth">
+                                        </div>
+                                        <div class="resident-input-people resident-input-colum-fill-item">
+                                            <input type="text" name="residentEthnicity">
+                                        </div>
+                                        <div class="resident-input-nation resident-input-colum-fill-item">
+                                            <input type="text" name="residentNationality">
+                                        </div>
+                                        <div class="resident-input-cccd resident-input-colum-fill-item">
+                                            <input type="text" name="residentIdentityNumber">
+                                        </div>
+                                        <div class="resident-input-permanent-address resident-input-colum-fill-item">
+                                            <input type="text" name="residentPermanentAddress">
+                                        </div>
+                                        <div class="resident-input-study1 resident-input-colum-fill-item">
+                                            <input type="text" name="residentEducationLevel">
+                                        </div>
+                                        <div class="resident-input-study2 resident-input-colum-fill-item">
+                                            <input type="text" name="residentLanguageProficiency">
+                                        </div>
+                                        <div class="resident-input-job resident-input-colum-fill-item">
+                                            <input type="text" name="residentOccupation">
+                                        </div>
+                                        <div class="resident-input-apartment resident-input-colum-fill-item">
+                                            <input type="text" name="residentApartmentName">
+                                        </div>
+                                    </div>
+                                    <div class="resident-input-colum-text">
+                                        <div class="resident-input-other-name resident-input-colum-text-item">
+                                            <span> Tên khác (nếu có): </span>
+                                        </div>
+                                        <div class="resident-input-sex resident-input-colum-text-item">
+                                            <span> Giới tính: </span>
+                                        </div>
+                                        <div class="resident-input-hometown resident-input-colum-text-item">
+                                            <span> Quê quán: </span>
+                                        </div>
+                                        <div class="resident-input-religion resident-input-colum-text-item">
+                                            <span> Tôn giáo: </span>
+                                        </div>
+                                        <div class="resident-input-phone resident-input-colum-text-item">
+                                            <span> Số điện thoại: </span>
+                                        </div>
+                                        <div class="resident-input-passport resident-input-colum-text-item">
+                                            <span> Số hộ chiếu: </span>
+                                        </div>
+                                        <div class="resident-input-temporary-address resident-input-colum-text-item">
+                                            <span> Địa chỉ tạm trú: </span>
+                                        </div>
+                                        <div class="resident-input-study3 resident-input-colum-text-item">
+                                            <span> Trình độ chuyên môn: </span>
+                                        </div>
+                                        <div class="resident-input-language resident-input-colum-text-item">
+                                            <span> Biết tiếng dân tộc: </span>
+                                        </div>
+                                        <div class="resident-input-work-place resident-input-colum-text-item">
+                                            <span> Nơi làm việc: </span>
+                                        </div>
+                                        <div class="resident-input-apartment-role resident-input-colum-text-item">
+                                            <span> Vai trò trong căn hộ: </span>
+                                        </div>
+                                    </div>
+                                    <div class="resident-input-colum-fill">
+                                        <div class="resident-input-other-name resident-input-colum-fill-item">
+                                            <input type="text" name="residentAliasName">
                                         </div>
                                         <div class="resident-input-sex resident-input-colum-fill-item">
                                             <div class="resident-input-sex-body">
@@ -785,470 +1281,174 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div class="resident-death-date-of-birth-input resident-input-colum-fill-item">
-                                            <input type="date">
+                                        <div class="resident-input-hometown resident-input-colum-fill-item">
+                                            <input type="text" name="residentHometown">
                                         </div>
-                                        <div class="resident-death-people-input resident-input-colum-fill-item">
-                                            <input type="text">
+                                        <div class="resident-input-religion resident-input-colum-fill-item">
+                                            <input type="text" name="residentReligion">
                                         </div>
-                                        <div class="resident-death-nation-input resident-input-colum-fill-item">
-                                            <input type="text">
+                                        <div class="resident-input-phone resident-input-colum-fill-item">
+                                            <input type="text" name="residentPhoneNumber">
                                         </div>
-                                        <div class="resident-death-last-place-input resident-input-colum-fill-item">
-                                            <input type="text">
+                                        <div class="resident-input-passport resident-input-colum-fill-item">
+                                            <input type="text" name="residentPassportNumber">
                                         </div>
-                                        <div class="resident-death-cccd-input resident-input-colum-fill-item">
-                                            <input type="text">
+                                        <div class="resident-input-temporary-address resident-input-colum-fill-item">
+                                            <input type="text" name="residentTemporaryAddress">
                                         </div>
-                                        <div class="resident-death-date-of-death-input resident-input-colum-fill-item">
-                                            <input type="time">
+                                        <div class="resident-input-study3 resident-input-colum-fill-item">
+                                            <input type="text" name="residentProfessionalQualification">
                                         </div>
-                                        <div class="resident-death-date-of-death-input resident-input-colum-fill-item">
-                                            <input type="date">
+                                        <div class="resident-input-language resident-input-colum-fill-item">
+                                            <input type="text" name="residentEthnicLanguage">
                                         </div>
-                                        <div class="resident-death-place-input resident-input-colum-fill-item">
-                                            <input type="text">
+                                        <div class="resident-input-work-place resident-input-colum-fill-item">
+                                            <input type="text" name="residentWorkplace">
                                         </div>
-                                        <div class="resident-death-reason-input resident-input-colum-fill-item">
-                                            <textarea name="" id=""></textarea>
-                                        </div>
-                                        <div class="resident-death-paper-input resident-input-colum-fill-item">
-                                            <input type="text">
+                                        <div class="resident-input-apartment-role resident-input-colum-fill-item">
+                                            <div class="resident-input-apartment-role-body">
+                                                <span class="resident-input-apartment-role-text"> </span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                                                    viewBox="0 -960 960 960" width="24px" fill="#343a40">
+                                                    <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+                                                </svg>
+                                            </div>
+                                            <ul class="resident-input-apartment-role-list">
+                                                <li name="OWNER" class="resident-input-apartment-role-list-item">
+                                                    <span> Chủ hộ </span>
+                                                </li>
+                                                <li name="NON_OWNER" class="resident-input-apartment-role-list-item">
+                                                    <span> Thành viên </span>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="resident-death-modal-footer">
-                                <div></div>
-                                <div class="resident-death-modal-button">
-                                    <button class="resident-death-modal-close-button">
-                                        <span class="resident-death-modal-close-button-text"> Hủy </span>
-                                    </button>
-                                    <button class="resident-death-modal-save-button">
-                                        <span class="resident-death-modal-save-button-text"> Lưu </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="create-resident-modal-container">
-                        <div class="create-resident-modal">
-                            <div class="create-resident-modal-title">
-                                <span class="create-resident-modal-title-text"> Thêm mới nhân khẩu </span>
-                            </div>
-                            <div class="create-resident-modal-input">
-                                <div class="resident-input-colum-text">
-                                    <div class="resident-input-name resident-input-colum-text-item">
-                                        <span> Họ và tên: </span>
+                                <div class="edit-resident-modal-footer">
+                                    <div></div>
+                                    <div class="edit-resident-modal-button">
+                                        <button class="edit-resident-modal-close-button">
+                                            <span class="edit-resident-modal-close-button-text"> Hủy </span>
+                                        </button>
+                                        <button class="edit-resident-modal-save-button">
+                                            <span class="edit-resident-modal-save-button-text"> Lưu </span>
+                                        </button>
                                     </div>
-                                    <div class="resident-input-date-of-birth resident-input-colum-text-item">
-                                        <span> Ngày tháng năm sinh: </span>
-                                    </div>
-                                    <div class="resident-input-born-place resident-input-colum-text-item">
-                                        <span> Nơi sinh: </span>
-                                    </div>
-                                    <div class="resident-input-people resident-input-colum-text-item">
-                                        <span> Dân tộc: </span>
-                                    </div>
-                                    <div class="resident-input-nation  resident-input-colum-text-item">
-                                        <span> Quốc tịch: </span>
-                                    </div>
-                                    <div class="resident-input-cccd resident-input-colum-text-item">
-                                        <span> Số CMT/CCCD: </span>
-                                    </div>
-                                    <div class="resident-input-permanent-address resident-input-colum-text-item">
-                                        <span> Địa chỉ thường trú: </span>
-                                    </div>
-                                    <div class="resident-input-study1 resident-input-colum-text-item">
-                                        <span> Trình độ học vấn: </span>
-                                    </div>
-                                    <div class="resident-input-study2 resident-input-colum-text-item">
-                                        <span> Trình độ ngoại ngữ: </span>
-                                    </div>
-                                    <div class="resident-input-job resident-input-colum-text-item">
-                                        <span> Nghề nghiệp: </span>
-                                    </div>
-                                    <div class="resident-input-apartment resident-input-colum-text-item">
-                                        <span> Mã căn hộ: </span>
-                                    </div>
-                                </div>
-                                <div class="resident-input-colum-fill">
-                                    <div class="resident-input-name resident-input-colum-fill-item">
-                                        <input type="text" name="residentResidentName">
-                                    </div>
-                                    <div class="resident-input-date-of-birth resident-input-colum-fill-item">
-                                        <input type="date" name="residentBirthday" class="dob">
-                                    </div>
-                                    <div class="resident-input-born-place resident-input-colum-fill-item">
-                                        <input type="text" name="residentPlaceOfBirth">
-                                    </div>
-                                    <div class="resident-input-people resident-input-colum-fill-item">
-                                        <input type="text" name="residentEthnicity">
-                                    </div>
-                                    <div class="resident-input-nation resident-input-colum-fill-item">
-                                        <input type="text" name="residentNationality">
-                                    </div>
-                                    <div class="resident-input-cccd resident-input-colum-fill-item">
-                                        <input type="text" name="residentIdentityNumber">
-                                    </div>
-                                    <div class="resident-input-permanent-address resident-input-colum-fill-item">
-                                        <input type="text" name="residentPermanentAddress">
-                                    </div>
-                                    <div class="resident-input-study1 resident-input-colum-fill-item">
-                                        <input type="text" name="residentEducationLevel">
-                                    </div>
-                                    <div class="resident-input-study2 resident-input-colum-fill-item">
-                                        <input type="text" name="residentLanguageProficiency">
-                                    </div>
-                                    <div class="resident-input-job resident-input-colum-fill-item">
-                                        <input type="text" name="residentOccupation">
-                                    </div>
-                                    <div class="resident-input-apartment resident-input-colum-fill-item">
-                                        <input type="text" name="residentApartmentName">
-                                    </div>
-                                </div>
-                                <div class="resident-input-colum-text">
-                                    <div class="resident-input-other-name resident-input-colum-text-item">
-                                        <span> Tên khác (nếu có): </span>
-                                    </div>
-                                    <div class="resident-input-sex resident-input-colum-text-item">
-                                        <span> Giới tính: </span>
-                                    </div>
-                                    <div class="resident-input-hometown resident-input-colum-text-item">
-                                        <span> Quê quán: </span>
-                                    </div>
-                                    <div class="resident-input-religion resident-input-colum-text-item">
-                                        <span> Tôn giáo: </span>
-                                    </div>
-                                    <div class="resident-input-phone resident-input-colum-text-item">
-                                        <span> Số điện thoại: </span>
-                                    </div>
-                                    <div class="resident-input-passport resident-input-colum-text-item">
-                                        <span> Số hộ chiếu: </span>
-                                    </div>
-                                    <div class="resident-input-temporary-address resident-input-colum-text-item">
-                                        <span> Địa chỉ tạm trú: </span>
-                                    </div>
-                                    <div class="resident-input-study3 resident-input-colum-text-item">
-                                        <span> Trình độ chuyên môn: </span>
-                                    </div>
-                                    <div class="resident-input-language resident-input-colum-text-item">
-                                        <span> Biết tiếng dân tộc: </span>
-                                    </div>
-                                    <div class="resident-input-work-place resident-input-colum-text-item">
-                                        <span> Nơi làm việc: </span>
-                                    </div>
-                                    <div class="resident-input-apartment-role resident-input-colum-text-item">
-                                        <span> Vai trò trong căn hộ: </span>
-                                    </div>
-                                </div>
-                                <div class="resident-input-colum-fill">
-                                    <div class="resident-input-other-name resident-input-colum-fill-item">
-                                        <input type="text" name="residentAliasName">
-                                    </div>
-                                    <div class="resident-input-sex resident-input-colum-fill-item">
-                                        <div class="resident-input-sex-body">
-                                            <span class="resident-input-sex-text"> </span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" height="24px"
-                                                viewBox="0 -960 960 960" width="24px" fill="#343a40">
-                                                <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
-                                            </svg>
-                                        </div>
-                                        <ul class="resident-input-sex-list">
-                                            <li name="MALE" class="resident-input-sex-list-item">
-                                                <span> Nam </span>
-                                            </li>
-                                            <li name="FEMALE" class="resident-input-sex-list-item">
-                                                <span> Nữ </span>
-                                            </li>
-                                            <li name="otherSex" class="resident-input-sex-list-item">
-                                                <span> Khác </span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="resident-input-hometown resident-input-colum-fill-item">
-                                        <input type="text" name="residentHometown">
-                                    </div>
-                                    <div class="resident-input-religion resident-input-colum-fill-item">
-                                        <input type="text" name="residentReligion">
-                                    </div>
-                                    <div class="resident-input-phone resident-input-colum-fill-item">
-                                        <input type="text" name="residentPhoneNumber">
-                                    </div>
-                                    <div class="resident-input-passport resident-input-colum-fill-item">
-                                        <input type="text" name="residentPassportNumber">
-                                    </div>
-                                    <div class="resident-input-temporary-address resident-input-colum-fill-item">
-                                        <input type="text" name="residentTemporaryAddress">
-                                    </div>
-                                    <div class="resident-input-study3 resident-input-colum-fill-item">
-                                        <input type="text" name="residentProfessionalQualification">
-                                    </div>
-                                    <div class="resident-input-language resident-input-colum-fill-item">
-                                        <input type="text" name="residentEthnicLanguage">
-                                    </div>
-                                    <div class="resident-input-work-place resident-input-colum-fill-item">
-                                        <input type="text" name="residentWorkplace">
-                                    </div>
-                                    <div class="resident-input-apartment-role resident-input-colum-fill-item">
-                                        <div class="resident-input-apartment-role-body">
-                                            <span class="resident-input-apartment-role-text"> </span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" height="24px"
-                                                viewBox="0 -960 960 960" width="24px" fill="#343a40">
-                                                <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
-                                            </svg>
-                                        </div>
-                                        <ul class="resident-input-apartment-role-list">
-                                            <li name="OWNER" class="resident-input-apartment-role-list-item">
-                                                <span> Chủ hộ </span>
-                                            </li>
-                                            <li name="NON_OWNER" class="resident-input-apartment-role-list-item">
-                                                <span> Thành viên </span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="create-resident-modal-footer">
-                                <div></div>
-                                <div class="create-resident-modal-button">
-                                    <button class="create-resident-modal-close-button">
-                                        <span class="create-resident-modal-close-button-text"> Hủy </span>
-                                    </button>
-                                    <button class="create-resident-modal-save-button">
-                                        <span class="create-resident-modal-save-button-text"> Lưu </span>
-                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="edit-resident-modal-container">
-                        <div class="edit-resident-modal">
-                            <div class="edit-resident-modal-title">
-                                <span class="edit-resident-modal-title-text"> Chỉnh sửa </span>
-                            </div>
-                            <div class="edit-resident-modal-input">
-                                <div class="resident-input-colum-text">
-                                    <div class="resident-input-name resident-input-colum-text-item">
-                                        <span> Họ và tên: </span>
-                                    </div>
-                                    <div class="resident-input-date-of-birth resident-input-colum-text-item">
-                                        <span> Ngày tháng năm sinh: </span>
-                                    </div>
-                                    <div class="resident-input-born-place resident-input-colum-text-item">
-                                        <span> Nơi sinh: </span>
-                                    </div>
-                                    <div class="resident-input-people resident-input-colum-text-item">
-                                        <span> Dân tộc: </span>
-                                    </div>
-                                    <div class="resident-input-nation  resident-input-colum-text-item">
-                                        <span> Quốc tịch: </span>
-                                    </div>
-                                    <div class="resident-input-cccd resident-input-colum-text-item">
-                                        <span> Số CMT/CCCD: </span>
-                                    </div>
-                                    <div class="resident-input-permanent-address resident-input-colum-text-item">
-                                        <span> Địa chỉ thường trú: </span>
-                                    </div>
-                                    <div class="resident-input-study1 resident-input-colum-text-item">
-                                        <span> Trình độ học vấn: </span>
-                                    </div>
-                                    <div class="resident-input-study2 resident-input-colum-text-item">
-                                        <span> Trình độ ngoại ngữ: </span>
-                                    </div>
-                                    <div class="resident-input-job resident-input-colum-text-item">
-                                        <span> Nghề nghiệp: </span>
-                                    </div>
-                                    <div class="resident-input-apartment resident-input-colum-text-item">
-                                        <span> Mã căn hộ: </span>
-                                    </div>
-                                </div>
-                                <div class="resident-input-colum-fill">
-                                    <div class="resident-input-name resident-input-colum-fill-item">
-                                        <input type="text" name="residentResidentName">
-                                    </div>
-                                    <div class="resident-input-date-of-birth resident-input-colum-fill-item">
-                                        <input type="date" name="residentBirthday" class="dob">
-                                    </div>
-                                    <div class="resident-input-born-place resident-input-colum-fill-item">
-                                        <input type="text" name="residentPlaceOfBirth">
-                                    </div>
-                                    <div class="resident-input-people resident-input-colum-fill-item">
-                                        <input type="text" name="residentEthnicity">
-                                    </div>
-                                    <div class="resident-input-nation resident-input-colum-fill-item">
-                                        <input type="text" name="residentNationality">
-                                    </div>
-                                    <div class="resident-input-cccd resident-input-colum-fill-item">
-                                        <input type="text" name="residentIdentityNumber">
-                                    </div>
-                                    <div class="resident-input-permanent-address resident-input-colum-fill-item">
-                                        <input type="text" name="residentPermanentAddress">
-                                    </div>
-                                    <div class="resident-input-study1 resident-input-colum-fill-item">
-                                        <input type="text" name="residentEducationLevel">
-                                    </div>
-                                    <div class="resident-input-study2 resident-input-colum-fill-item">
-                                        <input type="text" name="residentLanguageProficiency">
-                                    </div>
-                                    <div class="resident-input-job resident-input-colum-fill-item">
-                                        <input type="text" name="residentOccupation">
-                                    </div>
-                                    <div class="resident-input-apartment resident-input-colum-fill-item">
-                                        <input type="text" name="residentApartmentName">
-                                    </div>
-                                </div>
-                                <div class="resident-input-colum-text">
-                                    <div class="resident-input-other-name resident-input-colum-text-item">
-                                        <span> Tên khác (nếu có): </span>
-                                    </div>
-                                    <div class="resident-input-sex resident-input-colum-text-item">
-                                        <span> Giới tính: </span>
-                                    </div>
-                                    <div class="resident-input-hometown resident-input-colum-text-item">
-                                        <span> Quê quán: </span>
-                                    </div>
-                                    <div class="resident-input-religion resident-input-colum-text-item">
-                                        <span> Tôn giáo: </span>
-                                    </div>
-                                    <div class="resident-input-phone resident-input-colum-text-item">
-                                        <span> Số điện thoại: </span>
-                                    </div>
-                                    <div class="resident-input-passport resident-input-colum-text-item">
-                                        <span> Số hộ chiếu: </span>
-                                    </div>
-                                    <div class="resident-input-temporary-address resident-input-colum-text-item">
-                                        <span> Địa chỉ tạm trú: </span>
-                                    </div>
-                                    <div class="resident-input-study3 resident-input-colum-text-item">
-                                        <span> Trình độ chuyên môn: </span>
-                                    </div>
-                                    <div class="resident-input-language resident-input-colum-text-item">
-                                        <span> Biết tiếng dân tộc: </span>
-                                    </div>
-                                    <div class="resident-input-work-place resident-input-colum-text-item">
-                                        <span> Nơi làm việc: </span>
-                                    </div>
-                                    <div class="resident-input-apartment-role resident-input-colum-text-item">
-                                        <span> Vai trò trong căn hộ: </span>
-                                    </div>
-                                </div>
-                                <div class="resident-input-colum-fill">
-                                    <div class="resident-input-other-name resident-input-colum-fill-item">
-                                        <input type="text" name="residentAliasName">
-                                    </div>
-                                    <div class="resident-input-sex resident-input-colum-fill-item">
-                                        <div class="resident-input-sex-body">
-                                            <span class="resident-input-sex-text"> </span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" height="24px"
-                                                viewBox="0 -960 960 960" width="24px" fill="#343a40">
-                                                <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
-                                            </svg>
-                                        </div>
-                                        <ul class="resident-input-sex-list">
-                                            <li name="male" class="resident-input-sex-list-item">
-                                                <span> Nam </span>
-                                            </li>
-                                            <li name="female" class="resident-input-sex-list-item">
-                                                <span> Nữ </span>
-                                            </li>
-                                            <li name="otherSex" class="resident-input-sex-list-item">
-                                                <span> Khác </span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="resident-input-hometown resident-input-colum-fill-item">
-                                        <input type="text" name="residentHometown">
-                                    </div>
-                                    <div class="resident-input-religion resident-input-colum-fill-item">
-                                        <input type="text" name="residentReligion">
-                                    </div>
-                                    <div class="resident-input-phone resident-input-colum-fill-item">
-                                        <input type="text" name="residentPhoneNumber">
-                                    </div>
-                                    <div class="resident-input-passport resident-input-colum-fill-item">
-                                        <input type="text" name="residentPassportNumber">
-                                    </div>
-                                    <div class="resident-input-temporary-address resident-input-colum-fill-item">
-                                        <input type="text" name="residentTemporaryAddress">
-                                    </div>
-                                    <div class="resident-input-study3 resident-input-colum-fill-item">
-                                        <input type="text" name="residentProfessionalQualification">
-                                    </div>
-                                    <div class="resident-input-language resident-input-colum-fill-item">
-                                        <input type="text" name="residentEthnicLanguage">
-                                    </div>
-                                    <div class="resident-input-work-place resident-input-colum-fill-item">
-                                        <input type="text" name="residentWorkplace">
-                                    </div>
-                                    <div class="resident-input-apartment-role resident-input-colum-fill-item">
-                                        <div class="resident-input-apartment-role-body">
-                                            <span class="resident-input-apartment-role-text"> </span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" height="24px"
-                                                viewBox="0 -960 960 960" width="24px" fill="#343a40">
-                                                <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
-                                            </svg>
-                                        </div>
-                                        <ul class="resident-input-apartment-role-list">
-                                            <li name="OWNER" class="resident-input-apartment-role-list-item">
-                                                <span> Chủ hộ </span>
-                                            </li>
-                                            <li name="NON_OWNER" class="resident-input-apartment-role-list-item">
-                                                <span> Thành viên </span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="edit-resident-modal-footer">
-                                <div></div>
-                                <div class="edit-resident-modal-button">
-                                    <button class="edit-resident-modal-close-button">
-                                        <span class="edit-resident-modal-close-button-text"> Hủy </span>
-                                    </button>
-                                    <button class="edit-resident-modal-save-button">
-                                        <span class="edit-resident-modal-save-button-text"> Lưu </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="resident-tab-body">
+                        <table class="resident-table">
+                            <tr class="table-header">
+                                <th> Tên căn hộ </th>
+                                <th> Tên cư dân </th>
+                                <th> Vai trò </th>
+                                <th> Số điện thoại </th>
+                                <th></th>
+                            </tr>
+                        </table>
                     </div>
                 </div>
-                <div class="resident-tab-body">
-                    <table class="resident-table">
-                        <tr class="table-header">
-                            <th> Tên căn hộ </th>
-                            <th> Tên cư dân </th>
-                            <th> Vai trò </th>
-                            <th> Số điện thoại </th>
-                            <th></th>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <div id="history-tab" class="history-tab-all website-tab">
-                <div class="history-tab-header">
-                    <span class="history-tab-title"> LỊCH SỬ </span>
-                    <div class="history-tab-filter">
-                        <div class="history-tab-filter-people">
-                            <span> Người thực hiện </span>
-                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                                fill="#0a0908">
-                                <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
-                            </svg>
+                <div id="history-tab" class="history-tab-all website-tab">
+                    <div class="history-tab-header">
+                        <span class="history-tab-title"> LỊCH SỬ </span>
+                        <div class="history-tab-filter">
+                            <div class="history-tab-filter-people">
+                                <span> Người thực hiện </span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#0a0908">
+                                    <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+                                </svg>
+                            </div>
+                            <div class="history-tab-filter-action">
+                                <span> Hành động </span>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
+                                    width="24px" fill="#0a0908">
+                                    <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
+                                </svg>
+                            </div>
                         </div>
-                        <div class="history-tab-filter-action">
-                            <span> Hành động </span>
-                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                                fill="#0a0908">
-                                <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" />
-                            </svg>
-                        </div>
+
+                    </div>
+                    <div class="history-tab-body">
+                        <table class="history-table">
+                            <thead>
+                                <tr class="table-header">
+                                    <th> Thời gian thực hiện </th>
+                                    <th> Mô tả </th>
+                                    <th> Hành động </th>
+                                    <th> Người thực hiện </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2024-06-01 08:30</td>
+                                    <td>Cập nhật thông tin căn hộ A191</td>
+                                    <td>Chỉnh sửa dữ liệu</td>
+                                    <td>Nguyễn Văn A</td>
+                                </tr>
+                                <tr>
+                                    <td>2024-06-01 09:15</td>
+                                    <td>Thêm mới cư dân vào hệ thống</td>
+                                    <td>Thêm dữ liệu</td>
+                                    <td>Trần Thị B</td>
+                                </tr>
+                                <tr>
+                                    <td>2024-06-01 10:00</td>
+                                    <td>Xóa thông tin cư dân không hợp lệ</td>
+                                    <td>Xóa dữ liệu</td>
+                                    <td>Lê Văn C</td>
+                                </tr>
+                                <tr>
+                                    <td>2024-06-01 11:30</td>
+                                    <td>Tìm kiếm thông tin cư dân tòa nhà 3</td>
+                                    <td>Tìm kiếm dữ liệu</td>
+                                    <td>Phạm Thị D</td>
+                                </tr>
+                                <tr>
+                                    <td>2024-06-01 13:00</td>
+                                    <td>Cập nhật diện tích căn hộ B102</td>
+                                    <td>Chỉnh sửa dữ liệu</td>
+                                    <td>Nguyễn Văn A</td>
+                                </tr>
+                                <tr>
+                                    <td>2024-06-01 14:45</td>
+                                    <td>Thêm mới thông tin căn hộ C210</td>
+                                    <td>Thêm dữ liệu</td>
+                                    <td>Trần Thị B</td>
+                                </tr>
+                                <tr>
+                                    <td>2024-06-01 15:30</td>
+                                    <td>Phê duyệt hồ sơ cư dân</td>
+                                    <td>Phê duyệt</td>
+                                    <td>Nguyễn Văn A</td>
+                                </tr>
+                                <tr>
+                                    <td>2024-06-01 16:15</td>
+                                    <td>Tìm kiếm căn hộ chưa có cư dân</td>
+                                    <td>Tìm kiếm dữ liệu</td>
+                                    <td>Lê Văn C</td>
+                                </tr>
+                                <tr>
+                                    <td>2024-06-01 17:00</td>
+                                    <td>Cập nhật thông tin liên hệ cư dân</td>
+                                    <td>Chỉnh sửa dữ liệu</td>
+                                    <td>Phạm Thị D</td>
+                                </tr>
+                                <tr>
+                                    <td>2024-06-01 18:00</td>
+                                    <td>Xóa dữ liệu căn hộ trùng lặp</td>
+                                    <td>Xóa dữ liệu</td>
+                                    <td>Trần Thị B</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            </div>
-            <div id="settings-tab" class="settings-tab-all website-tab">
-                <h1> Đây là trang cài đặt </h1>
+                <div id="settings-tab" class="settings-tab-all website-tab">
+                    <h1> Đây là trang cài đặt </h1>
+                </div>
             </div>
         </div>
     </div>
@@ -1256,6 +1456,7 @@
     <script src="/FE/right layout/tabs/buildings tab/buildings-tab.js"></script>
     <script src="/FE/right layout/tabs/donation tab/donation-tab.js"></script>
     <script src="/FE/right layout/tabs/resident tab/resident-tab.js"></script>
+    <script src="/FE/right layout/tabs/common tab/common-tab.js"></script>
 </body>
 
 </html>

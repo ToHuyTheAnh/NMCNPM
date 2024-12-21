@@ -4,5 +4,102 @@
     width: calc(100vw - 231px);
     height: calc(100vh - 60.8px);
     background-color: #f7f9f9;
+    /* display: none; */
+}
+
+#service-tab input {
+    outline: none;
+}
+
+#service-tab .service-tab-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 70px;
+    padding-top: 40px;
+}
+
+/* button */
+#service-tab .service-tab-button {
+    display: flex;
+    gap: 20px;
+}
+
+#service-tab .service-tab-create-btn {
+    padding: 10px 20px;
+    background-color: #979dac;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-color: #5390d9;
+}
+
+/* search area */
+#service-tab .service-tab-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #fff;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+}
+
+#service-tab .service-tab-search input {
+    padding: 10px;
+    border: none;
+    font-size: 1rem;
+}
+
+#service-tab .service-tab-search-icon {
+    width: 30px;
+    cursor: pointer;
+}
+
+/* table */
+#service-tab table {
+    margin: auto;
+    border-collapse: collapse;
+    width: 95%;
+    border: 1px solid #bdc3c7;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+#service-tab tr {
+    transition: all .2s ease-in;
+    cursor: pointer;
+}
+
+#service-tab table .table-row {
+    background-color: #fff;
+}
+
+#service-tab table .table-row:hover {
+    background: #f5f5f5;
+    transform: scale(1.02);
+}
+
+#service-tab table .table-row-hide {
     display: none;
+}
+
+#service-tab td,
+th {
+    height: 40px;
+    border-bottom: 1px solid #ddd;
+}
+
+#service-tab .table-header {
+    background: #5e60ce;
+    color: #fff;
+}
+
+#service-tab .table-icons .table-icon {
+    width: 25px;
+    height: 25px;
+}
+
+#service-tab .table-icons .table-icon:hover {
+    fill: #5e60ce;
 }

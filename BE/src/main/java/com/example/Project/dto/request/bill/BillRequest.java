@@ -8,6 +8,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.YearMonth;
 import java.util.List;
 
 @Data
@@ -27,7 +28,7 @@ public class BillRequest {
     BigDecimal totalAmountPaid = BigDecimal.ZERO;
 
     @NotNull(message = "Tháng thu phí không được để trống")
-    LocalDateTime monthYear;
+    YearMonth monthYear;
 
     @Builder.Default
     Enums.BillStatus status = Enums.BillStatus.UNPAID; // Còn thiếu / Trả đủ
