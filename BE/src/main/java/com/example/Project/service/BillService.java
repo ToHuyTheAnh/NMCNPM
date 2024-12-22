@@ -4,6 +4,7 @@ import com.example.Project.dto.request.bill.BillRequest;
 import com.example.Project.dto.request.bill.BillSearchRequest;
 import com.example.Project.entity.ApartmentCharge;
 import com.example.Project.entity.Bill;
+import com.example.Project.entity.Apartment;
 import com.example.Project.mapper.ApartmentChargeMapper;
 import com.example.Project.mapper.BillMapper;
 import com.example.Project.repository.BillRepository;
@@ -41,13 +42,18 @@ public class BillService {
     @Autowired
     private ApartmentChargeMapper apartmentChargeMapper;
 
+    @Autowired
+    private ApartmentService apartmentService;
+
     @PersistenceContext
     private EntityManager entityManager;
 
     @Transactional
     public Bill create(BillRequest request) {
         List<ApartmentCharge> apartmentChargeList = new ArrayList<>();
+        Apartment apartment = apartmentService.getById(request.getApartmentId());
         Bill bill = billMapper.toBill(request);
+        bill.setApartmentName(apartment.getApartmentName());
         for(ApartmentChargeRequest request1 : request.getApartmentChargeRequestList()) {
             request1.setApartmentId(request.getApartmentId());
             ApartmentCharge apartmentCharge = apartmentChargeService.create(request1);
@@ -91,6 +97,8 @@ public class BillService {
         List<ApartmentCharge> apartmentChargeList = bill.getApartmentChargeList();
         List<ApartmentChargeRequest> apartmentChargeRequestList = request.getApartmentChargeRequestList();
         List<ApartmentCharge> updateApartmentChargeList = new ArrayList<>();
+        Apartment apartment = apartmentService.getById(request.getApartmentId());
+        bill.setApartmentName(apartment.getApartmentName());
         for (int i = 0;i < apartmentChargeList.size();i++)
         {
             ApartmentCharge apartmentCharge = apartmentChargeList.get(i);
