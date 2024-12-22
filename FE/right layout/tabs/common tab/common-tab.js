@@ -102,7 +102,9 @@ function handleCreateNewCharges() {
             if (response.code === 200) {
                 console.log('Dữ liệu phản hồi: ', response);
                 listCommons.push(response.result);
+                console.log(listCommons);
                 renderCommons([response.result]);
+                renderServiceChargesForCreateModal([response.result]);
             } else {
                 alert("Lỗi: Không thể thêm căn hộ. Vui lòng điền đầy đủ thông tin!");
             }
@@ -173,57 +175,60 @@ function updateCharge(id, data, callback) {
 }
 
 function handleUpdateCharge(id) {
-    editChargeModalContainer.classList.add('edit-common-modal-open');
-    let listAtrributes = listCommons.find(function (cur) {
-        return cur.id === id;
-    })
-    // console.log(listAtrributes);
-    editChargeModalContainer.querySelector('input[name="editCommonChargeName"]').value = listAtrributes.chargeName;
-    editChargeModalContainer.querySelector('input[name="editCommonUnitAmount"]').value = listAtrributes.unitAmount;
-    editChargeModalContainer.querySelector('input[name="editCommonUnitMeasurement"]').value = listAtrributes.unitMeasurement;
-    editChargeModalContainer.querySelector('input[name="editCommonDescription"]').value = listAtrributes.description;
-    let typeText = editChargeModalContainer.querySelector('.edit-common-modal-type-body-text');
-    typeText.textContent = listChargeTypes[listAtrributes.type];
-    typeText.classList.add('text-active');
-    let editChargeModalSave = document.querySelector('.edit-common-modal-save-button');
-
-    editChargeModalSave.addEventListener('click', function (e) {
-        editChargeModalContainer.classList.remove('edit-common-modal-open');
-        let chargeNameInput = editChargeModalContainer.querySelector('input[name="editCommonChargeName"]').value;
-        let chargeTypeInput = commonCharges[editChargeModalContainer.querySelector('.edit-common-modal-type-body-text').textContent.trim()];
-        let chargeUnitAmountInput = editChargeModalContainer.querySelector('input[name="editCommonUnitAmount"]').value;
-        let chargeUnitMeasurementInput = editChargeModalContainer.querySelector('input[name="editCommonUnitMeasurement"]').value;
-        let chargeDescriptionInput = editChargeModalContainer.querySelector('input[name="editCommonDescription"]').value;
-        var editedCharge = {
-            chargeName: chargeNameInput,
-            type: chargeTypeInput,
-            unitAmount: chargeUnitAmountInput,
-            unitMeasurement: chargeUnitMeasurementInput,
-            description: chargeDescriptionInput
-        };
-        updateCharge(id, editedCharge, function (response) {
-            console.log('phản hồi:', response.code, response);
-            if (response.code === 200) {
-                listAtrributes.chargeName = chargeNameInput;
-                listAtrributes.type = chargeTypeInput;
-                listAtrributes.unitAmount = chargeUnitAmountInput;
-                listAtrributes.unitMeasurement = chargeUnitMeasurementInput;
-                listAtrributes.description = chargeDescriptionInput;
-                let chargeEditedTable = document.getElementById('charge-' + id);
-                chargeEditedTable.querySelector('.charge-item-text').textContent = chargeNameInput;
-                let chargeContainer = document.querySelector('.charge-container');
-                let serviceContainer = chargeContainer.querySelector('.service-charge-body');
-                let managementContainer = chargeContainer.querySelector('.management-charge-body');
-                let donationContainer = chargeContainer.querySelector('.donation-charge-body');
-                if (serviceContainer.hasChildNodes()) serviceContainer.innerHTML = "";
-                if (managementContainer.hasChildNodes()) managementContainer.innerHTML = "";
-                if (donationContainer.hasChildNodes()) donationContainer.innerHTML = "";
-                getCommons(renderCommons(listCommons));
-            } else {
-                alert("Cập nhật thất bại: " + response.message);
-            }
+    let check = document.querySelector('#charge-' + id + ' svg');
+    if (check.clicked === false) {
+        editChargeModalContainer.classList.add('edit-common-modal-open');
+        let listAtrributes = listCommons.find(function (cur) {
+            return cur.id === id;
         })
-    });
+        // console.log(listAtrributes);
+        editChargeModalContainer.querySelector('input[name="editCommonChargeName"]').value = listAtrributes.chargeName;
+        editChargeModalContainer.querySelector('input[name="editCommonUnitAmount"]').value = listAtrributes.unitAmount;
+        editChargeModalContainer.querySelector('input[name="editCommonUnitMeasurement"]').value = listAtrributes.unitMeasurement;
+        editChargeModalContainer.querySelector('input[name="editCommonDescription"]').value = listAtrributes.description;
+        let typeText = editChargeModalContainer.querySelector('.edit-common-modal-type-body-text');
+        typeText.textContent = listChargeTypes[listAtrributes.type];
+        typeText.classList.add('text-active');
+        let editChargeModalSave = document.querySelector('.edit-common-modal-save-button');
+
+        editChargeModalSave.addEventListener('click', function (e) {
+            editChargeModalContainer.classList.remove('edit-common-modal-open');
+            let chargeNameInput = editChargeModalContainer.querySelector('input[name="editCommonChargeName"]').value;
+            let chargeTypeInput = commonCharges[editChargeModalContainer.querySelector('.edit-common-modal-type-body-text').textContent.trim()];
+            let chargeUnitAmountInput = editChargeModalContainer.querySelector('input[name="editCommonUnitAmount"]').value;
+            let chargeUnitMeasurementInput = editChargeModalContainer.querySelector('input[name="editCommonUnitMeasurement"]').value;
+            let chargeDescriptionInput = editChargeModalContainer.querySelector('input[name="editCommonDescription"]').value;
+            var editedCharge = {
+                chargeName: chargeNameInput,
+                type: chargeTypeInput,
+                unitAmount: chargeUnitAmountInput,
+                unitMeasurement: chargeUnitMeasurementInput,
+                description: chargeDescriptionInput
+            };
+            updateCharge(id, editedCharge, function (response) {
+                console.log('phản hồi:', response.code, response);
+                if (response.code === 200) {
+                    listAtrributes.chargeName = chargeNameInput;
+                    listAtrributes.type = chargeTypeInput;
+                    listAtrributes.unitAmount = chargeUnitAmountInput;
+                    listAtrributes.unitMeasurement = chargeUnitMeasurementInput;
+                    listAtrributes.description = chargeDescriptionInput;
+                    let chargeEditedTable = document.getElementById('charge-' + id);
+                    chargeEditedTable.querySelector('.charge-item-text').textContent = chargeNameInput;
+                    let chargeContainer = document.querySelector('.charge-container');
+                    let serviceContainer = chargeContainer.querySelector('.service-charge-body');
+                    let managementContainer = chargeContainer.querySelector('.management-charge-body');
+                    let donationContainer = chargeContainer.querySelector('.donation-charge-body');
+                    if (serviceContainer.hasChildNodes()) serviceContainer.innerHTML = "";
+                    if (managementContainer.hasChildNodes()) managementContainer.innerHTML = "";
+                    if (donationContainer.hasChildNodes()) donationContainer.innerHTML = "";
+                    getCommons(renderCommons(listCommons));
+                } else {
+                    alert("Cập nhật thất bại: " + response.message);
+                }
+            })
+        });
+    }
 }
 
 // Xuất dữ liệu
@@ -250,6 +255,7 @@ function getCommons(callback = () => { }) {
         .then(function (data) {
             if (data.code === 200) {
                 listCommons = data.result;
+                // console.log(listCommons);
                 callback(listCommons);
             }
         })

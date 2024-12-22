@@ -480,9 +480,67 @@
                             <button class="service-tab-create-btn"> Tạo mới </button>
                         </div>
                     </div>
-                    <div class="service-tab-modal">
+                    <div class="service-modal-container">
+                        <div class="service-modal">
+                            <div class="service-modal-title">
+                                <span class="service-tab-header-text"> Thêm mới dịch vụ </span>
+                            </div>
+                            <div class="service-modal-input">
+                                <div class="service-input-apartment-name">
+                                    <span class="service-input-text"> Căn hộ: </span>
+                                    <input type="text" name="serviceApartmentName">
+                                </div>
+                                <div class="service-input-service-charges-list">
+                                    <table class="table-charges-list">
+                                        <thead>
+                                            <tr class="table-header">
+                                                <th> Tên phí </th>
+                                                <th> Số lượng sử dụng </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
 
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="service-input-time">
+                                    <span class="service-input-text"> Thời gian: </span>
+                                    <input type="text" name="serviceMonthYear">
+                                </div>
+                                <div class="service-input-amount-paid">
+                                    <span class="service-input-text"> Số tiền đã trả: </span>
+                                    <input type="number" name="serviceAmountPaid">
+                                </div>
+                                <div class="service-input-payment-method">
+                                    <span class="service-input-text"> Phương thức thanh toán: </span>
+                                    <input type="text" name="servicePaymentMethod">
+                                    <ul class="service-payment-method-list">
+                                        <li class="service-payment-method-list-item">
+                                            <span name="CASH"> Tiền mặt </span>
+                                        </li>
+                                        <li class="service-payment-method-list-item">
+                                            <span name="BANK_TRANSFER"> Chuyển khoản </span>
+                                        </li>
+                                        <li class="service-payment-method-list-item">
+                                            <span name="CREDIT_CARD"> Thẻ tín dụng </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="service-modal-footer">
+                                <div></div>
+                                <div class="service-modal-buttons">
+                                    <button class="service-modal-close-button">
+                                        <span class="service-modal-close-button-text"> Hủy </span>
+                                    </button>
+                                    <button class="service-modal-save-button">
+                                        <span class="service-modal-save-button-text"> Lưu </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="service-tab-body">
                         <table class="service-table">
                             <thead>
@@ -1457,6 +1515,7 @@
     <script src="/FE/right layout/tabs/donation tab/donation-tab.js"></script>
     <script src="/FE/right layout/tabs/resident tab/resident-tab.js"></script>
     <script src="/FE/right layout/tabs/common tab/common-tab.js"></script>
+    <script src="/FE/right layout/tabs/service tab/service-tab.js"></script>
 </body>
 
 </html>

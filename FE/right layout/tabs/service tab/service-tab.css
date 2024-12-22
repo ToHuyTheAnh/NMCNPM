@@ -57,7 +57,7 @@
 }
 
 /* table */
-#service-tab table {
+#service-tab .service-tab-body table {
     margin: auto;
     border-collapse: collapse;
     width: 95%;
@@ -66,40 +66,215 @@
     text-align: center;
 }
 
-#service-tab tr {
+#service-tab .service-tab-body tr {
     transition: all .2s ease-in;
     cursor: pointer;
 }
 
-#service-tab table .table-row {
+#service-tab .service-tab-body table .table-row {
     background-color: #fff;
 }
 
-#service-tab table .table-row:hover {
+#service-tab .service-tab-body table .table-row:hover {
     background: #f5f5f5;
     transform: scale(1.02);
 }
 
-#service-tab table .table-row-hide {
+#service-tab .service-tab-body table .table-row-hide {
     display: none;
 }
 
-#service-tab td,
-th {
+#service-tab .service-tab-body td,
+.service-tab-body th {
     height: 40px;
     border-bottom: 1px solid #ddd;
 }
 
-#service-tab .table-header {
+#service-tab .service-tab-body .table-header {
     background: #5e60ce;
     color: #fff;
 }
 
-#service-tab .table-icons .table-icon {
+#service-tab .service-tab-body .table-icons .table-icon {
     width: 25px;
     height: 25px;
 }
 
-#service-tab .table-icons .table-icon:hover {
+#service-tab .service-tab-body .table-icons .table-icon:hover {
     fill: #5e60ce;
+}
+
+/* modal */
+#service-tab .service-modal-container {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 30;
+}
+
+#service-tab .service-modal-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#service-tab .service-modal-container .service-modal {
+    background: #fff;
+    width: 700px;
+    max-width: 100%;
+    padding: 20px 30px;
+    border-radius: 5px;
+}
+
+#service-tab .service-modal-title {
+    font-size: 20px;
+    font-weight: 650;
+    margin-bottom: 20px;
+    color: #5e60ce;
+}
+
+/* modal button */
+#service-tab .service-modal-footer {
+
+    display: flex;
+    justify-content: space-between;
+}
+
+#service-tab .service-modal-container .service-modal-close-button {
+
+    font-size: 1.3rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #f72585;
+    margin-right: 10px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#service-tab .service-modal-save-button {
+    font-size: 1.3rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #5390d9;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+/* payment ethod list in modal  */
+#service-tab .service-input-payment-method {
+    position: relative;
+}
+
+#service-tab .service-payment-method-list {
+    position: absolute;
+    width: 461px;
+    top: 32px;
+    margin-left: 216px;
+    padding: 10px 0px 0px 10px;
+    background-color: #fff;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+#service-tab .service-input-payment-method:hover .service-payment-method-list:not(.hidden) {
+    display: block;
+}
+
+#service-tab .service-payment-method-list-item {
+    font-size: 1.1rem;
+    color: #03045e;
+    padding-bottom: 7px;
+    display: block;
+    cursor: pointer;
+}
+
+#service-tab .service-payment-method-list-item:hover {
+    color: #5390d9;
+}
+
+/* input in modal */
+#service-tab .service-modal .service-input-text {
+    font-size: 1rem;
+    font-weight: 550;
+    width: 300px;
+}
+
+#service-tab .service-input-apartment-name,
+#service-tab .service-input-time,
+#service-tab .service-input-amount-paid,
+#service-tab .service-input-payment-method {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+#service-tab .service-input-apartment-name {
+    margin-bottom: 40px;
+}
+
+#service-tab .service-modal input:not(.inputInTable) {
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #5e60ce;
+    padding: 5px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+#service-tab .service-input-service-charges-list {
+    margin-bottom: 25px;
+}
+
+/* table in modal */
+#service-tab .service-input-service-charges-list .inputInTable {
+    outline: none;
+    border: none;
+    width: 100%;
+    height: 50px;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+#service-tab .service-input-service-charges-list table {
+    margin: auto;
+    border-collapse: collapse;
+    width: 95%;
+    border: 1px solid #bdc3c7;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+#service-tab .service-tab-body td,
+.service-tab-body th {
+    height: 40px;
+    border-bottom: 1px solid #ddd;
+}
+
+#service-tab .service-input-service-charges-list .table-header {
+    font-size: 1.1rem;
+    font-weight: 650;
+    background: #5e60ce;
+    color: #fff;
+}
+
+#service-tab .service-input-service-charges-list table .table-row {
+    font-size: 1.1rem;
+    background-color: #fff;
+}
+
+#service-tab .service-input-service-charges-list td,
+#service-tab .service-input-service-charges-list th {
+    height: 40px;
+    border: 1px solid #03045e;
 }

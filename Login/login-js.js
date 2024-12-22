@@ -1,19 +1,13 @@
+// Đóng mở mục menu
 const menuOpenButton = document.querySelector("#menu-open-button");
 const menuCloseButton = document.querySelector("#menu-close-button");
 
-// Bật menu bằng click
 menuOpenButton.addEventListener("click", () => {
     document.body.classList.toggle("show-mobile-menu");
 });
-
-// Tắt menu bằng cách click
-// Cách 1
 menuCloseButton.addEventListener("click", () => {
     document.body.classList.remove("show-mobile-menu");
 });
-
-// Cách 2
-//menuCloseButton.addEventListener("click", () => menuOpenButton.click());
 
 // Initialize Swiper
 const swiper = new Swiper('.slide-wrapper', {
@@ -48,10 +42,17 @@ const swiper = new Swiper('.slide-wrapper', {
     }
 });
 
-// const nameMethod = {
-//     "CASH": "Tiền mặt",
-//     "BANK_TRANSFER": "Chuyển khoản",
-//     "CREDIT_CARD": "Thẻ tín dụng"
-// }
 
-// console.log(nameMethod["CASH"]);
+// Đăng nhập 
+const loginModalOpen = document.querySelector('.login-button');
+const loginModalContainer = document.querySelector('.login-container');
+const loginModalClose = document.querySelector('.login-close-icon');
+
+loginModalOpen.addEventListener('click', function (e) {
+    console.log('Đã click');
+    loginModalContainer.classList.add('login-modal-open');
+});
+
+loginModalClose.addEventListener('click', function (e) {
+    loginModalContainer.classList.remove('login-modal-open');
+});
