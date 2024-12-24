@@ -7,6 +7,7 @@ import lombok.experimental.FieldDefaults;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,6 +20,8 @@ public class ApartmentChargeResponse {
     String chargeName;
     BigDecimal chargeAmount;
     BigDecimal unitQuantity;
+    BigDecimal unitAmount;
+    String unitMeasurement;
     BigDecimal amountPaid;
     Enums.PaymentMethod paymentMethod;
     LocalDateTime createAt;

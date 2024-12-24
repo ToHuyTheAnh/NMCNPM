@@ -6,6 +6,7 @@ import com.example.Project.dto.response.ApartmentChargeResponse;
 import com.example.Project.entity.Apartment;
 import com.example.Project.entity.ApartmentCharge;
 import com.example.Project.entity.Charge;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.processing.Generated;
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-12-21T15:00:03+0700",
+    date = "2024-12-24T19:57:11+0700",
     comments = "version: 1.5.3.Final, compiler: Eclipse JDT (IDE) 3.41.0.v20241217-1506, environment: Java 17.0.13 (Eclipse Adoptium)"
 )
 @Component
@@ -46,6 +47,8 @@ public class ApartmentChargeMapperImpl implements ApartmentChargeMapper {
         apartmentChargeResponse.setChargeId( apartmentChargeChargeId( apartmentCharge ) );
         apartmentChargeResponse.setApartmentName( apartmentChargeApartmentApartmentName( apartmentCharge ) );
         apartmentChargeResponse.setChargeName( apartmentChargeChargeChargeName( apartmentCharge ) );
+        apartmentChargeResponse.setUnitAmount( apartmentChargeChargeUnitAmount( apartmentCharge ) );
+        apartmentChargeResponse.setUnitMeasurement( apartmentChargeChargeUnitMeasurement( apartmentCharge ) );
         apartmentChargeResponse.setAmountPaid( apartmentCharge.getAmountPaid() );
         apartmentChargeResponse.setChargeAmount( apartmentCharge.getChargeAmount() );
         apartmentChargeResponse.setCreateAt( apartmentCharge.getCreateAt() );
@@ -176,5 +179,35 @@ public class ApartmentChargeMapperImpl implements ApartmentChargeMapper {
             return null;
         }
         return chargeName;
+    }
+
+    private BigDecimal apartmentChargeChargeUnitAmount(ApartmentCharge apartmentCharge) {
+        if ( apartmentCharge == null ) {
+            return null;
+        }
+        Charge charge = apartmentCharge.getCharge();
+        if ( charge == null ) {
+            return null;
+        }
+        BigDecimal unitAmount = charge.getUnitAmount();
+        if ( unitAmount == null ) {
+            return null;
+        }
+        return unitAmount;
+    }
+
+    private String apartmentChargeChargeUnitMeasurement(ApartmentCharge apartmentCharge) {
+        if ( apartmentCharge == null ) {
+            return null;
+        }
+        Charge charge = apartmentCharge.getCharge();
+        if ( charge == null ) {
+            return null;
+        }
+        String unitMeasurement = charge.getUnitMeasurement();
+        if ( unitMeasurement == null ) {
+            return null;
+        }
+        return unitMeasurement;
     }
 }

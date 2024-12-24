@@ -18,7 +18,7 @@ public class PredicateBuilder {
     );
 
     // Tổng hợp các điều kiện truy vấn
-    public <R, T> List<Predicate> createPredicatesToSearch(R request, CriteriaBuilder criteriaBuilder, Root<T> root ) {
+    public <R, T> Predicate createPredicatesToSearch(R request, CriteriaBuilder criteriaBuilder, Root<T> root ) {
         List<Predicate> predicates = new ArrayList<>();
         for(Field field : request.getClass().getDeclaredFields()) {
             field.setAccessible(true);
@@ -39,7 +39,7 @@ public class PredicateBuilder {
                 throw new RuntimeException("Thất bại trong truy cập trường: " + field.getName());
             }
         }
-        return predicates;
+        return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
     }
     
     private <T> Predicate createNestedPredicate(Root<T> root, CriteriaBuilder criteriaBuilder, String[] fields, Object value) {
@@ -48,4 +48,14 @@ public class PredicateBuilder {
         }
         return criteriaBuilder.equal(root.get(fields[0]).get(fields[1]), value);
     }
+
+    // Filter
+    public <R, T> Predicate createPredicatesToFilter(String searchText, CriteriaBuilder criteriaBuilder, Root<T> root, List<String> fields) {
+        List<Predicate> predicates = new ArrayList<>();
+        String likePattern = "%" + searchText.toLowerCase() + "%";
+        for(String field : fields) {
+            predicates.add(criteriaBuilder.like(criteriaBuilder.lower(root.get(field)), likePattern));
+        }
+        return criteriaBuilder.or(predicates.toArray(new Predicate[0]));
+    }    
 }

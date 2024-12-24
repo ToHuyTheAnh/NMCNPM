@@ -52,8 +52,8 @@ public class ChargeService {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Charge> criteriaQuery = criteriaBuilder.createQuery(Charge.class);
         Root<Charge> root = criteriaQuery.from(Charge.class);
-        List<Predicate> predicates = predicateBuilder.createPredicatesToSearch(request, criteriaBuilder, root);
-        criteriaQuery.select(root).where(predicates.toArray(new Predicate[0]));
+        Predicate predicate = predicateBuilder.createPredicatesToSearch(request, criteriaBuilder, root);
+        criteriaQuery.select(root).where(predicate);
         return  entityManager.createQuery(criteriaQuery).getResultList();
     }
 

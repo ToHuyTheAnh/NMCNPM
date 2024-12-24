@@ -1,6 +1,7 @@
 package com.example.Project.controller;
 
 
+import com.example.Project.dto.request.resident.ResidentFilterRequest;
 import com.example.Project.dto.request.resident.ResidentRequest;
 import com.example.Project.dto.request.resident.ResidentSearchRequest;
 import com.example.Project.dto.response.ApiResponse;
@@ -104,9 +105,20 @@ public class ResidentController {
                 .build();
     }
 
-    @GetMapping("/search")
+    @PostMapping("/search")
     public ApiResponse<List<ResidentResponse>> search(@RequestBody @Valid ResidentSearchRequest request) {
         List<Resident> residentList = residentService.search(request);
+        List<ResidentResponse> responses = residentMapper.toResidentResponseList(residentList);
+        return ApiResponse.<List<ResidentResponse>>builder()
+                .code(HttpStatus.OK.value())
+                .message("Thành công")
+                .result(responses)
+                .build();
+    }
+
+    @PostMapping("/filter")
+    public ApiResponse<List<ResidentResponse>> filter(@RequestBody @Valid ResidentFilterRequest request) {
+        List<Resident> residentList = residentService.filter(request);
         List<ResidentResponse> responses = residentMapper.toResidentResponseList(residentList);
         return ApiResponse.<List<ResidentResponse>>builder()
                 .code(HttpStatus.OK.value())

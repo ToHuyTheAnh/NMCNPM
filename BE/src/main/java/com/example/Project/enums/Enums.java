@@ -15,7 +15,9 @@ public class Enums {
     }
     public enum BillStatus {
         PAID,
-        UNPAID;
+        UNPAID,
+        PARTIAL, // Trả thiếu
+        OVERDUE; // Quá hạn
     }
     public enum PaymentMethod {
         CASH,
