@@ -4,7 +4,6 @@ import com.example.Project.dto.request.resident.ResidentFilterRequest;
 import com.example.Project.dto.request.resident.ResidentRequest;
 import com.example.Project.dto.request.resident.ResidentSearchRequest;
 import com.example.Project.entity.Apartment;
-import com.example.Project.entity.Bill;
 import com.example.Project.entity.Resident;
 import com.example.Project.mapper.ResidentMapper;
 import com.example.Project.repository.ResidentRepository;
