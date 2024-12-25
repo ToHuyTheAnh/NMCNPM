@@ -78,9 +78,9 @@ public class ApartmentChargeService {
         // Đối tượng root đại diện cho bảng ApartmentCharge, cho phép truy cập vào các trường của bảng
         Root<ApartmentCharge> root = query.from(ApartmentCharge.class);
         // Danh sách các điều kiện truy vấn
-        List<Predicate> predicates = predicateBuilder.createPredicatesToSearch(request, criteriaBuilder, root);
+        Predicate predicate = predicateBuilder.createPredicatesToSearch(request, criteriaBuilder, root);
         // Thực hiện truy vấn
-        query.select(root).where(predicates.toArray(new Predicate[0]));
+        query.select(root).where(predicate);
         return entityManager.createQuery(query).getResultList();
     }
 

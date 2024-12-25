@@ -1,5 +1,6 @@
 package com.example.Project.service;
 
+import com.example.Project.dto.request.resident.ResidentFilterRequest;
 import com.example.Project.dto.request.resident.ResidentRequest;
 import com.example.Project.dto.request.resident.ResidentSearchRequest;
 import com.example.Project.entity.Apartment;
@@ -75,8 +76,23 @@ public class ResidentService {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Resident> criteriaQuery = criteriaBuilder.createQuery(Resident.class);
         Root<Resident> root = criteriaQuery.from(Resident.class);
-        List<Predicate> predicates = predicateBuilder.createPredicatesToSearch(request, criteriaBuilder, root);
-        criteriaQuery.select(root).where(predicates.toArray(new Predicate[0]));
+        Predicate predicate = predicateBuilder.createPredicatesToSearch(request, criteriaBuilder, root);
+        criteriaQuery.select(root).where(predicate);
         return  entityManager.createQuery(criteriaQuery).getResultList();
+    }
+
+    public List<Resident> filter(@Valid ResidentFilterRequest request) {
+        String searchText = request.getSearchText();
+        System.out.println(searchText);
+        if(searchText == null || searchText.trim().isEmpty()) {
+            return residentRepository.findAll();
+        }
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Resident> query = criteriaBuilder.createQuery(Resident.class);
+        Root<Resident> root = query.from(Resident.class);
+        List<String>fields = List.of("residentName", "phoneNumber");
+        Predicate predicate = predicateBuilder.createPredicatesToFilter(searchText, criteriaBuilder, root, fields);
+        query.select(root).where(predicate);
+        return entityManager.createQuery(query).getResultList();
     }
 }

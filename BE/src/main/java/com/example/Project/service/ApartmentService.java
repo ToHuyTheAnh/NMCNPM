@@ -58,8 +58,8 @@ public class ApartmentService {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Apartment> query = criteriaBuilder.createQuery(Apartment.class);
         Root<Apartment> root = query.from(Apartment.class);
-        List<Predicate> predicates = predicateBuilder.createPredicatesToSearch(request, criteriaBuilder, root);
-        query.select(root).where(predicates.toArray(new Predicate[0]));
+        Predicate predicate = predicateBuilder.createPredicatesToSearch(request, criteriaBuilder, root);
+        query.select(root).where(predicate);
         return entityManager.createQuery(query).getResultList();
     }
 

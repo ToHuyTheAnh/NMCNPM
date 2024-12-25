@@ -9,6 +9,7 @@ import com.example.Project.mapper.ApartmentChargeMapper;
 import com.example.Project.mapper.BillMapper;
 import com.example.Project.repository.BillRepository;
 import com.example.Project.utils.PredicateBuilder;
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -77,8 +78,8 @@ public class BillService {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Bill> query = criteriaBuilder.createQuery(Bill.class);
         Root<Bill> root = query.from(Bill.class);
-        List<Predicate> predicates = predicateBuilder.createPredicatesToSearch(request, criteriaBuilder, root);
-        query.select(root).where(predicates.toArray(new Predicate[0]));
+        Predicate predicate = predicateBuilder.createPredicatesToSearch(request, criteriaBuilder, root);
+        query.select(root).where(predicate);
         return entityManager.createQuery(query).getResultList();
     }
 
