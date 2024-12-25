@@ -4,7 +4,7 @@
     width: calc(100vw - 231px);
     height: calc(100vh - 60.8px);
     background-color: #f7f9f9;
-    /* display: none; */
+    display: none;
 }
 
 #service-tab input {
@@ -105,7 +105,8 @@
 }
 
 /* modal */
-#service-tab .service-modal-container {
+#service-tab .service-modal-container,
+#service-tab .edit-service-modal-container {
     background-color: rgba(0, 0, 0, 0.3);
     position: fixed;
     display: flex;
@@ -121,12 +122,14 @@
     z-index: 30;
 }
 
-#service-tab .service-modal-open {
+#service-tab .service-modal-open,
+#service-tab .edit-service-modal-open {
     opacity: 1;
     pointer-events: auto;
 }
 
-#service-tab .service-modal-container .service-modal {
+#service-tab .service-modal-container .service-modal,
+#service-tab .edit-service-modal-container .edit-service-modal {
     background: #fff;
     width: 700px;
     max-width: 100%;
@@ -134,7 +137,8 @@
     border-radius: 5px;
 }
 
-#service-tab .service-modal-title {
+#service-tab .service-modal-title,
+#service-tab .edit-service-modal-title {
     font-size: 20px;
     font-weight: 650;
     margin-bottom: 20px;
@@ -142,14 +146,16 @@
 }
 
 /* modal button */
-#service-tab .service-modal-footer {
-
+#service-tab .service-modal-footer,
+#service-tab .edit-service-modal-footer,
+#service-tab .bill-modal-footer {
     display: flex;
     justify-content: space-between;
 }
 
-#service-tab .service-modal-container .service-modal-close-button {
-
+#service-tab .service-modal-container .service-modal-close-button,
+#service-tab .edit-service-modal-container .edit-service-modal-close-button,
+#service-tab .bill-modal-close-button {
     font-size: 1.3rem;
     padding: 5px 10px;
     border-radius: 5px;
@@ -160,7 +166,9 @@
     cursor: pointer;
 }
 
-#service-tab .service-modal-save-button {
+#service-tab .service-modal-save-button,
+#service-tab .edit-service-modal-save-button,
+#service-tab .bill-modal-print-button {
     font-size: 1.3rem;
     padding: 5px 10px;
     border-radius: 5px;
@@ -171,11 +179,13 @@
 }
 
 /* payment ethod list in modal  */
-#service-tab .service-input-payment-method {
+#service-tab .service-input-payment-method,
+#service-tab .edit-service-input-payment-method {
     position: relative;
 }
 
-#service-tab .service-payment-method-list {
+#service-tab .service-payment-method-list,
+#service-tab .edit-service-payment-method-list {
     position: absolute;
     width: 461px;
     top: 32px;
@@ -186,11 +196,13 @@
     display: none;
 }
 
-#service-tab .service-input-payment-method:hover .service-payment-method-list:not(.hidden) {
+#service-tab .service-input-payment-method:hover .service-payment-method-list:not(.hidden),
+#service-tab .edit-service-input-payment-method:hover .edit-service-payment-method-list:not(.hidden) {
     display: block;
 }
 
-#service-tab .service-payment-method-list-item {
+#service-tab .service-payment-method-list-item,
+#service-tab .edit-service-payment-method-list-item {
     font-size: 1.1rem;
     color: #03045e;
     padding-bottom: 7px;
@@ -198,12 +210,14 @@
     cursor: pointer;
 }
 
-#service-tab .service-payment-method-list-item:hover {
+#service-tab .service-payment-method-list-item:hover,
+#service-tab .edit-service-payment-method-list-item:hover {
     color: #5390d9;
 }
 
 /* input in modal */
-#service-tab .service-modal .service-input-text {
+#service-tab .service-modal .service-input-text,
+#service-tab .edit-service-modal .edit-service-input-text {
     font-size: 1rem;
     font-weight: 550;
     width: 300px;
@@ -212,18 +226,24 @@
 #service-tab .service-input-apartment-name,
 #service-tab .service-input-time,
 #service-tab .service-input-amount-paid,
-#service-tab .service-input-payment-method {
+#service-tab .service-input-payment-method,
+#service-tab .edit-service-input-apartment-name,
+#service-tab .edit-service-input-time,
+#service-tab .edit-service-input-amount-paid,
+#service-tab .edit-service-input-payment-method {
     display: flex;
     align-items: center;
     gap: 15px;
     margin-bottom: 25px;
 }
 
-#service-tab .service-input-apartment-name {
+#service-tab .service-input-apartment-name,
+#service-tab .edit-service-input-apartment-name {
     margin-bottom: 40px;
 }
 
-#service-tab .service-modal input:not(.inputInTable) {
+#service-tab .service-modal input:not(.inputInTable),
+#service-tab .edit-service-modal input:not(.inputInTable) {
     border: none;
     outline: none;
     border-bottom: 2px solid #5e60ce;
@@ -232,12 +252,14 @@
     width: 100%;
 }
 
-#service-tab .service-input-service-charges-list {
+#service-tab .service-input-service-charges-list,
+#service-tab .edit-service-input-service-charges-list {
     margin-bottom: 25px;
 }
 
 /* table in modal */
-#service-tab .service-input-service-charges-list .inputInTable {
+#service-tab .service-input-service-charges-list .inputInTable,
+#service-tab .edit-service-input-service-charges-list .inputInTable {
     outline: none;
     border: none;
     width: 100%;
@@ -246,7 +268,8 @@
     text-align: center;
 }
 
-#service-tab .service-input-service-charges-list table {
+#service-tab .service-input-service-charges-list table,
+#service-tab .edit-service-input-service-charges-list table {
     margin: auto;
     border-collapse: collapse;
     width: 95%;
@@ -256,25 +279,202 @@
 }
 
 #service-tab .service-tab-body td,
-.service-tab-body th {
+.service-tab-body th,
+#service-tab .edit-service-tab-body td,
+.edit-service-tab-body th {
     height: 40px;
     border-bottom: 1px solid #ddd;
 }
 
-#service-tab .service-input-service-charges-list .table-header {
+#service-tab .service-input-service-charges-list .table-header,
+#service-tab .edit-service-input-service-charges-list .table-header {
     font-size: 1.1rem;
     font-weight: 650;
     background: #5e60ce;
     color: #fff;
 }
 
-#service-tab .service-input-service-charges-list table .table-row {
+#service-tab .service-input-service-charges-list table .table-row,
+#service-tab .edit-service-input-service-charges-list table .table-row {
     font-size: 1.1rem;
     background-color: #fff;
 }
 
 #service-tab .service-input-service-charges-list td,
-#service-tab .service-input-service-charges-list th {
+#service-tab .service-input-service-charges-list th,
+#service-tab .edit-service-input-service-charges-list td,
+#service-tab .edit-service-input-service-charges-list th {
     height: 40px;
     border: 1px solid #03045e;
+}
+
+/* bill modal */
+#service-tab .bill-modal-container {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    overflow: hidden;
+    z-index: 30;
+}
+
+#service-tab .bill-modal-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#service-tab .bill-modal {
+    background: #fff;
+    width: 750px;
+    max-width: 100%;
+    padding: 20px 30px;
+    border-radius: 5px;
+}
+
+#service-tab .bill-modal-title {
+    font-size: 1.6rem;
+    font-weight: 750;
+    text-align: center;
+    margin: 20px 0px;
+    color: #5e60ce;
+}
+
+/* bill header */
+#service-tab .bill-modal-header {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+#service-tab .bill-header-left-side {
+    width: 100px;
+    display: block;
+    text-align: center;
+}
+
+#service-tab .bill-header-logo {
+    width: 70px;
+}
+
+#service-tab .bill-header-right-side {
+    display: block;
+    font-size: 1.1rem;
+}
+
+#service-tab .bill-header-right-side p {
+    margin: 10px;
+}
+
+/* table in bill */
+#service-tab .bill-modal-table table {
+    margin: auto;
+    border-collapse: collapse;
+    width: 95%;
+    text-align: center;
+}
+
+#service-tab .bill-table-1 thead,
+#service-tab .bill-table-2 thead {
+    background: #5e60ce;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 650;
+}
+
+#service-tab .bill-table-1 th,
+#service-tab .bill-table-2 th {
+    padding: 5px;
+}
+
+#service-tab .bill-table-1 th:nth-child(2),
+#service-tab .bill-table-2 th:nth-child(2) {
+    border-left: 2px solid #adb5bd;
+    border-right: 2px solid #adb5bd;
+}
+
+#service-tab .bill-table-2 th:nth-child(3) {
+    border-right: 2px solid #adb5bd;
+}
+
+#service-tab .bill-table-1 tbody,
+#service-tab .bill-table-2 tbody {
+    font-size: 1.2rem;
+    height: 50px;
+}
+
+#service-tab .bill-table-1 input,
+#service-tab .bill-table-2 input {
+    outline: none;
+    border: none;
+    /* border-bottom: 2px solid #4ea8de; */
+    width: 70%;
+    font-size: 1.1rem;
+    padding: 5px;
+    text-align: center;
+}
+
+#service-tab .bill-table-1 td {
+    border: 2px solid #adb5bd;
+    border-bottom: none;
+}
+
+#service-tab .bill-table-2 .nameCol {
+    width: 200px;
+}
+
+#service-tab .bill-table-2 .quantityCol {
+    width: 110px;
+}
+
+#service-tab .bill-table-2 td {
+    border: 2px solid #adb5bd;
+    padding: 10px;
+}
+
+#service-tab .bill-table-2 tfoot {
+    background-color: #6930c3;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 550;
+}
+
+#service-tab .bill-table-2 tfoot td {
+    padding: 10px;
+    border: none;
+}
+
+#service-tab .bill-table-2 tfoot td:first-child {
+    border-right: 2px solid #adb5bd;
+}
+
+#service-tab .bill-modal-amount-paid,
+#service-tab .bill-modal-amount-due {
+    display: flex;
+    align-items: center;
+    margin: 20px 20px;
+}
+
+#service-tab .bill-modal-amount-paid span,
+#service-tab .bill-modal-amount-due span {
+    font-size: 1.1rem;
+    width: 200px;
+}
+
+#service-tab .bill-modal-amount-paid input,
+#service-tab .bill-modal-amount-due input {
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #4ea8de;
+    width: 30%;
+    font-size: 1.1rem;
+    padding: 5px;
+    text-align: left;
 }

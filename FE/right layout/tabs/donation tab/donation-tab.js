@@ -177,7 +177,7 @@ function createNewDonationCharges(data, callback = () => { }) {
         });
 }
 
-const nameMethod = {
+const nameMethodListEN = {
     "CASH": "Tiền mặt",
     "BANK_TRANSFER": "Chuyển khoản",
     "CREDIT_CARD": "Thẻ tín dụng"
@@ -305,7 +305,7 @@ function handleUpdateDonationCharge(id) {
     donationContainer.querySelector('input[name="donationApartmentName"]').value = listAtrributes.apartmentName;
     donationContainer.querySelector('.donation-input-type-text').textContent = listAtrributes.chargeName;
     donationContainer.querySelector('input[name="apartmentAmountPaid"]').value = listAtrributes.amountPaid;
-    donationContainer.querySelector('input[name="apartmentPaymentMethod"]').value = nameMethod[listAtrributes.paymentMethod];
+    donationContainer.querySelector('input[name="apartmentPaymentMethod"]').value = nameMethodListEN[listAtrributes.paymentMethod];
 
     editDonationModalSave.addEventListener('click', function (e) {
         donationContainer.classList.remove('donation-modal-open');
@@ -332,7 +332,7 @@ function handleUpdateDonationCharge(id) {
                 chargeEditedTable.querySelector('.apartmentName').textContent = apartmentDonationNameInput;
                 chargeEditedTable.querySelector('.chargeName').textContent = chargeDonationNameInput;
                 chargeEditedTable.querySelector('.amountPaid').textContent = aparmentDonationAmountPaidInput;
-                chargeEditedTable.querySelector('.paymentMethod').textContent = nameMethod[paymentMethodDonationInput];
+                chargeEditedTable.querySelector('.paymentMethod').textContent = nameMethodListEN[paymentMethodDonationInput];
                 let listCharges = document.querySelector('.donation-table');
             } else {
                 alert("Cập nhật thất bại: " + response.message);
@@ -351,7 +351,7 @@ function renderCharges(charges) {
             <td class="apartmentName">${charge.apartmentName}</td>
             <td name="${charge.chargeId}" class="chargeName">${charge.chargeName}</td>
             <td class="amountPaid">${charge.amountPaid}</td>
-            <td name="${charge.paymentMethod}" class="paymentMethod"> ${nameMethod[charge.paymentMethod]} </td>
+            <td name="${charge.paymentMethod}" class="paymentMethod"> ${nameMethodListEN[charge.paymentMethod]} </td>
             <td class="table-icons">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
                     width="24px" fill="#6c757d" class="table-icon" onclick="handleUpdateDonationCharge('${charge.id}')">
@@ -386,6 +386,7 @@ function renderTypes(types) {
     donationTypeContainer.innerHTML += htmlDonations.join('');
 
     let donationTypeContainer2 = document.querySelector('.donation-input-type-list');
+    console.log(types);
     let htmlDonations2 = types.filter(function (tp) {
         return tp.type = 'DONATION';
     }).map(function (type) {

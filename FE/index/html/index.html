@@ -540,7 +540,221 @@
                             </div>
                         </div>
                     </div>
+                    <div class="edit-service-modal-container">
+                        <div class="edit-service-modal">
+                            <div class="edit-service-modal-title">
+                                <span class="edit-service-tab-header-text"> Chỉnh sửa </span>
+                            </div>
+                            <div class="edit-service-modal-input">
+                                <div class="edit-service-input-apartment-name">
+                                    <span class="edit-service-input-text"> Căn hộ: </span>
+                                    <input type="text" name="editServiceApartmentName">
+                                </div>
+                                <div class="edit-service-input-service-charges-list">
+                                    <table class="table-charges-list">
+                                        <thead>
+                                            <tr class="table-header">
+                                                <th> Tên phí </th>
+                                                <th> Số lượng sử dụng </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
 
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="edit-service-input-time">
+                                    <span class="edit-service-input-text"> Thời gian: </span>
+                                    <input type="text" name="editServiceMonthYear">
+                                </div>
+                                <div class="edit-service-input-amount-paid">
+                                    <span class="edit-service-input-text"> Số tiền đã trả: </span>
+                                    <input type="number" name="editServiceAmountPaid">
+                                </div>
+                                <div class="edit-service-input-payment-method">
+                                    <span class="edit-service-input-text"> Phương thức thanh toán: </span>
+                                    <input type="text" name="editServicePaymentMethod">
+                                    <ul class="edit-service-payment-method-list">
+                                        <li class="edit-service-payment-method-list-item">
+                                            <span name="CASH"> Tiền mặt </span>
+                                        </li>
+                                        <li class="edit-service-payment-method-list-item">
+                                            <span name="BANK_TRANSFER"> Chuyển khoản </span>
+                                        </li>
+                                        <li class="edit-service-payment-method-list-item">
+                                            <span name="CREDIT_CARD"> Thẻ tín dụng </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="edit-service-modal-footer">
+                                <div></div>
+                                <div class="edit-service-modal-buttons">
+                                    <button class="edit-service-modal-close-button">
+                                        <span class="edit-service-modal-close-button-text"> Hủy </span>
+                                    </button>
+                                    <button class="edit-service-modal-save-button">
+                                        <span class="edit-service-modal-save-button-text"> Lưu </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bill-modal-container">
+                        <div class="bill-modal">
+                            <div class="bill-modal-body">
+                                <div class="bill-modal-header">
+                                    <div class="bill-header-left-side">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 158.98 131.03"
+                                            class="bill-header-logo">
+                                            <defs>
+                                                <style>
+                                                    .cls-1 {
+                                                        font-size: 20px;
+                                                        font-family: Montserrat-Bold, Montserrat Bold;
+                                                        font-weight: 700;
+                                                    }
+
+                                                    .cls-1,
+                                                    .cls-6 {
+                                                        fill: #39a0ed;
+                                                    }
+
+                                                    .cls-2 {
+                                                        letter-spacing: -0.02em;
+                                                    }
+
+                                                    .cls-3,
+                                                    .cls-4 {
+                                                        fill: #e4572e;
+                                                    }
+
+                                                    .cls-3 {
+                                                        letter-spacing: -0.02em;
+                                                    }
+
+                                                    .cls-5 {
+                                                        fill: #64b0e3;
+                                                    }
+
+                                                    .cls-7 {
+                                                        fill: #f7b32b;
+                                                    }
+
+                                                    .cls-8 {
+                                                        fill: #13c4a3;
+                                                    }
+                                                </style>
+                                            </defs>
+                                            <g id="Layer_2" data-name="Layer 2">
+                                                <g id="OBJECTS"><text class="cls-1"
+                                                        transform="translate(44.86 126.03)">P<tspan class="cls-2"
+                                                            x="10.64" y="0">K</tspan>
+                                                        <tspan class="cls-3" x="21.14" y="0">C</tspan>
+                                                        <tspan class="cls-4" x="32.32" y="0">ODE</tspan>
+                                                    </text>
+                                                    <path class="cls-5"
+                                                        d="M10.27,47.74c3.2,1.09,4.69,3.19,4.69,8.18V80.55c0,5.09,2.4,8,7.58,8h2.7v5.88H21.55c-9,0-13.67-4.39-13.67-13.27V55.82c0-3.6-1.6-5.09-4.49-5.09H0v-6H3.39c2.89,0,4.49-1.49,4.49-5.09V14.32c0-8.88,4.69-13.27,13.67-13.27h3.69V6.93h-2.7c-5.18,0-7.58,2.9-7.58,8V39.55C15,44.54,13.47,46.64,10.27,47.74Z" />
+                                                    <path class="cls-5"
+                                                        d="M159,44.74v6h-3.39c-2.79,0-4.49,1.49-4.49,5.09V81.15c0,8.88-4.69,13.27-13.56,13.27h-3.8V88.54h2.7c5.19,0,7.58-2.9,7.58-8V55.92c0-5,1.5-7.09,4.69-8.18-3.19-1.1-4.69-3.2-4.69-8.19V14.92c0-5.09-2.39-8-7.58-8h-2.7V1.05h3.8c8.87,0,13.56,4.39,13.56,13.27V39.65c0,3.6,1.7,5.09,4.49,5.09Z" />
+                                                    <rect class="cls-4" x="96.36" y="4.48" width="19.32" height="16.34"
+                                                        rx="3.53" />
+                                                    <rect class="cls-4" x="80.78" y="79.13" width="19.32" height="16.34"
+                                                        rx="3.53" />
+                                                    <rect class="cls-6" x="42.5" y="59.25" width="19.32" height="16.34"
+                                                        rx="3.53" />
+                                                    <rect class="cls-7" x="68.09" y="31.47" width="14.3" height="12.1"
+                                                        rx="2.61" />
+                                                    <rect class="cls-8" x="85.64" y="53.42" width="7.15" height="6.05"
+                                                        rx="1.31" />
+                                                    <rect class="cls-7" x="112.91" y="67.43" width="7.15" height="6.05"
+                                                        rx="1.31" />
+                                                    <rect class="cls-8" x="31.78" y="43.57" width="7.15" height="6.05"
+                                                        rx="1.31" />
+                                                    <rect class="cls-6" x="64.51" width="7.15" height="6.05"
+                                                        rx="1.31" />
+                                                    <rect class="cls-6" x="112.91" y="44.34" width="14.3" height="12.1"
+                                                        rx="2.61" />
+                                                    <rect class="cls-4" x="35.35" y="17.62" width="14.3" height="12.1"
+                                                        rx="2.61" />
+                                                </g>
+                                            </g>
+                                        </svg>
+                                        <span class="bill-header-text">Hồng Nguỵn<br>Pi Kay</span>
+                                    </div>
+                                    <div class="bill-header-right-side">
+                                        <p> <strong>Địa chỉ:</strong> Chung cư Pi Kay, Hai Bà Trưng, Hà Nội </p>
+                                        <p> <strong>SĐT:</strong> xxxx xxx xxx </p>
+                                        <p> <strong>Ngày tháng năm: </strong> <span class="day-month-year"> </span> </p>
+                                    </div>
+                                </div>
+                                <div class="bill-modal-title">
+                                    <span class="bill-modal-title-text"> HÓA ĐƠN THANH TOÁN </span>
+                                </div>
+                                <div class="bill-modal-table">
+                                    <table class="bill-table-1">
+                                        <thead>
+                                            <th> Tháng thanh toán </th>
+                                            <th> Căn hộ </th>
+                                            <th> Phương thức thanh toán </th>
+                                        </thead>
+                                        <tbody>
+                                            <td><input type="text" name="billPrintDate"></td>
+                                            <td><input type="text" name="billPrintApartment"></td>
+                                            <td><input type="text" name="billPrintPaymentMethod"></td>
+                                        </tbody>
+                                    </table>
+                                    <table class="bill-table-2">
+                                        <thead>
+                                            <tr>
+                                                <th class="nameCol"> Tên phí </th>
+                                                <th> Đơn giá cho 1 đơn vị (VNĐ)</th>
+                                                <th class="quantityCol"> Số lượng sử dụng </th>
+                                                <th> Thành tiền (VNĐ) </th>
+                                            </tr>
+
+                                        </thead>
+                                        <tbody>
+                                            <!-- <tr>
+                                                <td> <input type="text" name="billPrintChargeName"> </td>
+                                                <td> <input type="text" name="billPrintUnitAmount"> </td>
+                                                <td> <input type="text" name="billPrintUnitQuantity"> </td>
+                                                <td> <input type="text" name="billPrintChargeAmount"> </td> 
+                                            </tr> -->
+
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="3"> Tổng cộng </td>
+                                                <td class="billPrintTotalPaymentAmount"> </td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <div class="bill-modal-amount-paid">
+                                    <span> Số tiền đã trả: </span>
+                                    <input type="number" name="billPrintTotalAmountPaid">
+                                    <span> (VNĐ) </span>
+                                </div>
+                                <div class="bill-modal-amount-due">
+                                    <span> Số tiền phải trả còn lại: </span>
+                                    <input type="number" name="billPrintTotalAmountDue">
+                                    <span> (VNĐ) </span>
+                                </div>
+                            </div>
+                            <div class="bill-modal-footer">
+                                <div></div>
+                                <div class="bill-modal-button">
+                                    <button class="bill-modal-close-button">
+                                        <span class="bill-modal-close-button-text"> Đóng </span>
+                                    </button>
+                                    <button class="bill-modal-print-button">
+                                        <span class="bill-modal-print-button-text"> In hóa đơn </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="service-tab-body">
                         <table class="service-table">
                             <thead>
@@ -554,27 +768,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="table-row">
-                                    <td> A191 </td>
-                                    <td> 1/2024 </td>
-                                    <td> 0 </td>
-                                    <td> Còn thiếu </td>
-                                    <td> Tiền mặt </td>
-                                    <td class="table-icons">
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                                            width="24px" fill="#6c757d" class="table-icon"
-                                            onclick="handleUpdateResident('${resident.id}')">
-                                            <path
-                                                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h357l-80 80H200v560h560v-278l80-80v358q0 33-23.5 56.5T760-120H200Zm280-360ZM360-360v-170l367-367q12-12 27-18t30-6q16 0 30.5 6t26.5 18l56 57q11 12 17 26.5t6 29.5q0 15-5.5 29.5T897-728L530-360H360Zm481-424-56-56 56 56ZM440-440h56l232-232-28-28-29-28-231 231v57Zm260-260-29-28 29 28 28 28-28-28Z" />
-                                        </svg>
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                                            width="24px" fill="#6c757d" class="table-icon"
-                                            onclick="handleDeleteResident('${resident.id}')">
-                                            <path
-                                                d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
-                                        </svg>
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>

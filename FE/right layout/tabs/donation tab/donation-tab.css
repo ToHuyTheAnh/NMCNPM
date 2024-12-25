@@ -284,6 +284,7 @@ th {
     background-color: #fff;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
     display: none;
+    z-index: 30;
 }
 
 #donation-tab .input-charge-type:hover .donation-input-type-list:not(.hidden),

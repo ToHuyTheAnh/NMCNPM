@@ -97,7 +97,7 @@ function handleCreateNewCharges() {
             unitMeasurement: chargeUnitMeasurementInput,
             description: chargeDescriptionInput
         };
-        // console.log(newCharge);
+        console.log(newCharge);
         createNewCharges(newCharge, function (response) {
             if (response.code === 200) {
                 console.log('Dữ liệu phản hồi: ', response);
@@ -105,6 +105,7 @@ function handleCreateNewCharges() {
                 console.log(listCommons);
                 renderCommons([response.result]);
                 renderServiceChargesForCreateModal([response.result]);
+                addClickForChargeDiv(document.getElementById('charge-' + response.result.id));
             } else {
                 alert("Lỗi: Không thể thêm căn hộ. Vui lòng điền đầy đủ thông tin!");
             }
@@ -155,6 +156,7 @@ function updateCharge(id, data, callback) {
     }
     fetch(commonApi + '/' + id, options)
         .then(function (response) {
+            console.log(commonApi + '/' + id, response);
             if (!response.ok) {
                 console.error("Error updating charge:", response.status);
                 throw new Error("Failed to update charge: " + response.statusText);
@@ -174,61 +176,67 @@ function updateCharge(id, data, callback) {
         });
 }
 
+function addClickForChargeDiv(divSelect) {
+    divSelect.addEventListener('click', function (e) {
+        if (e.target.classList.contains('charge-item-icon') || e.target.tagName === 'path') {
+            return;
+        }
+        handleUpdateCharge(e.target.closest('div').id.slice(7));
+    });
+};
 function handleUpdateCharge(id) {
-    let check = document.querySelector('#charge-' + id + ' svg');
-    if (check.clicked === false) {
-        editChargeModalContainer.classList.add('edit-common-modal-open');
-        let listAtrributes = listCommons.find(function (cur) {
-            return cur.id === id;
-        })
-        // console.log(listAtrributes);
-        editChargeModalContainer.querySelector('input[name="editCommonChargeName"]').value = listAtrributes.chargeName;
-        editChargeModalContainer.querySelector('input[name="editCommonUnitAmount"]').value = listAtrributes.unitAmount;
-        editChargeModalContainer.querySelector('input[name="editCommonUnitMeasurement"]').value = listAtrributes.unitMeasurement;
-        editChargeModalContainer.querySelector('input[name="editCommonDescription"]').value = listAtrributes.description;
-        let typeText = editChargeModalContainer.querySelector('.edit-common-modal-type-body-text');
-        typeText.textContent = listChargeTypes[listAtrributes.type];
-        typeText.classList.add('text-active');
-        let editChargeModalSave = document.querySelector('.edit-common-modal-save-button');
+    editChargeModalContainer.classList.add('edit-common-modal-open');
+    let listAtrributes = listCommons.find(function (cur) {
+        return cur.id === id;
+    })
+    // console.log(listAtrributes);
+    editChargeModalContainer.querySelector('input[name="editCommonChargeName"]').value = listAtrributes.chargeName;
+    editChargeModalContainer.querySelector('input[name="editCommonUnitAmount"]').value = listAtrributes.unitAmount;
+    editChargeModalContainer.querySelector('input[name="editCommonUnitMeasurement"]').value = listAtrributes.unitMeasurement;
+    editChargeModalContainer.querySelector('input[name="editCommonDescription"]').value = listAtrributes.description;
+    let typeText = editChargeModalContainer.querySelector('.edit-common-modal-type-body-text');
+    typeText.textContent = listChargeTypes[listAtrributes.type];
+    typeText.classList.add('text-active');
+    let editChargeModalSave = document.querySelector('.edit-common-modal-save-button');
 
-        editChargeModalSave.addEventListener('click', function (e) {
-            editChargeModalContainer.classList.remove('edit-common-modal-open');
-            let chargeNameInput = editChargeModalContainer.querySelector('input[name="editCommonChargeName"]').value;
-            let chargeTypeInput = commonCharges[editChargeModalContainer.querySelector('.edit-common-modal-type-body-text').textContent.trim()];
-            let chargeUnitAmountInput = editChargeModalContainer.querySelector('input[name="editCommonUnitAmount"]').value;
-            let chargeUnitMeasurementInput = editChargeModalContainer.querySelector('input[name="editCommonUnitMeasurement"]').value;
-            let chargeDescriptionInput = editChargeModalContainer.querySelector('input[name="editCommonDescription"]').value;
-            var editedCharge = {
-                chargeName: chargeNameInput,
-                type: chargeTypeInput,
-                unitAmount: chargeUnitAmountInput,
-                unitMeasurement: chargeUnitMeasurementInput,
-                description: chargeDescriptionInput
-            };
-            updateCharge(id, editedCharge, function (response) {
-                console.log('phản hồi:', response.code, response);
-                if (response.code === 200) {
-                    listAtrributes.chargeName = chargeNameInput;
-                    listAtrributes.type = chargeTypeInput;
-                    listAtrributes.unitAmount = chargeUnitAmountInput;
-                    listAtrributes.unitMeasurement = chargeUnitMeasurementInput;
-                    listAtrributes.description = chargeDescriptionInput;
-                    let chargeEditedTable = document.getElementById('charge-' + id);
-                    chargeEditedTable.querySelector('.charge-item-text').textContent = chargeNameInput;
-                    let chargeContainer = document.querySelector('.charge-container');
-                    let serviceContainer = chargeContainer.querySelector('.service-charge-body');
-                    let managementContainer = chargeContainer.querySelector('.management-charge-body');
-                    let donationContainer = chargeContainer.querySelector('.donation-charge-body');
-                    if (serviceContainer.hasChildNodes()) serviceContainer.innerHTML = "";
-                    if (managementContainer.hasChildNodes()) managementContainer.innerHTML = "";
-                    if (donationContainer.hasChildNodes()) donationContainer.innerHTML = "";
-                    getCommons(renderCommons(listCommons));
-                } else {
-                    alert("Cập nhật thất bại: " + response.message);
-                }
-            })
-        });
-    }
+    editChargeModalSave.addEventListener('click', function (e) {
+        editChargeModalContainer.classList.remove('edit-common-modal-open');
+        let chargeNameInput = editChargeModalContainer.querySelector('input[name="editCommonChargeName"]').value;
+        let chargeTypeInput = commonCharges[editChargeModalContainer.querySelector('.edit-common-modal-type-body-text').textContent.trim()];
+        let chargeUnitAmountInput = editChargeModalContainer.querySelector('input[name="editCommonUnitAmount"]').value;
+        let chargeUnitMeasurementInput = editChargeModalContainer.querySelector('input[name="editCommonUnitMeasurement"]').value;
+        let chargeDescriptionInput = editChargeModalContainer.querySelector('input[name="editCommonDescription"]').value;
+        var editedCharge = {
+            chargeName: chargeNameInput,
+            type: chargeTypeInput,
+            unitAmount: chargeUnitAmountInput,
+            unitMeasurement: chargeUnitMeasurementInput,
+            description: chargeDescriptionInput
+        };
+        updateCharge(id, editedCharge, function (response) {
+            console.log('phản hồi:', response.code, response);
+            if (response.code === 200) {
+                listAtrributes.chargeName = chargeNameInput;
+                listAtrributes.type = chargeTypeInput;
+                listAtrributes.unitAmount = chargeUnitAmountInput;
+                listAtrributes.unitMeasurement = chargeUnitMeasurementInput;
+                listAtrributes.description = chargeDescriptionInput;
+                let chargeEditedTable = document.getElementById('charge-' + id);
+                chargeEditedTable.querySelector('.charge-item-text').textContent = chargeNameInput;
+                let chargeContainer = document.querySelector('.charge-container');
+                let serviceContainer = chargeContainer.querySelector('.service-charge-body');
+                let managementContainer = chargeContainer.querySelector('.management-charge-body');
+                let donationContainer = chargeContainer.querySelector('.donation-charge-body');
+                if (serviceContainer.hasChildNodes()) serviceContainer.innerHTML = "";
+                if (managementContainer.hasChildNodes()) managementContainer.innerHTML = "";
+                if (donationContainer.hasChildNodes()) donationContainer.innerHTML = "";
+                getCommons(renderCommons(listCommons));
+                addClickForChargeDiv(document.getElementById('charge-' + response.result.id));
+            } else {
+                alert("Cập nhật thất bại: " + response.message);
+            }
+        })
+    });
 }
 
 // Xuất dữ liệu
@@ -290,7 +298,7 @@ function renderCommons(commons) {
         return comli.type === "SERVICE";
     }).map(function (common) {
         return `
-            <div class="charge-item" id="charge-${common.id}" onclick="handleUpdateCharge('${common.id}')">
+            <div class="charge-item" id="charge-${common.id}">
                 <span class="charge-item-text"> ${common.chargeName} </span>
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
                         width="24px" fill="#6c757d" class="charge-item-icon" onclick="handleDeleteCharge('${common.id}')">
@@ -304,7 +312,7 @@ function renderCommons(commons) {
         return comli.type === "MANAGEMENT";
     }).map(function (common) {
         return `
-            <div class="charge-item" id="charge-${common.id}" onclick="handleUpdateCharge('${common.id}')">
+            <div class="charge-item" id="charge-${common.id}">
                 <span class="charge-item-text"> ${common.chargeName} </span>
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
                         width="24px" fill="#6c757d" class="charge-item-icon" onclick="handleDeleteCharge('${common.id}')">
@@ -318,7 +326,7 @@ function renderCommons(commons) {
         return comli.type === "DONATION";
     }).map(function (common) {
         return `
-            <div class="charge-item" id="charge-${common.id}" onclick="handleUpdateCharge('${common.id}')">
+            <div class="charge-item" id="charge-${common.id}">
                 <span class="charge-item-text"> ${common.chargeName} </span>
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
                         width="24px" fill="#6c757d" class="charge-item-icon" onclick="handleDeleteCharge('${common.id}')">
@@ -331,4 +339,7 @@ function renderCommons(commons) {
     serviceContainer.innerHTML += htmlservice.join('');
     managementContainer.innerHTML += htmlmanagement.join('');
     donationContainer.innerHTML += htmldonation.join('');
+    document.querySelectorAll('.charge-container .charge-item').forEach(function (e) {
+        addClickForChargeDiv(e);
+    });
 }
