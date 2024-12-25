@@ -116,6 +116,7 @@ function handleDeleteApartment(id) {
     }
     fetch(apartmentApi + '/' + id, options)
         .then(function (response) {
+            console.log(response);
             if (!response.ok) {
                 console.error("Error fetching apartments:", response.status);
                 throw new Error("Failed to fetch apartments: " + response.statusText);
@@ -124,6 +125,7 @@ function handleDeleteApartment(id) {
         })
         .then(function () {
             let apartmentSelect = document.getElementById('apartment-' + id);
+            console.log(apartmentSelect);
             if (apartmentSelect) {
                 apartmentSelect.remove();
             }

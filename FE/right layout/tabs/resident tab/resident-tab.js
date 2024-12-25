@@ -118,6 +118,7 @@ function getResidents(callback = () => { }) {
         .then(function (data) {
             if (data.code === 200) {
                 listResidents = data.result;
+                console.log(data.result);
                 callback(listResidents);
             }
         })
@@ -181,7 +182,7 @@ function handleCreateNewResident() {
         let professionalQualification = createContainer.querySelector('input[name="residentProfessionalQualification"]').value;
         let ethnicLanguageInput = createContainer.querySelector('input[name="residentEthnicLanguage"]').value;
         let workplaceInput = createContainer.querySelector('input[name="residentWorkplace"]').value;
-        let roleInput = createContainer.querySelector('.resident-input-apartment-role-list-item').getAttribute('name');
+        let roleInput = residentRolesVN[createContainer.querySelector('.resident-input-apartment-role-text').textContent.trim()];
         let genderInput = residentGenders2[createContainer.querySelector('.resident-input-sex-text').textContent.trim()];
 
         var newResident = {
@@ -286,11 +287,12 @@ function updateResident(id, data, callback) {
         });
 }
 function handleUpdateResident(id) {
+    console.log('lần gọi hàm update');
     editResidentContainer.classList.add('edit-resident-modal-open');
     let listAtrributes = listResidents.find(function (cur) {
         return cur.id === id;
     })
-    console.log(listAtrributes);
+    // console.log(listAtrributes);
     editResidentContainer.querySelector('input[name="residentResidentName"]').value = listAtrributes.residentName;
     editResidentContainer.querySelector('input[name="residentBirthday"]').value = listAtrributes.birthday;
     editResidentContainer.querySelector('input[name="residentPlaceOfBirth"]').value = listAtrributes.placeOfBirth;
@@ -339,7 +341,7 @@ function handleUpdateResident(id) {
         let professionalQualification = editResidentContainer.querySelector('input[name="residentProfessionalQualification"]').value;
         let ethnicLanguageInput = editResidentContainer.querySelector('input[name="residentEthnicLanguage"]').value;
         let workplaceInput = editResidentContainer.querySelector('input[name="residentWorkplace"]').value;
-        let roleInput = editResidentContainer.querySelector('.resident-input-apartment-role-list-item').getAttribute('name');
+        let roleInput = residentRolesVN[editResidentContainer.querySelector('.resident-input-apartment-role-text').textContent.trim()];
         let genderInput = residentGenders2[editResidentContainer.querySelector('.resident-input-sex-text').textContent.trim()];
 
         var editedResident = {
@@ -366,41 +368,17 @@ function handleUpdateResident(id) {
             role: roleInput,
             gender: genderInput
         }
-        console.log('dữ liệu vào:', editedResident);
         updateResident(id, editedResident, function (response) {
             console.log('phản hồi:', response.code, response);
             if (response.code === 200) {
-                listAtrributes.residentName = residentNameInput;
-                listAtrributes.birthday = birthdayInput;
-                listAtrributes.placeOfBirth = placeOfBirthInput;
-                listAtrributes.ethnicity = ethnicityInput;
-                listAtrributes.nationality = nationalityInput;
-                listAtrributes.identityNumber = identityNumberInput;
-                listAtrributes.permaAddress = permaAddressInput;
-                listAtrributes.educationLevel = educationLevelInput;
-                listAtrributes.languageProficiency = languageProficiencyInput;
-                listAtrributes.occupation = occupationInput;
-                listAtrributes.apartmentName = apartmentNameInput;
-                listAtrributes.aliasName = aliasNameInput;
-                listAtrributes.hometown = hometownInput;
-                listAtrributes.religion = religionInput;
-                listAtrributes.phoneNumber = phoneInput;
-                listAtrributes.passportNumber = passportNumberInput;
-                listAtrributes.temporaryAddress = temporaryAddressInput;
-                listAtrributes.professionalQualification = professionalQualification;
-                listAtrributes.ethnicLanguage = ethnicLanguageInput;
-                listAtrributes.workplace = workplaceInput;
-                listAtrributes.role = roleInput;
-                listAtrributes.gender = genderInput;
-                let residentEditedTable = document.querySelector('.resident-table');
-                residentEditedTable.querySelector('.resident-apartment-name').textContent = apartmentNameInput;
-                residentEditedTable.querySelector('.resident-name').textContent = residentNameInput;
-                residentEditedTable.querySelector('.resident-role').textContent = residentRoles[roleInput];
-                residentEditedTable.querySelector('.resident-phone-number').textContent = phoneInput;
+                let residentEditedTable = document.getElementById('resident-' + id);
+                residentEditedTable.querySelector('.resident-apartment-name').textContent = response.result.apartmentName;
+                residentEditedTable.querySelector('.resident-name').textContent = response.result.residentName;
+                residentEditedTable.querySelector('.resident-role').textContent = residentRoles[response.result.role];
+                residentEditedTable.querySelector('.resident-phone-number').textContent = response.result.phoneNumber;
             } else {
                 alert("Lỗi: Không thể thêm căn hộ. Vui lòng điền đầy đủ thông tin!");
             }
-
         })
     })
 }
@@ -434,61 +412,18 @@ function searchResidents(data, callback) {
         });
 }
 
-const searchButton = document.querySelector('.resident-tab-search-icon');
-searchButton.addEventListener('click', function () {
-    let keyword = document.querySelector('input[name="residentSearchInput"]').value.trim();
-    console.log('tìm kiếm: ', keyword);
-    if (keyword) {
-        searchResidents(keyword, function (results) {
-            renderSearchResults(results);
-        });
-    } else {
-        alert("Vui lòng nhập từ khóa tìm kiếm.");
-    }
-});
-// Xuất kết quả tìm kiếm
-function renderSearchResults(results) {
-    var resultContainer = document.querySelector('.resident-table');
-    resultContainer.innerHTML = '';
-
-    if (results.length === 0) {
-        resultContainer.innerHTML = '<p>Không tìm thấy kết quả nào.</p>';
-        return;
-    }
-
-    // Hiển thị kết quả dạng danh sách
-    var htmls = results.map(function (resident) {
-        return `
-            <tr class="table-row" id="resident-${resident.id}">
-                <td class="resident-apartment-name"> ${resident.apartmentName}</td>
-                <td class="resident-name"> ${resident.residentName}</td>
-                <td class="resident-role"> ${residentRoles[resident.role]}</td>
-                <td class="resident-phone-number"> ${resident.phoneNumber}</td>
-                <td class="table-icons">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                        width="24px" fill="#6c757d" class="table-icon" onclick="handleUpdateResident('${resident.id}')">
-                        <path
-                            d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h357l-80 80H200v560h560v-278l80-80v358q0 33-23.5 56.5T760-120H200Zm280-360ZM360-360v-170l367-367q12-12 27-18t30-6q16 0 30.5 6t26.5 18l56 57q11 12 17 26.5t6 29.5q0 15-5.5 29.5T897-728L530-360H360Zm481-424-56-56 56 56ZM440-440h56l232-232-28-28-29-28-231 231v57Zm260-260-29-28 29 28 28 28-28-28Z" />
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
-                        width="24px" fill="#6c757d" class="table-icon" onclick="handleDeleteResident('${resident.id}')">
-                        <path
-                            d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
-                    </svg>
-                </td>
-            </tr>
-            `;
-    });
-    resultContainer.innerHTML = htmls.join('');
-}
-
-
 
 // Xuất nhân khẩu
 var residentRoles = {
     'OWNER': 'Chủ hộ',
     'NON_OWNER': 'Thành viên'
 }
+
+var residentRolesVN = {
+    'Chủ hộ': 'OWNER',
+    'Thành viên': 'NON_OWNER'
+}
+
 var residentGenders = {
     'MALE': 'Nam',
     'FEMALE': 'Nữ'
@@ -502,7 +437,7 @@ function renderResidents(residents) {
         console.warn("Invalid apartment data:", residents);
         return;
     }
-    var listResidents = document.querySelector('.resident-table');
+    var listResidents = document.querySelector('.resident-table tbody');
     var htmls = residents.map(function (resident) {
         return `
             <tr class="table-row" id="resident-${resident.id}">
