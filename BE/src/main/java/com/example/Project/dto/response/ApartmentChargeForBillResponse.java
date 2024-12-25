@@ -13,4 +13,6 @@ public class ApartmentChargeForBillResponse {
     String chargeName;
     BigDecimal unitQuantity;
     BigDecimal chargeAmount;
+    BigDecimal unitAmount;
+    String unitMeasurement;
 }

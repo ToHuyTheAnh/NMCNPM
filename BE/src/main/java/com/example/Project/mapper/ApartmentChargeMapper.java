@@ -30,6 +30,8 @@ public interface ApartmentChargeMapper {
 
     @Mapping(source = "charge.id", target = "chargeId")
     @Mapping(source = "charge.chargeName", target = "chargeName")
+    @Mapping(source = "charge.unitAmount", target = "unitAmount")
+    @Mapping(source = "charge.unitMeasurement", target = "unitMeasurement")
     ApartmentChargeForBillResponse toApartmentChargeForBillResponse(ApartmentCharge apartmentCharge);
 
     List<ApartmentChargeForBillResponse> toApartmentChargeForBillResponseList(List<ApartmentCharge> apartmentChargeList);
