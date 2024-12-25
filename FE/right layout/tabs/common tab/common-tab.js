@@ -97,12 +97,12 @@ function handleCreateNewCharges() {
             unitMeasurement: chargeUnitMeasurementInput,
             description: chargeDescriptionInput
         };
-        console.log(newCharge);
+        // console.log(newCharge);
         createNewCharges(newCharge, function (response) {
             if (response.code === 200) {
                 console.log('Dữ liệu phản hồi: ', response);
                 listCommons.push(response.result);
-                console.log(listCommons);
+                // console.log(listCommons);
                 renderCommons([response.result]);
                 renderServiceChargesForCreateModal([response.result]);
                 addClickForChargeDiv(document.getElementById('charge-' + response.result.id));
@@ -139,7 +139,7 @@ function handleDeleteCharge(id) {
             let chargeSelect = document.getElementById('charge-' + id);
             console.log(chargeSelect);
             if (chargeSelect) {
-                console.log('Đã xóa thành công');
+                // console.log('Đã xóa thành công');
                 chargeSelect.remove();
             }
         })

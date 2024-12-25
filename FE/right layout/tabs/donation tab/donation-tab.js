@@ -31,7 +31,7 @@ donationModalOpen.addEventListener('click', function (e) {
         donationContainer.classList.remove('donation-modal-open');
         let aparmentNameInput = donationContainer.querySelector('input[name="donationApartmentName"]').value;
         let apartmentIdInput = listApartments.find(function (apt) {
-            return apt.apartmentName = aparmentNameInput;
+            return apt.apartmentName === aparmentNameInput;
         }).id;
         let chargeTypeIdInput = donationContainer.querySelector('.donation-input-type-body span').getAttribute('name');
         let amountPaidInput = donationContainer.querySelector('input[name="apartmentAmountPaid"]').value;
@@ -61,7 +61,7 @@ donationModalOpen.addEventListener('click', function (e) {
 // Filter lọc danh sách theo loại chuyển khoản
 const donationMethodSelector = document.querySelectorAll('.donation-method-list-item');
 const donationMethodList = document.querySelector('.donation-method-list');
-var rowTableList = document.querySelectorAll('.table-row');
+var rowTableList = document.querySelectorAll('.donation-table .table-row');
 donationMethodSelector.forEach(method => method.addEventListener('click', function (e) {
     const liSelector = e.target.closest('li');
     const textSelector = liSelector.querySelector('span').textContent;
@@ -193,7 +193,7 @@ function handleCreateNewCharge() {
     donationSaveButton.addEventListener('click', function (e) {
         let aparmentNameInput = donationContainer.querySelector('input[name="donationApartmentName"]').value;
         let apartmentIdInput = listApartments.find(function (apt) {
-            return apt.apartmentName = aparmentNameInput;
+            return apt.apartmentName === aparmentNameInput;
         }).id;
         let chargeTypeIdInput = donationContainer.querySelector('.donation-input-type-body span').getAttribute('name');
         let amountPaidInput = donationContainer.querySelector('input[name="apartmentAmountPaid"]').value;
@@ -239,7 +239,7 @@ function handleDeleteDonationCharge(id) {
         })
         .then(function () {
             let donationchargeSelect = document.getElementById('donation-charge-' + id);
-            console.log(donationchargeSelect, 'donation-charge-' + id);
+            // console.log(donationchargeSelect, 'donation-charge-' + id);
             if (donationchargeSelect) {
                 donationchargeSelect.remove();
             }
@@ -311,7 +311,7 @@ function handleUpdateDonationCharge(id) {
         donationContainer.classList.remove('donation-modal-open');
         let apartmentDonationNameInput = donationContainer.querySelector('input[name="donationApartmentName"]').value;
         let apartmentIdInput = listApartments.find(function (apt) {
-            return apt.apartmentName = apartmentDonationNameInput;
+            return apt.apartmentName === apartmentDonationNameInput;
         }).id;
         let chargeDonationNameInput = donationContainer.querySelector('.donation-input-type-text').textContent.trim();
         let chargeTypeIdInput = listDonationType.find(function (cur) {
@@ -344,7 +344,7 @@ function handleUpdateDonationCharge(id) {
 
 // Xuất dữ liệu
 function renderCharges(charges) {
-    var listCharges = document.querySelector('.donation-table');
+    var listCharges = document.querySelector('.donation-table tbody');
     var htmls = charges.map(function (charge) {
         return `
         <tr class="table-row" id="donation-charge-${charge.id}">
@@ -369,13 +369,13 @@ function renderCharges(charges) {
 
     });
     listCharges.innerHTML += htmls.join('');
-    rowTableList = document.querySelectorAll('.table-row');
+    rowTableList = document.querySelectorAll('.donation-table .table-row');
 }
 
 function renderTypes(types) {
     let donationTypeContainer = document.querySelector('.donation-type-list');
     let htmlDonations = types.filter(function (tp) {
-        return tp.type = 'DONATION';
+        return tp.type === 'DONATION';
     }).map(function (type) {
         return `
             <li name="${type.id}" class="donation-type-list-item">
@@ -388,7 +388,7 @@ function renderTypes(types) {
     let donationTypeContainer2 = document.querySelector('.donation-input-type-list');
     console.log(types);
     let htmlDonations2 = types.filter(function (tp) {
-        return tp.type = 'DONATION';
+        return tp.type === 'DONATION';
     }).map(function (type) {
         return `
             <li name="${type.id}" class="donation-input-type-list-item">
@@ -410,7 +410,6 @@ function renderTypes(types) {
         setTimeout(() => {
             donationTypeList.classList.remove('hidden');
         }, 100);
-
         rowTableList.forEach(row => {
             row.classList.add('table-row-hide');
             const nameRow = row.querySelector('.chargeName').getAttribute('name');
