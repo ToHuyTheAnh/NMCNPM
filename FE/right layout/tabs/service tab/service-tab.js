@@ -191,8 +191,6 @@ function handleCreateNewBill() {
             return e.apartmentName === apartmentNameInput;
         })
         let monthYearInput = document.querySelector('input[name="serviceMonthYear"]').value;
-        let totalAmountPaidInput = document.querySelector('input[name="serviceAmountPaid"]').value;
-        let statusInput = 'UNPAID';
         let paymentMethodInput = nameMethodListVN[document.querySelector('input[name="servicePaymentMethod"]').value.trim()];
         let listServiceChargesInput = [];
         document.querySelector('.table-charges-list').querySelectorAll('.table-row').forEach(function (val) {
@@ -205,9 +203,7 @@ function handleCreateNewBill() {
         var newBill = {
             apartmentId: apartmentIdInput.id,
             apartmentChargeRequestList: listServiceChargesInput,
-            // status: statusInput,
             monthYear: monthYearInput,
-            totalAmountPaid: totalAmountPaidInput,
             paymentMethod: paymentMethodInput
         }
         console.log(newBill);
@@ -339,9 +335,9 @@ function handleUpdateBill(id) {
             if (response.code === 200) {
                 let rowEditSelect = document.getElementById('bill-' + id);
                 if (rowEditSelect) {
-                    console.log('hello');
                     rowEditSelect.remove();
                     getBills(renderBills([response.result]));
+                    console.log(response.result);
                     addClickForRow(document.getElementById('bill-' + response.result.id));
                 }
             } else {
@@ -363,7 +359,7 @@ function addClickForRow(row) {
         let billAttributes = billList.find(function (e) {
             return e.id === idRow;
         });
-        console.log(row, billAttributes);
+        // console.log(row, billAttributes);
         document.querySelector('input[name="billPrintApartment"]').value = billAttributes.apartmentName;
         document.querySelector('input[name="billPrintDate"]').value = billAttributes.monthYear;
         document.querySelector('input[name="billPrintPaymentMethod"]').value = nameMethodListEN[billAttributes.paymentMethod];
@@ -373,7 +369,8 @@ function addClickForRow(row) {
             let rowTable2 = document.createElement('tr');
             rowTable2.innerHTML = `
                 <td>${val.chargeName}</td>
-                <td> 1 </td>
+                <td>${val.unitAmount} </td>
+                <td>${val.unitMeasurement}</td>
                 <td>${val.unitQuantity}</td>
                 <td>${val.chargeAmount}</td>
             `;

@@ -386,7 +386,6 @@ function renderTypes(types) {
     donationTypeContainer.innerHTML += htmlDonations.join('');
 
     let donationTypeContainer2 = document.querySelector('.donation-input-type-list');
-    console.log(types);
     let htmlDonations2 = types.filter(function (tp) {
         return tp.type === 'DONATION';
     }).map(function (type) {

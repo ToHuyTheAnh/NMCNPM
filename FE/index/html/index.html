@@ -507,10 +507,6 @@
                                     <span class="service-input-text"> Thời gian: </span>
                                     <input type="text" name="serviceMonthYear">
                                 </div>
-                                <div class="service-input-amount-paid">
-                                    <span class="service-input-text"> Số tiền đã trả: </span>
-                                    <input type="number" name="serviceAmountPaid">
-                                </div>
                                 <div class="service-input-payment-method">
                                     <span class="service-input-text"> Phương thức thanh toán: </span>
                                     <input type="text" name="servicePaymentMethod">
@@ -709,6 +705,7 @@
                                             <tr>
                                                 <th class="nameCol"> Tên phí </th>
                                                 <th> Đơn giá cho 1 đơn vị (VNĐ)</th>
+                                                <th> Đơn vị </th>
                                                 <th class="quantityCol"> Số lượng sử dụng </th>
                                                 <th> Thành tiền (VNĐ) </th>
                                             </tr>
@@ -725,7 +722,7 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <td colspan="3"> Tổng cộng </td>
+                                                <td colspan="4"> Tổng cộng </td>
                                                 <td class="billPrintTotalPaymentAmount"> </td>
                                             </tr>
                                         </tfoot>
@@ -854,16 +851,56 @@
                             </div>
                         </div>
                     </div>
+                    <div class="buildings-modal-apartment-members-container">
+                        <div class="buildings-modal-apartment-members">
+                            <div class="buildings-modal-apartment-members-title">
+                                <span class="buildings-modal-apartment-members-title-text"> Thành viên căn hộ </span>
+                            </div>
+                            <div class="buildings-modal-apartment-members-input">
+                                <div class="apartment-members-infor">
+                                    <table class="apartment-owner">
+                                        <thead>
+                                            <th colspan="5"> Chủ hộ </th>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                    <table class="apartment-members">
+                                        <thead>
+                                            <th colspan="5"> Thành viên </th>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="buildings-modal-apartment-members-buttons">
+                                <div></div>
+                                <button class="buildings-modal-apartment-members-button">
+                                    <span class="buildings-modal-apartment-members-button-text">
+                                        OK
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                     <div class="buildings-tab-body">
                         <table class="buildings-table">
-                            <tr class="table-header">
-                                <th> Căn hộ </th>
-                                <th> Tầng </th>
-                                <th> Số phòng </th>
-                                <th> Diện tích </th>
-                                <th> Trạng thái </th>
-                                <th></th>
-                            </tr>
+                            <thead>
+                                <tr class="table-header">
+                                    <th> Căn hộ </th>
+                                    <th> Tầng </th>
+                                    <th> Số phòng </th>
+                                    <th> Diện tích </th>
+                                    <th> Trạng thái </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
                         </table>
                     </div>
                 </div>
