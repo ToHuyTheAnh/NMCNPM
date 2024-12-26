@@ -118,7 +118,6 @@ function getResidents(callback = () => { }) {
         .then(function (data) {
             if (data.code === 200) {
                 listResidents = data.result;
-                console.log(data.result);
                 callback(listResidents);
             }
         })
@@ -216,6 +215,35 @@ function handleCreateNewResident() {
                 listResidents.push(response.result);
                 // listResidentsValue.push(newResidentValue);
                 renderResidents([response.result]);
+                if (response.result.role === "OWNER") {
+                    var updateApart = {};
+                    let apartmentSelect = listApartments.forEach(function (apart) {
+                        if (apart.id === response.result.apartmentId) {
+                            updateApart = {
+                                apartmentName: apart.apartmentName,
+                                floorNumber: apart.floorNumber,
+                                apartmentNumber: apart.apartmentNumber,
+                                area: apart.area,
+                                status: "OCCUPIED",
+                                ownerId: response.result.id,
+                            }
+                        }
+                    });
+                    updateApartment(response.result.apartmentId, updateApart, function (rp) {
+                        console.log(rp);
+                        if (rp.code === 200) {
+                            apartmentSelect = document.getElementById(`apartment-${response.result.apartmentId}`);
+                            apartmentSelect.querySelector('.row-apartment-name').textContent = updateApart.apartmentName;
+                            apartmentSelect.querySelector('.row-floor-number').textContent = updateApart.floorNumber;
+                            apartmentSelect.querySelector('.row-apartment-number').textContent = updateApart.apartmentNumber;
+                            apartmentSelect.querySelector('.row-apartment-area').textContent = updateApart.area;
+                        } else {
+                            alert("Lỗi: Không thể thêm căn hộ. Vui lòng điền đầy đủ thông tin!");
+                        }
+
+                    })
+                }
+
             } else {
                 alert("Lỗi: Không thể thêm căn hộ. Vui lòng điền đầy đủ thông tin!");
             }
@@ -249,6 +277,37 @@ function handleDeleteResident(id) {
         .then(function () {
             let residentSelect = document.getElementById('resident-' + id);
             if (residentSelect) {
+                if (residentSelect.querySelector('.resident-role').getAttribute('name') === "OWNER") {
+                    let aptId = listApartments.find(function (e) {
+                        return residentSelect.querySelector('.resident-apartment-name').textContent.trim() === e.apartmentName;
+                    }).id;
+                    var updateApart = {};
+                    let apartmentSelect = listApartments.forEach(function (apart) {
+                        if (apart.id === aptId) {
+                            updateApart = {
+                                apartmentName: apart.apartmentName,
+                                floorNumber: apart.floorNumber,
+                                apartmentNumber: apart.apartmentNumber,
+                                area: apart.area,
+                                status: "AVAILABLE",
+                                ownerId: '',
+                            }
+                        }
+                    });
+                    updateApartment(aptId, updateApart, function (response) {
+                        console.log(response);
+                        if (response.code === 200) {
+                            apartmentSelect = document.getElementById(`apartment-${aptId}`);
+                            apartmentSelect.querySelector('.row-apartment-name').textContent = updateApart.apartmentName;
+                            apartmentSelect.querySelector('.row-floor-number').textContent = updateApart.floorNumber;
+                            apartmentSelect.querySelector('.row-apartment-number').textContent = updateApart.apartmentNumber;
+                            apartmentSelect.querySelector('.row-apartment-area').textContent = updateApart.area;
+                        } else {
+                            alert("Lỗi: Không thể thêm căn hộ. Vui lòng điền đầy đủ thông tin!");
+                        }
+
+                    })
+                }
                 residentSelect.remove();
             }
         });
@@ -383,36 +442,6 @@ function handleUpdateResident(id) {
     })
 }
 
-// Tìm kiếm thông tin
-function searchResidents(data, callback) {
-    var options = {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    };
-    fetch(residentApi + '/search', options)
-        .then(function (response) {
-            if (!response.ok) {
-                throw new Error("Failed to search residents: " + response.statusText);
-            }
-            return response.json();
-        })
-        .then(function (data) {
-            console.log("Search result:", data);
-            if (data.code === 200) {
-                callback(data.result);
-            } else {
-                alert("Không tìm thấy kết quả: " + data.message);
-            }
-        })
-        .catch(function (error) {
-            console.error("Search error:", error.message);
-            alert("Lỗi khi tìm kiếm: " + error.message);
-        });
-}
-
-
 // Xuất nhân khẩu
 var residentRoles = {
     'OWNER': 'Chủ hộ',
@@ -437,13 +466,13 @@ function renderResidents(residents) {
         console.warn("Invalid apartment data:", residents);
         return;
     }
-    var listResidents = document.querySelector('.resident-table tbody');
+    var listResident = document.querySelector('.resident-table tbody');
     var htmls = residents.map(function (resident) {
         return `
             <tr class="table-row" id="resident-${resident.id}">
                 <td class="resident-apartment-name"> ${resident.apartmentName}</td>
                 <td class="resident-name"> ${resident.residentName}</td>
-                <td class="resident-role"> ${residentRoles[resident.role]}</td>
+                <td class="resident-role" name="${resident.role}"> ${residentRoles[resident.role]}</td>
                 <td class="resident-phone-number"> ${resident.phoneNumber}</td>
                 <td class="table-icons">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
@@ -460,5 +489,54 @@ function renderResidents(residents) {
             </tr>
             `;
     });
-    listResidents.innerHTML += htmls.join('');
+    listResident.innerHTML += htmls.join('');
+    console.log(listResidents);
+}
+
+// tìm kiếm cư dân
+
+function searchResidents(data, callback) {
+    // var options = {
+    //     method: 'GET',
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     }
+    // };
+    fetch(residentApi + '/filter')
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error("Failed to search residents: " + response.statusText);
+            }
+            return response.json();
+        })
+        .then(function (data) {
+            if (data.code === 200) {
+                console.log(data.result);
+                callback(data.result);
+            } else {
+                alert("Không tìm thấy kết quả: " + data.message);
+            }
+        })
+}
+
+var searchResidentsButton = document.querySelector('.resident-tab-search-icon');
+
+searchResidentsButton.addEventListener('click', handleSearchResidents);
+
+function handleSearchResidents() {
+
+    var searchInput = document.querySelector('input[name="residentSearchInput"]').value.trim();
+    if (searchInput === '') {
+        alert("Vui lòng nhập tên cư dân để tìm kiếm!");
+        return;
+    }
+    console.log('đang tìm kiếm', searchInput);
+    searchResidents(searchInput, function (residents) {
+        if (residents.code === 200) {
+            console.log(residents.result);
+        }
+        else {
+            alert("Không thể tìm kiếm căn hộ. Vui lòng điền đầy đủ thông tin!");
+        }
+    });
 }

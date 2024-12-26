@@ -4,7 +4,7 @@
     width: calc(100vw - 231px);
     height: calc(100vh - 60.8px);
     background-color: #f7f9f9;
-    display: none;
+    /* display: none; */
 }
 
 #buildings-tab .buildings-tab-header {
@@ -34,7 +34,7 @@
 
 /* Table */
 
-#buildings-tab table {
+#buildings-tab .buildings-table {
     margin: auto;
     border-collapse: collapse;
     width: 95%;
@@ -43,41 +43,41 @@
     text-align: center;
 }
 
-#buildings-tab tr {
+#buildings-tab .buildings-table tr {
     transition: all .2s ease-in;
     cursor: pointer;
 }
 
-#buildings-tab table .table-row {
+#buildings-tab .buildings-table .table-row {
     background-color: #fff;
 }
 
-#buildings-tab table .table-row:hover {
+#buildings-tab .buildings-table .table-row:hover {
     background: #f5f5f5;
     transform: scale(1.02);
 }
 
-#buildings-tab table .table-row-hide {
+#buildings-tab .buildings-table .table-row-hide {
     display: none;
 }
 
-#buildings-tab td,
-th {
+#buildings-tab .buildings-table td,
+.buildings-table th {
     height: 40px;
     border-bottom: 1px solid #ddd;
 }
 
-#buildings-tab .table-header {
+#buildings-tab .buildings-table .table-header {
     background: #5e60ce;
     color: #fff;
 }
 
-#buildings-tab .table-icons .table-icon {
+#buildings-tab .buildings-table .table-icons .table-icon {
     width: 25px;
     height: 25px;
 }
 
-#buildings-tab .table-icons .table-icon:hover {
+#buildings-tab .buildings-table .table-icons .table-icon:hover {
     fill: #5e60ce;
 }
 
@@ -175,5 +175,84 @@ th {
     background-color: #5390d9;
     color: #fff;
     border: none;
+    cursor: pointer;
+}
+
+
+#buildings-tab .buildings-modal-apartment-members-container {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 30;
+}
+
+#buildings-tab .buildings-modal-apartment-members-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#buildings-tab .buildings-modal-apartment-members {
+    background: #fff;
+    width: 600px;
+    max-width: 100%;
+    padding: 20px 30px;
+    border-radius: 5px;
+}
+
+#buildings-tab .buildings-modal-apartment-members-title {
+    font-size: 20px;
+    font-weight: 550;
+    margin-bottom: 20px;
+    color: #5e60ce;
+}
+
+#buildings-tab .apartment-members-infor table {
+    margin: auto;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #adb5bd;
+    text-align: center;
+}
+
+#buildings-tab .apartment-members-infor table th {
+    background-color: #5e60ce;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 550;
+    padding: 1px;
+}
+
+#buildings-tab .apartment-members-infor table tr {
+    border-bottom: 1px solid #adb5bd;
+}
+
+#buildings-tab .apartment-members-infor table td {
+    font-size: 1.1rem;
+    padding: 10px;
+}
+
+#buildings-tab .buildings-modal-apartment-members-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#buildings-tab .buildings-modal-apartment-members-button {
+    margin-top: 20px;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    background-color: #5390d9;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
     cursor: pointer;
 }

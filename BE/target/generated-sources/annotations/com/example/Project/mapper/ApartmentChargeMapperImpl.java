@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-12-25T22:30:46+0700",
+    date = "2024-12-26T01:17:38+0700",
     comments = "version: 1.5.3.Final, compiler: Eclipse JDT (IDE) 3.41.0.v20241217-1506, environment: Java 17.0.13 (Eclipse Adoptium)"
 )
 @Component
@@ -101,6 +101,8 @@ public class ApartmentChargeMapperImpl implements ApartmentChargeMapper {
 
         apartmentChargeForBillResponse.setChargeId( apartmentChargeChargeId( apartmentCharge ) );
         apartmentChargeForBillResponse.setChargeName( apartmentChargeChargeChargeName( apartmentCharge ) );
+        apartmentChargeForBillResponse.setUnitAmount( apartmentChargeChargeUnitAmount( apartmentCharge ) );
+        apartmentChargeForBillResponse.setUnitMeasurement( apartmentChargeChargeUnitMeasurement( apartmentCharge ) );
         apartmentChargeForBillResponse.setChargeAmount( apartmentCharge.getChargeAmount() );
         apartmentChargeForBillResponse.setUnitQuantity( apartmentCharge.getUnitQuantity() );
 

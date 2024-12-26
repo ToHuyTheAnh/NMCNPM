@@ -25,13 +25,14 @@ editModalSave.addEventListener('click', function (e) {
 const apartmentApi = "http://localhost:8080/project/apartment";
 var listApartments = [];
 var code = 0;
-function start() {
+function startApt() {
     getApartments(renderApartments);
     handleCreateNewApartment();
 }
-start();
+startApt();
 
 function getApartments(callback = () => { }) {
+
     fetch(apartmentApi)
         .then(function (response) {
             if (!response.ok) {
@@ -96,6 +97,7 @@ function handleCreateNewApartment() {
             if (response.code === 200) {
                 listApartments.push(response.result);
                 renderApartments([response.result]);
+                addClickForBuildingDiv(document.getElementById('apartment-' + response.result.id));
             } else {
                 alert("Lỗi: Không thể thêm căn hộ. Vui lòng điền đầy đủ thông tin!");
             }
@@ -189,6 +191,7 @@ function handleUpdateApartment(id) {
                 apartmentSelect.querySelector('.row-floor-number').textContent = floorNumber;
                 apartmentSelect.querySelector('.row-apartment-number').textContent = apartmentNumber;
                 apartmentSelect.querySelector('.row-apartment-area').textContent = area;
+                addClickForBuildingDiv(document.getElementById('apartment-' + response.result.id));
             } else {
                 alert("Lỗi: Không thể thêm căn hộ. Vui lòng điền đầy đủ thông tin!");
             }
@@ -212,7 +215,7 @@ function renderApartments(apartments) {
         console.warn("Invalid apartment data:", apartments);
         return;
     }
-    var listApartments = document.querySelector('.buildings-table');
+    var listApartment = document.querySelector('.buildings-table tbody');
     var htmls = apartments.map(function (apartment) {
         return `
             <tr class="table-row" id="apartment-${apartment.id}">
@@ -221,7 +224,7 @@ function renderApartments(apartments) {
                 <td class="row-apartment-number"> ${apartment.apartmentNumber} </td>
                 <td class="row-apartment-area"> ${apartment.area} </td>
                 <td ${apartmentStatusColor[apartment.status]} class="row-apartment-status"> ${apartmentStatus[apartment.status]} </td>
-                <td>
+                <td class="table-icons">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"
                         width="24px" fill="#6c757d" class="table-icon" onclick="handleUpdateApartment('${apartment.id}')">
                         <path
@@ -236,5 +239,60 @@ function renderApartments(apartments) {
             </tr>
             `;
     });
-    listApartments.innerHTML += htmls.join('');
+    listApartment.innerHTML += htmls.join('');
+    console.log(listApartments);
+    document.querySelectorAll('.buildings-table .table-row').forEach(function (e) {
+        addClickForBuildingDiv(e);
+    });
 }
+
+// Hiển thị thành viên trong căn hộ
+
+function addClickForBuildingDiv(divSelect) {
+    divSelect.addEventListener('click', function (e) {
+        if (e.target.classList.contains('table-icon') || e.target.tagName === 'path') {
+            return;
+        }
+        let membersContainer = document.querySelector('.buildings-modal-apartment-members-container');
+        membersContainer.classList.add('buildings-modal-apartment-members-open');
+        let membersButton = membersContainer.querySelector('.buildings-modal-apartment-members-button');
+        membersButton.addEventListener('click', function () {
+            membersContainer.classList.remove('buildings-modal-apartment-members-open');
+        });
+        let selectApartmentId = divSelect.id.slice(10);
+        let apartmentListMembers = listResidents.filter(function (member) {
+            return member.apartmentId === selectApartmentId;
+        });
+        let selectAparmentOwner = apartmentListMembers.find(function (member) {
+            return member.role === 'OWNER';
+        });
+        let selectApartmentNonOwner = apartmentListMembers.filter(function (member) {
+            return member.role === 'NON_OWNER';
+        });
+        let ownerArea = membersContainer.querySelector('.apartment-members-infor .apartment-owner tbody');
+        ownerArea.innerHTML = '';
+        let ownerInfor = document.createElement('tr');
+        ownerInfor.innerHTML = `
+            <td>${selectAparmentOwner.residentName}</td>
+            <td>${selectAparmentOwner.birthday}</td>
+            <td>${residentGenders[selectAparmentOwner.gender]}</td>
+            <td>${selectAparmentOwner.phoneNumber}</td>
+            <td>${selectAparmentOwner.identityNumber}</td>
+        `;
+        ownerArea.appendChild(ownerInfor);
+
+        let membersArea = membersContainer.querySelector('.apartment-members-infor .apartment-members tbody');
+        membersArea.innerHTML = '';
+        selectApartmentNonOwner.forEach(function (person) {
+            let memberInfor = document.createElement('tr');
+            memberInfor.innerHTML = `
+                <td>${person.residentName}</td>
+                <td>${person.birthday}</td>
+                <td>${residentGenders[person.gender]}</td>
+                <td>${person.phoneNumber}</td>
+                <td>${person.identityNumber}</td>
+                `;
+            membersArea.appendChild(memberInfor);
+        });
+    });
+};
