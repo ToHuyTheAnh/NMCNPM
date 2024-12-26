@@ -307,7 +307,7 @@ function handleUpdateDonationCharge(id) {
     donationContainer.querySelector('input[name="apartmentAmountPaid"]').value = listAtrributes.amountPaid;
     donationContainer.querySelector('input[name="apartmentPaymentMethod"]').value = nameMethodListEN[listAtrributes.paymentMethod];
 
-    editDonationModalSave.addEventListener('click', function (e) {
+    editDonationModalSave.onclick = function (e) {
         donationContainer.classList.remove('donation-modal-open');
         let apartmentDonationNameInput = donationContainer.querySelector('input[name="donationApartmentName"]').value;
         let apartmentIdInput = listApartments.find(function (apt) {
@@ -338,7 +338,7 @@ function handleUpdateDonationCharge(id) {
                 alert("Cập nhật thất bại: " + response.message);
             }
         })
-    });
+    };
 
 }
 

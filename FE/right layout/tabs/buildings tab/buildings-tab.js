@@ -172,7 +172,7 @@ function handleUpdateApartment(id) {
     document.querySelector('input[name="edit-buildings-area"]').value = apartmentSelect.querySelector('.row-apartment-area').textContent.trim();
 
     let editBtn = document.querySelector('.edit-buildings-modal-save-button');
-    editBtn.addEventListener('click', function () {
+    editBtn.onclick = function () {
         let apartmentName = document.querySelector('input[name="edit-buildings-apartmentName"]').value;
         let floorNumber = document.querySelector('input[name="edit-buildings-floorNumber"]').value;
         let apartmentNumber = document.querySelector('input[name="edit-buildings-apartmentNumber"]').value;
@@ -198,7 +198,7 @@ function handleUpdateApartment(id) {
 
         })
         console.log(listApartments);
-    })
+    }
 }
 
 var apartmentStatus = {

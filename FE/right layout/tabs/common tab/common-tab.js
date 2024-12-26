@@ -199,7 +199,7 @@ function handleUpdateCharge(id) {
     typeText.classList.add('text-active');
     let editChargeModalSave = document.querySelector('.edit-common-modal-save-button');
 
-    editChargeModalSave.addEventListener('click', function (e) {
+    editChargeModalSave.onclick = function (e) {
         editChargeModalContainer.classList.remove('edit-common-modal-open');
         let chargeNameInput = editChargeModalContainer.querySelector('input[name="editCommonChargeName"]').value;
         let chargeTypeInput = commonCharges[editChargeModalContainer.querySelector('.edit-common-modal-type-body-text').textContent.trim()];
@@ -236,7 +236,7 @@ function handleUpdateCharge(id) {
                 alert("Cập nhật thất bại: " + response.message);
             }
         })
-    });
+    };
 }
 
 // Xuất dữ liệu

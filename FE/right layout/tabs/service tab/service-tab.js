@@ -305,7 +305,7 @@ function handleUpdateBill(id) {
         `;
         editTableSelect.appendChild(row);
     });
-    editBillModalSaveButton.addEventListener('click', function () {
+    editBillModalSaveButton.onclick = function () {
         editBillModalContainer.classList.remove('edit-service-modal-open');
         let apartmentNameInput = document.querySelector('input[name="editServiceApartmentName"]').value;
         let apartmentIdInput = listApartments.find(function (e) {
@@ -344,7 +344,7 @@ function handleUpdateBill(id) {
                 alert("Cập nhật thất bại: " + response.message);
             }
         })
-    });
+    };
 }
 
 // Hiển thị hóa đơn

@@ -63,9 +63,6 @@ const editResidentContainer = document.querySelector('.edit-resident-modal-conta
 editResidentModalClose.addEventListener('click', function (e) {
     editResidentContainer.classList.remove('edit-resident-modal-open');
 })
-editResidentModalSave.addEventListener('click', function (e) {
-    editResidentContainer.classList.remove('edit-resident-modal-open');
-});
 // Điền giới tính
 const sexSelect = document.querySelectorAll('.resident-input-sex-list-item');
 sexSelect.forEach(sex => sex.addEventListener('click', function (e) {
@@ -326,8 +323,6 @@ function updateResident(id, data, callback) {
 
     fetch(residentApi + '/' + id, options)
         .then(function (response) {
-            console.log('phản hồi của update:', response);
-            console.log(data);
             if (!response.ok) {
                 throw new Error("Failed to update apartment: " + response.statusText);
             }
@@ -345,6 +340,75 @@ function updateResident(id, data, callback) {
             alert("Lỗi: Không thể cập nhật căn hộ: " + error.message);
         });
 }
+
+function updateAction(id) {
+    editResidentContainer.classList.remove('edit-resident-modal-open');
+    console.log('đã click', id);
+    let residentNameInput = editResidentContainer.querySelector('input[name="residentResidentName"]').value;
+    let birthdayInput = editResidentContainer.querySelector('input[name="residentBirthday"]').value;
+    let placeOfBirthInput = editResidentContainer.querySelector('input[name="residentPlaceOfBirth"]').value;
+    let ethnicityInput = editResidentContainer.querySelector('input[name="residentEthnicity"]').value;
+    let nationalityInput = editResidentContainer.querySelector('input[name="residentNationality"]').value;
+    let identityNumberInput = editResidentContainer.querySelector('input[name="residentIdentityNumber"]').value;
+    let permaAddressInput = editResidentContainer.querySelector('input[name="residentPermanentAddress"]').value;
+    let educationLevelInput = editResidentContainer.querySelector('input[name="residentEducationLevel"]').value;
+    let languageProficiencyInput = editResidentContainer.querySelector('input[name="residentLanguageProficiency"]').value;
+    let occupationInput = editResidentContainer.querySelector('input[name="residentOccupation"]').value;
+    let apartmentNameInput = editResidentContainer.querySelector('input[name="residentApartmentName"]').value;
+    let apartmentIdInput = listApartments.find(function (resident, index) {
+        return resident.apartmentName === apartmentNameInput;
+    }).id;
+    let aliasNameInput = editResidentContainer.querySelector('input[name="residentAliasName"]').value;
+    let hometownInput = editResidentContainer.querySelector('input[name="residentHometown"]').value;
+    let religionInput = editResidentContainer.querySelector('input[name="residentReligion"]').value;
+    let phoneInput = editResidentContainer.querySelector('input[name="residentPhoneNumber"]').value;
+    let passportNumberInput = editResidentContainer.querySelector('input[name="residentPassportNumber"]').value;
+    let temporaryAddressInput = editResidentContainer.querySelector('input[name="residentTemporaryAddress"]').value;
+    let professionalQualification = editResidentContainer.querySelector('input[name="residentProfessionalQualification"]').value;
+    let ethnicLanguageInput = editResidentContainer.querySelector('input[name="residentEthnicLanguage"]').value;
+    let workplaceInput = editResidentContainer.querySelector('input[name="residentWorkplace"]').value;
+    let roleInput = residentRolesVN[editResidentContainer.querySelector('.resident-input-apartment-role-text').textContent.trim()];
+    let genderInput = residentGenders2[editResidentContainer.querySelector('.resident-input-sex-text').textContent.trim()];
+
+    var editedResident = {
+        residentName: residentNameInput,
+        birthday: birthdayInput,
+        placeOfBirth: placeOfBirthInput,
+        ethnicity: ethnicityInput,
+        nationality: nationalityInput,
+        identityNumber: identityNumberInput,
+        permanentAddress: permaAddressInput,
+        educationLevel: educationLevelInput,
+        languageProficiency: languageProficiencyInput,
+        occupation: occupationInput,
+        apartmentId: apartmentIdInput,
+        aliasName: aliasNameInput,
+        hometown: hometownInput,
+        religion: religionInput,
+        phoneNumber: phoneInput,
+        passportNumber: passportNumberInput,
+        temporaryAddress: temporaryAddressInput,
+        professionalQualification: professionalQualification,
+        ethnicLanguage: ethnicLanguageInput,
+        workplace: workplaceInput,
+        role: roleInput,
+        gender: genderInput
+    }
+    console.log('dữ liệu gửi update:', editedResident);
+    updateResident(id, editedResident, function (response) {
+        console.log('phản hồi ở hàm:', response.code, response);
+        if (response.code === 200) {
+            let residentEditedTable = document.getElementById('resident-' + id);
+            residentEditedTable.querySelector('.resident-apartment-name').textContent = response.result.apartmentName;
+            residentEditedTable.querySelector('.resident-name').textContent = response.result.residentName;
+            residentEditedTable.querySelector('.resident-role').textContent = residentRoles[response.result.role];
+            residentEditedTable.querySelector('.resident-phone-number').textContent = response.result.phoneNumber;
+        } else {
+            alert("Lỗi: Không thể thêm căn hộ. Vui lòng điền đầy đủ thông tin!");
+        }
+    })
+}
+
 function handleUpdateResident(id) {
     console.log('lần gọi hàm update');
     editResidentContainer.classList.add('edit-resident-modal-open');
@@ -376,70 +440,11 @@ function handleUpdateResident(id) {
     editResidentContainer.querySelector('.resident-input-sex-text').textContent = residentGenders[listAtrributes.gender];
 
     let editSaveButton = document.querySelector('.edit-resident-modal-save-button');
-    editSaveButton.addEventListener('click', function () {
-        let residentNameInput = editResidentContainer.querySelector('input[name="residentResidentName"]').value;
-        let birthdayInput = editResidentContainer.querySelector('input[name="residentBirthday"]').value;
-        let placeOfBirthInput = editResidentContainer.querySelector('input[name="residentPlaceOfBirth"]').value;
-        let ethnicityInput = editResidentContainer.querySelector('input[name="residentEthnicity"]').value;
-        let nationalityInput = editResidentContainer.querySelector('input[name="residentNationality"]').value;
-        let identityNumberInput = editResidentContainer.querySelector('input[name="residentIdentityNumber"]').value;
-        let permaAddressInput = editResidentContainer.querySelector('input[name="residentPermanentAddress"]').value;
-        let educationLevelInput = editResidentContainer.querySelector('input[name="residentEducationLevel"]').value;
-        let languageProficiencyInput = editResidentContainer.querySelector('input[name="residentLanguageProficiency"]').value;
-        let occupationInput = editResidentContainer.querySelector('input[name="residentOccupation"]').value;
-        let apartmentNameInput = editResidentContainer.querySelector('input[name="residentApartmentName"]').value;
-        let apartmentIdInput = listApartments.find(function (resident, index) {
-            return resident.apartmentName === apartmentNameInput;
-        }).id;
-        let aliasNameInput = editResidentContainer.querySelector('input[name="residentAliasName"]').value;
-        let hometownInput = editResidentContainer.querySelector('input[name="residentHometown"]').value;
-        let religionInput = editResidentContainer.querySelector('input[name="residentReligion"]').value;
-        let phoneInput = editResidentContainer.querySelector('input[name="residentPhoneNumber"]').value;
-        let passportNumberInput = editResidentContainer.querySelector('input[name="residentPassportNumber"]').value;
-        let temporaryAddressInput = editResidentContainer.querySelector('input[name="residentTemporaryAddress"]').value;
-        let professionalQualification = editResidentContainer.querySelector('input[name="residentProfessionalQualification"]').value;
-        let ethnicLanguageInput = editResidentContainer.querySelector('input[name="residentEthnicLanguage"]').value;
-        let workplaceInput = editResidentContainer.querySelector('input[name="residentWorkplace"]').value;
-        let roleInput = residentRolesVN[editResidentContainer.querySelector('.resident-input-apartment-role-text').textContent.trim()];
-        let genderInput = residentGenders2[editResidentContainer.querySelector('.resident-input-sex-text').textContent.trim()];
-
-        var editedResident = {
-            residentName: residentNameInput,
-            birthday: birthdayInput,
-            placeOfBirth: placeOfBirthInput,
-            ethnicity: ethnicityInput,
-            nationality: nationalityInput,
-            identityNumber: identityNumberInput,
-            permanentAddress: permaAddressInput,
-            educationLevel: educationLevelInput,
-            languageProficiency: languageProficiencyInput,
-            occupation: occupationInput,
-            apartmentId: apartmentIdInput,
-            aliasName: aliasNameInput,
-            hometown: hometownInput,
-            religion: religionInput,
-            phoneNumber: phoneInput,
-            passportNumber: passportNumberInput,
-            temporaryAddress: temporaryAddressInput,
-            professionalQualification: professionalQualification,
-            ethnicLanguage: ethnicLanguageInput,
-            workplace: workplaceInput,
-            role: roleInput,
-            gender: genderInput
-        }
-        updateResident(id, editedResident, function (response) {
-            console.log('phản hồi:', response.code, response);
-            if (response.code === 200) {
-                let residentEditedTable = document.getElementById('resident-' + id);
-                residentEditedTable.querySelector('.resident-apartment-name').textContent = response.result.apartmentName;
-                residentEditedTable.querySelector('.resident-name').textContent = response.result.residentName;
-                residentEditedTable.querySelector('.resident-role').textContent = residentRoles[response.result.role];
-                residentEditedTable.querySelector('.resident-phone-number').textContent = response.result.phoneNumber;
-            } else {
-                alert("Lỗi: Không thể thêm căn hộ. Vui lòng điền đầy đủ thông tin!");
-            }
-        })
-    })
+    // console.log(editSaveButton);
+    function residentEventClick() {
+        updateAction(id);
+    }
+    editSaveButton.onclick = residentEventClick;
 }
 
 // Xuất nhân khẩu
