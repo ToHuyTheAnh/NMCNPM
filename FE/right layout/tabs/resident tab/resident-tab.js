@@ -406,7 +406,6 @@ function updateAction(id) {
                 alert("Lỗi: Không thể thêm căn hộ. Vui lòng điền đầy đủ thông tin!");
             }
         })
-    })
 }
 
 // Xuất nhân khẩu
