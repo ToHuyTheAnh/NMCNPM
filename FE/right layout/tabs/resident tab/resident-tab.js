@@ -108,7 +108,7 @@ function getResidents(callback = () => { }) {
         .then(function (response) {
             if (!response.ok) {
                 console.error("Error fetching apartments:", response.status);
-                throw new Error("Failed to fetch apartments: " + response.statusText);
+                throw new Error("Dữ liệu dân cư chưa được tải");
             }
             return response.json();
         })
@@ -120,7 +120,7 @@ function getResidents(callback = () => { }) {
         })
         .catch(function (error) {
             console.error("Fetch error:", error.message);
-            alert("Không thể tải dữ liệu: " + error.message);
+            alert(error.message);
         });
 }
 
@@ -138,7 +138,7 @@ function createNewResident(data, callback = () => { }) {
             if (!response.ok) {
                 console.log('Dữ liệu của throww:', response);
                 console.error("Error fetching residents:", response.status);
-                throw new Error("Failed to fetch residents: " + response.statusText);
+                throw new Error("Dữ liệu dân cư chưa đúng yêu cầu");
             }
             return response.json();
         })
@@ -148,7 +148,7 @@ function createNewResident(data, callback = () => { }) {
         })
         .catch(function (error) {
             console.error("Fetch error:", error.message);
-            alert("Không thể tải dữ liệu: " + error.message);
+            alert(error.message);
         });
 }
 
@@ -235,14 +235,14 @@ function handleCreateNewResident() {
                             apartmentSelect.querySelector('.row-apartment-number').textContent = updateApart.apartmentNumber;
                             apartmentSelect.querySelector('.row-apartment-area').textContent = updateApart.area;
                         } else {
-                            alert("Lỗi: Không thể thêm căn hộ. Vui lòng điền đầy đủ thông tin!");
+                            alert("Vui lòng điền đầy đủ thông tin!");
                         }
 
                     })
                 }
 
             } else {
-                alert("Lỗi: Không thể thêm căn hộ. Vui lòng điền đầy đủ thông tin!");
+                alert("Vui lòng điền đầy đủ thông tin!");
             }
         });
         createContainer.querySelectorAll('input').forEach(function (ip) {
@@ -324,7 +324,7 @@ function updateResident(id, data, callback) {
     fetch(residentApi + '/' + id, options)
         .then(function (response) {
             if (!response.ok) {
-                throw new Error("Failed to update apartment: " + response.statusText);
+                throw new Error("Dữ liệu cập nhật chưa đúng yêu cầu");
             }
             return response.json();
         })
@@ -337,7 +337,7 @@ function updateResident(id, data, callback) {
         })
         .catch(function (error) {
             console.error("Fetch error:", error.message);
-            alert("Lỗi: Không thể cập nhật căn hộ: " + error.message);
+            alert(error.message);
         });
 }
 
@@ -370,81 +370,43 @@ function updateAction(id) {
     let roleInput = residentRolesVN[editResidentContainer.querySelector('.resident-input-apartment-role-text').textContent.trim()];
     let genderInput = residentGenders2[editResidentContainer.querySelector('.resident-input-sex-text').textContent.trim()];
 
-    var editedResident = {
-        residentName: residentNameInput,
-        birthday: birthdayInput,
-        placeOfBirth: placeOfBirthInput,
-        ethnicity: ethnicityInput,
-        nationality: nationalityInput,
-        identityNumber: identityNumberInput,
-        permanentAddress: permaAddressInput,
-        educationLevel: educationLevelInput,
-        languageProficiency: languageProficiencyInput,
-        occupation: occupationInput,
-        apartmentId: apartmentIdInput,
-        aliasName: aliasNameInput,
-        hometown: hometownInput,
-        religion: religionInput,
-        phoneNumber: phoneInput,
-        passportNumber: passportNumberInput,
-        temporaryAddress: temporaryAddressInput,
-        professionalQualification: professionalQualification,
-        ethnicLanguage: ethnicLanguageInput,
-        workplace: workplaceInput,
-        role: roleInput,
-        gender: genderInput
-    }
-    console.log('dữ liệu gửi update:', editedResident);
-    updateResident(id, editedResident, function (response) {
-        console.log('phản hồi ở hàm:', response.code, response);
-        if (response.code === 200) {
-            let residentEditedTable = document.getElementById('resident-' + id);
-            residentEditedTable.querySelector('.resident-apartment-name').textContent = response.result.apartmentName;
-            residentEditedTable.querySelector('.resident-name').textContent = response.result.residentName;
-            residentEditedTable.querySelector('.resident-role').textContent = residentRoles[response.result.role];
-            residentEditedTable.querySelector('.resident-phone-number').textContent = response.result.phoneNumber;
-        } else {
-            alert("Lỗi: Không thể thêm căn hộ. Vui lòng điền đầy đủ thông tin!");
+        var editedResident = {
+            residentName: residentNameInput,
+            birthday: birthdayInput,
+            placeOfBirth: placeOfBirthInput,
+            ethnicity: ethnicityInput,
+            nationality: nationalityInput,
+            identityNumber: identityNumberInput,
+            permanentAddress: permaAddressInput,
+            educationLevel: educationLevelInput,
+            languageProficiency: languageProficiencyInput,
+            occupation: occupationInput,
+            apartmentId: apartmentIdInput,
+            aliasName: aliasNameInput,
+            hometown: hometownInput,
+            religion: religionInput,
+            phoneNumber: phoneInput,
+            passportNumber: passportNumberInput,
+            temporaryAddress: temporaryAddressInput,
+            professionalQualification: professionalQualification,
+            ethnicLanguage: ethnicLanguageInput,
+            workplace: workplaceInput,
+            role: roleInput,
+            gender: genderInput
         }
+        updateResident(id, editedResident, function (response) {
+            console.log('phản hồi:', response.code, response);
+            if (response.code === 200) {
+                let residentEditedTable = document.getElementById('resident-' + id);
+                residentEditedTable.querySelector('.resident-apartment-name').textContent = response.result.apartmentName;
+                residentEditedTable.querySelector('.resident-name').textContent = response.result.residentName;
+                residentEditedTable.querySelector('.resident-role').textContent = residentRoles[response.result.role];
+                residentEditedTable.querySelector('.resident-phone-number').textContent = response.result.phoneNumber;
+            } else {
+                alert("Lỗi: Không thể thêm căn hộ. Vui lòng điền đầy đủ thông tin!");
+            }
+        })
     })
-}
-
-function handleUpdateResident(id) {
-    console.log('lần gọi hàm update');
-    editResidentContainer.classList.add('edit-resident-modal-open');
-    let listAtrributes = listResidents.find(function (cur) {
-        return cur.id === id;
-    })
-    // console.log(listAtrributes);
-    editResidentContainer.querySelector('input[name="residentResidentName"]').value = listAtrributes.residentName;
-    editResidentContainer.querySelector('input[name="residentBirthday"]').value = listAtrributes.birthday;
-    editResidentContainer.querySelector('input[name="residentPlaceOfBirth"]').value = listAtrributes.placeOfBirth;
-    editResidentContainer.querySelector('input[name="residentEthnicity"]').value = listAtrributes.ethnicity;
-    editResidentContainer.querySelector('input[name="residentNationality"]').value = listAtrributes.nationality;
-    editResidentContainer.querySelector('input[name="residentIdentityNumber"]').value = listAtrributes.identityNumber;
-    editResidentContainer.querySelector('input[name="residentPermanentAddress"]').value = listAtrributes.permaAddress;
-    editResidentContainer.querySelector('input[name="residentEducationLevel"]').value = listAtrributes.educationLevel;
-    editResidentContainer.querySelector('input[name="residentLanguageProficiency"]').value = listAtrributes.languageProficiency;
-    editResidentContainer.querySelector('input[name="residentOccupation"]').value = listAtrributes.occupation;
-    editResidentContainer.querySelector('input[name="residentApartmentName"]').value = listAtrributes.apartmentName;
-    editResidentContainer.querySelector('input[name="residentAliasName"]').value = listAtrributes.aliasName;
-    editResidentContainer.querySelector('input[name="residentHometown"]').value = listAtrributes.hometown;
-    editResidentContainer.querySelector('input[name="residentReligion"]').value = listAtrributes.religion;
-    editResidentContainer.querySelector('input[name="residentPhoneNumber"]').value = listAtrributes.phoneNumber;
-    editResidentContainer.querySelector('input[name="residentPassportNumber"]').value = listAtrributes.passportNumber;
-    editResidentContainer.querySelector('input[name="residentTemporaryAddress"]').value = listAtrributes.temporaryAddress;
-    editResidentContainer.querySelector('input[name="residentProfessionalQualification"]').value = listAtrributes.professionalQualification;
-    editResidentContainer.querySelector('input[name="residentEthnicLanguage"]').value = listAtrributes.ethnicLanguage;
-    editResidentContainer.querySelector('input[name="residentWorkplace"]').value = listAtrributes.workplace;
-    editResidentContainer.querySelector('.resident-input-apartment-role-text').textContent = residentRoles[listAtrributes.role];
-    editResidentContainer.querySelector('.resident-input-sex-text').textContent = residentGenders[listAtrributes.gender];
-
-    let editSaveButton = document.querySelector('.edit-resident-modal-save-button');
-    // console.log(editSaveButton);
-    function residentEventClick() {
-        updateAction(id);
-    }
-    editSaveButton.onclick = residentEventClick;
 }
 
 // Xuất nhân khẩu

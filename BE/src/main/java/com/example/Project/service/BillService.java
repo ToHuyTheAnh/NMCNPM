@@ -55,6 +55,9 @@ public class BillService {
     public Bill create(BillRequest request) {
         List<ApartmentCharge> apartmentChargeList = new ArrayList<>();
         Apartment apartment = apartmentService.getById(request.getApartmentId());
+        if (apartment == null) {
+            throw new NoSuchElementException("Mã căn hộ không tồn tại");
+        }
         Bill bill = billMapper.toBill(request);
         bill.setApartmentName(apartment.getApartmentName());
         for(ApartmentChargeRequest request1 : request.getApartmentChargeRequestList()) {
@@ -101,6 +104,9 @@ public class BillService {
         List<ApartmentChargeRequest> apartmentChargeRequestList = request.getApartmentChargeRequestList();
         List<ApartmentCharge> updateApartmentChargeList = new ArrayList<>();
         Apartment apartment = apartmentService.getById(request.getApartmentId());
+        if (apartment == null) {
+            throw new NoSuchElementException("Mã căn hộ không tồn tại");
+        }
         bill.setApartmentName(apartment.getApartmentName());
         for (int i = 0;i < apartmentChargeList.size();i++)
         {

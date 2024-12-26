@@ -53,6 +53,9 @@ public class ApartmentChargeService {
 
     public ApartmentCharge create(ApartmentChargeRequest request) {
         Apartment apartment = apartmentService.getById(request.getApartmentId());
+        if (apartment == null) {
+            throw new NoSuchElementException("Mã căn hộ không tồn tại");
+        }
         Charge charge = chargeService.getById(request.getChargeId());
 
         ApartmentCharge apartmentCharge = apartmentChargeMapper.toApartmentCharge(request);
@@ -94,8 +97,11 @@ public class ApartmentChargeService {
 
     public ApartmentCharge updateById(String id, ApartmentChargeRequest request) {
         ApartmentCharge apartmentCharge = getById(id);
-
+        
         Apartment apartment = apartmentService.getById(request.getApartmentId());
+        if (apartment == null) {
+            throw new NoSuchElementException("Mã căn hộ không tồn tại");
+        }
         Charge charge = chargeService.getById(request.getChargeId());
 
         apartmentChargeMapper.mapApartmentCharge(apartmentCharge, request);

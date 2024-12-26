@@ -20,7 +20,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -42,6 +41,9 @@ public class ResidentService {
     public Resident create(@Valid ResidentRequest request){
         Resident resident = residentMapper.toResident(request);
         Apartment apartment = apartmentService.getById(request.getApartmentId());
+        if (apartment == null) {
+            throw new NoSuchElementException("Mã căn hộ không tồn tại");
+        }
         resident.setApartment(apartment);
         return residentRepository.save(resident);
     }
@@ -62,6 +64,9 @@ public class ResidentService {
     public Resident updateById(String id, @Valid ResidentRequest request){
         Resident resident = getById(id);
         Apartment apartment = apartmentService.getById(request.getApartmentId());
+        if (apartment == null) {
+            throw new NoSuchElementException("Mã căn hộ không tồn tại");
+        }
         residentMapper.mapResident(resident, request);
         resident.setApartment(apartment);
 

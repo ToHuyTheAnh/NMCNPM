@@ -35,11 +35,11 @@ public class AuthService {
 
     public ApiResponse<?> login(LoginRequest loginRequest) {
         User user = userRepository.findByUsername(loginRequest.getUsername())
-                .orElseThrow(() -> new EntityNotFoundException("Invalid username"));
+                .orElseThrow(() -> new EntityNotFoundException("Tên đăng nhập không hợp lệ"));
 
         //password wrong
         if (!passwordEncoder.matches(loginRequest.getPassword(), user.getPassword())) {
-            return new ApiResponse<>(HttpStatus.BAD_REQUEST.value(), "Wrong password", null);
+            return new ApiResponse<>(HttpStatus.BAD_REQUEST.value(), "Mật khẩu sai", null);
         }
 
         //refreshtoken
@@ -58,7 +58,7 @@ public class AuthService {
 
     public ApiResponse<?> register(RegisterRequest registerRequest) {
         if (userRepository.findByUsername(registerRequest.getUsername()).isPresent()) {
-            return new ApiResponse<>(HttpStatus.CONFLICT.value(), "Username already exists", null);
+            return new ApiResponse<>(HttpStatus.CONFLICT.value(), "Tên đăng nhập đã tồn tại", null);
         }
         User newUser = new User();
         newUser.setUsername(registerRequest.getUsername());
@@ -72,7 +72,7 @@ public class AuthService {
         userRepository.save(newUser);
         UserResponse userResponse = userMapper.toUserDTO(newUser);
         jwtService.generateToken(userResponse);
-        return new ApiResponse<>(HttpStatus.OK.value(), "Registration successful", userResponse);
+        return new ApiResponse<>(HttpStatus.OK.value(), "Đăng ký thành công", userResponse);
     }
     public String generateRefreshToken() {
         SecureRandom secureRandom = new SecureRandom();
@@ -83,10 +83,10 @@ public class AuthService {
 
     public ApiResponse<?> get(String userId) {
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new EntityNotFoundException("User not found"));
+                .orElseThrow(() -> new EntityNotFoundException("Không tìm thấy tài khoản"));
 
         UserResponse userInfo = userMapper.toUserDTO(user);
 
-        return new ApiResponse<>(HttpStatus.OK.value(), "Successful", userInfo);
+        return new ApiResponse<>(HttpStatus.OK.value(), "Thành công", userInfo);
     }
 }

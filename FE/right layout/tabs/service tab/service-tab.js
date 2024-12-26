@@ -169,7 +169,7 @@ function createNewBills(data, callback = () => { }) {
             if (!response.ok) {
                 console.log('Dữ liệu của throw:', response);
                 console.error("Error fetching charges:", response.status);
-                throw new Error("Failed to fetch charges: " + response.statusText);
+                throw new Error("Dữ liệu chưa đúng yêu cầu");
             }
             return response.json();
         })
@@ -179,7 +179,7 @@ function createNewBills(data, callback = () => { }) {
         })
         .catch(function (error) {
             console.error("Fetch error:", error.message);
-            alert("Không thể tải dữ liệu: " + error.message);
+            alert(error.message);
         });
 }
 function handleCreateNewBill() {
