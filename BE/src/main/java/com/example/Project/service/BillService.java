@@ -4,6 +4,7 @@ import com.example.Project.dto.request.bill.BillRequest;
 import com.example.Project.dto.request.bill.BillSearchRequest;
 import com.example.Project.entity.ApartmentCharge;
 import com.example.Project.entity.Bill;
+import com.example.Project.enums.Enums.BillStatus;
 import com.example.Project.entity.Apartment;
 import com.example.Project.mapper.ApartmentChargeMapper;
 import com.example.Project.mapper.BillMapper;
@@ -21,6 +22,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -109,6 +111,12 @@ public class BillService {
         }
         bill.setApartmentChargeList(updateApartmentChargeList);
         billMapper.mapBill(bill, request);
+        if(bill.getTotalAmountPaid().compareTo(bill.getTotalPaymentAmount()) < 0) {
+            if(bill.getTotalAmountPaid().compareTo(BigDecimal.ZERO) > 0)
+                bill.setStatus(BillStatus.PARTIAL);
+        } else {
+            bill.setStatus(BillStatus.PAID);
+        }
         return billRepository.save(bill);
     }
 
