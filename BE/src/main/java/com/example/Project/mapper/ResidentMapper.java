@@ -1,9 +1,7 @@
 package com.example.Project.mapper;
 
 import com.example.Project.dto.request.resident.ResidentRequest;
-import com.example.Project.dto.response.ApartmentChargeResponse;
 import com.example.Project.dto.response.ResidentResponse;
-import com.example.Project.entity.ApartmentCharge;
 import com.example.Project.entity.Resident;
 import jakarta.validation.Valid;
 
