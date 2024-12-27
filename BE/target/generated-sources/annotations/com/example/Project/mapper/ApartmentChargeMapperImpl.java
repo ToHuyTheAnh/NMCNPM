@@ -6,6 +6,7 @@ import com.example.Project.dto.response.ApartmentChargeResponse;
 import com.example.Project.entity.Apartment;
 import com.example.Project.entity.ApartmentCharge;
 import com.example.Project.entity.Charge;
+import com.example.Project.enums.Enums;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-12-26T16:50:31+0700",
+    date = "2024-12-27T21:35:13+0700",
     comments = "version: 1.5.3.Final, compiler: Eclipse JDT (IDE) 3.41.0.v20241217-1506, environment: Java 17.0.13 (Eclipse Adoptium)"
 )
 @Component
@@ -49,6 +50,7 @@ public class ApartmentChargeMapperImpl implements ApartmentChargeMapper {
         apartmentChargeResponse.setChargeName( apartmentChargeChargeChargeName( apartmentCharge ) );
         apartmentChargeResponse.setUnitAmount( apartmentChargeChargeUnitAmount( apartmentCharge ) );
         apartmentChargeResponse.setUnitMeasurement( apartmentChargeChargeUnitMeasurement( apartmentCharge ) );
+        apartmentChargeResponse.setChargeType( apartmentChargeChargeType( apartmentCharge ) );
         apartmentChargeResponse.setAmountPaid( apartmentCharge.getAmountPaid() );
         apartmentChargeResponse.setChargeAmount( apartmentCharge.getChargeAmount() );
         apartmentChargeResponse.setCreateAt( apartmentCharge.getCreateAt() );
@@ -211,5 +213,20 @@ public class ApartmentChargeMapperImpl implements ApartmentChargeMapper {
             return null;
         }
         return unitMeasurement;
+    }
+
+    private Enums.ChargeType apartmentChargeChargeType(ApartmentCharge apartmentCharge) {
+        if ( apartmentCharge == null ) {
+            return null;
+        }
+        Charge charge = apartmentCharge.getCharge();
+        if ( charge == null ) {
+            return null;
+        }
+        Enums.ChargeType type = charge.getType();
+        if ( type == null ) {
+            return null;
+        }
+        return type;
     }
 }

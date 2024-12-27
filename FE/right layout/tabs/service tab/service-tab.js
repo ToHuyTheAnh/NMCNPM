@@ -350,7 +350,7 @@ function handleUpdateBill(id) {
 // Hiển thị hóa đơn
 function addClickForRow(row) {
     row.addEventListener('click', function (e) {
-        if (e.target.classList.contains('table-icon')) {
+        if (e.target.classList.contains('table-icon') || e.target.tagName === 'path') {
             return;
         }
         billModalContainer.classList.add('bill-modal-open');
