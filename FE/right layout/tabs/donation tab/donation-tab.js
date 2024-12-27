@@ -118,7 +118,9 @@ function getAllCharges(callback = () => { }) {
         })
         .then(function (data) {
             if (data.code === 200) {
-                listDonationCharges = data.result;
+                listDonationCharges = data.result.filter(function (charge) {
+                    return charge.chargeType === 'DONATION';
+                });
                 callback(listDonationCharges);
             }
         })
