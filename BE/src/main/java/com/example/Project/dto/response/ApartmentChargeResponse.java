@@ -18,6 +18,7 @@ public class ApartmentChargeResponse {
     String apartmentName;
     String chargeId;
     String chargeName;
+    Enums.ChargeType chargeType;
     BigDecimal chargeAmount;
     BigDecimal unitQuantity;
     BigDecimal unitAmount;
