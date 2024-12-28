@@ -142,6 +142,7 @@ function getAllChargeType(callback = () => { }) {
         .then(function (data) {
             if (data.code === 200) {
                 listDonationType = data.result;
+                console.log('danh sách phí:', listDonationType);
                 callback(listDonationType);
             }
         })
@@ -335,7 +336,10 @@ function handleUpdateDonationCharge(id) {
                 chargeEditedTable.querySelector('.chargeName').textContent = chargeDonationNameInput;
                 chargeEditedTable.querySelector('.amountPaid').textContent = aparmentDonationAmountPaidInput;
                 chargeEditedTable.querySelector('.paymentMethod').textContent = nameMethodListEN[paymentMethodDonationInput];
-                let listCharges = document.querySelector('.donation-table');
+                listAtrributes.apartmentName = apartmentDonationNameInput;
+                listAtrributes.chargeName = chargeDonationNameInput;
+                listAtrributes.amountPaid = aparmentDonationAmountPaidInput;
+                listAtrributes.paymentMethod = paymentMethodDonationInput;
             } else {
                 alert("Cập nhật thất bại: " + response.message);
             }
@@ -375,12 +379,13 @@ function renderCharges(charges) {
 }
 
 function renderTypes(types) {
+    console.log('renderTypes: ', types);
     let donationTypeContainer = document.querySelector('.donation-type-list');
     let htmlDonations = types.filter(function (tp) {
         return tp.type === 'DONATION';
     }).map(function (type) {
         return `
-            <li name="${type.id}" class="donation-type-list-item">
+            <li name="${type.id}" class="donation-type-list-item type-list-item-${type.id}">
                 <span> ${type.chargeName} </span>
             </li>
         `;
@@ -392,7 +397,7 @@ function renderTypes(types) {
         return tp.type === 'DONATION';
     }).map(function (type) {
         return `
-            <li name="${type.id}" class="donation-input-type-list-item">
+            <li name="${type.id}" class="donation-input-type-list-item type-list-item-${type.id}">
                 <span> ${type.chargeName} </span>
             </li>
         `;

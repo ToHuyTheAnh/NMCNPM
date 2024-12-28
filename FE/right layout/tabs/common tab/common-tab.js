@@ -105,6 +105,7 @@ function handleCreateNewCharges() {
                 // console.log(listCommons);
                 renderCommons([response.result]);
                 renderServiceChargesForCreateModal([response.result]);
+                renderTypes([response.result]);
                 addClickForChargeDiv(document.getElementById('charge-' + response.result.id));
             } else {
                 alert("Lỗi: Không thể thêm căn hộ. Vui lòng điền đầy đủ thông tin!");
@@ -137,9 +138,18 @@ function handleDeleteCharge(id) {
         })
         .then(function () {
             let chargeSelect = document.getElementById('charge-' + id);
-            console.log(chargeSelect);
+            // console.log(chargeSelect);
             if (chargeSelect) {
                 // console.log('Đã xóa thành công');
+                console.log('danh sách: ', listCommons);
+                let listServices = document.querySelector('.table-charges-list tbody');
+                listServices.innerHTML = '';
+                getServices(renderServiceChargesForCreateModal);
+                let chargeFilterSelect = document.querySelectorAll('.type-list-item-' + id);
+                console.log('danh sách item:', chargeFilterSelect);
+                chargeFilterSelect.forEach(function (charge) {
+                    charge.remove();
+                });
                 chargeSelect.remove();
             }
         })
@@ -231,6 +241,20 @@ function handleUpdateCharge(id) {
                 if (managementContainer.hasChildNodes()) managementContainer.innerHTML = "";
                 if (donationContainer.hasChildNodes()) donationContainer.innerHTML = "";
                 getCommons(renderCommons(listCommons));
+                console.log('danh sách phí:', listDonationType, listCommons);
+                let donationTypeContainer = document.querySelector('.donation-type-list');
+                let donationTypeContainer2 = document.querySelector('.donation-input-type-list');
+                let typeInitial = `
+                    <li name="donation-all-type" class="donation-type-list-item">
+                        <span> Tất cả </span>
+                    </li>`;
+                donationTypeContainer.innerHTML = typeInitial;
+                donationTypeContainer2.innerHTML = "";
+                renderTypes(listCommons);
+                /*let idChargeList = listDonationType.map(function (charge) {
+                    return charge.id;
+                });
+                if (idChargeList.includes(response.result.id) === false) ;*/
                 addClickForChargeDiv(document.getElementById('charge-' + response.result.id));
             } else {
                 alert("Cập nhật thất bại: " + response.message);

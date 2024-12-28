@@ -50,6 +50,29 @@ editPaymentMethodList.forEach(method => method.addEventListener('click', functio
     }, 100);
 }));
 
+// filter lọc trạng thái thanh toán
+const statusSelect = document.querySelectorAll('.service-status-list-item');
+statusSelect.forEach(status => status.addEventListener('click', function (e) {
+    const liSelector = e.target.closest('li');
+    const textSelector = liSelector.querySelector('span').textContent;
+    const inputStatus = document.querySelector('.service-tab-search-status-text');
+    inputStatus.textContent = textSelector;
+    let statusListContainer = document.querySelector('.service-status-list');
+    inputStatus.classList.add('service-tab-search-status-active');
+    statusListContainer.classList.add('hidden');
+    let rowTableList = document.querySelectorAll('.service-table  tbody .table-row');
+    rowTableList.forEach(row => {
+        row.classList.add('table-row-hide');
+        const nameRow = row.querySelector('.service-table-row-status').getAttribute('name');
+        if (nameRow === liSelector.getAttribute('name') || liSelector.getAttribute('name') === 'all-status') {
+            row.classList.remove('table-row-hide');
+        }
+    })
+    setTimeout(() => {
+        statusListContainer.classList.remove('hidden');
+    }, 100);
+}));
+
 // Khởi tạo
 var serviceApi = "http://localhost:8080/project/charge";
 var billApi = "http://localhost:8080/project/bill";
@@ -57,7 +80,16 @@ var serviceChargeList = [];
 var billList = [];
 var statusListEN = {
     'PAID': 'Đã thanh toán',
-    'UNPAID': 'Chưa thanh toán'
+    'PARTIAL': 'Đã thanh toán một phần',
+    'UNPAID': 'Chưa thanh toán',
+    'OVERDUE': 'Quá hạn'
+}
+
+var statusStyles = {
+    'PAID': 'style="color:green; font-weight:bold;"',
+    'PARTIAL': 'style="color:green;"',
+    'UNPAID': 'style="color:red;"',
+    'OVERDUE': 'style="color:red; font-weight:bold;"'
 }
 var code = 0;
 
@@ -80,7 +112,7 @@ function getServices(callback = () => { }) {
             serviceChargeList = data.result.filter(function (e) {
                 return e.type === "SERVICE";
             });
-            // console.log('Các phí dịch vụ:', serviceChargeList);
+            console.log('Các phí dịch vụ:', serviceChargeList);
             callback(serviceChargeList);
         })
         .catch(function (error) {
@@ -124,14 +156,14 @@ function renderServiceChargesForCreateModal(serviceCharges) {
 
 // Xuất dữ liệu
 function renderBills(bills) {
-    var listBills = document.querySelector('.service-table');
+    var listBills = document.querySelector('.service-table  tbody');
     var htmls = bills.map(function (bill) {
         return `
         <tr class="table-row" id="bill-${bill.id}">
             <td>${bill.apartmentName}</td>
             <td>${bill.monthYear}</td>
             <td>${bill.totalAmountPaid}</td>
-            <td>${statusListEN[bill.status]}</td>
+            <td ${statusStyles[bill.status]} class="service-table-row-status" name="${bill.status}">${statusListEN[bill.status]}</td>
             <td>${nameMethodListEN[bill.paymentMethod]}</td>
             <td class="table-icons">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960"

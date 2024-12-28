@@ -202,7 +202,7 @@
 
 #buildings-tab .buildings-modal-apartment-members {
     background: #fff;
-    width: 600px;
+    width: 750px;
     max-width: 100%;
     padding: 20px 30px;
     border-radius: 5px;
@@ -224,11 +224,16 @@
 }
 
 #buildings-tab .apartment-members-infor table th {
-    background-color: #5e60ce;
+    background-color: #003566;
     color: #fff;
     font-size: 1.1rem;
     font-weight: 550;
     padding: 1px;
+}
+
+#buildings-tab .apartment-members-infor table thead:nth-child(2) th {
+    background-color: #4ea8de;
+    color: #fff;
 }
 
 #buildings-tab .apartment-members-infor table tr {

@@ -188,7 +188,7 @@
 #service-tab .edit-service-payment-method-list {
     position: absolute;
     width: 461px;
-    top: 32px;
+    top: 30px;
     margin-left: 216px;
     padding: 10px 0px 0px 10px;
     background-color: #fff;
@@ -478,4 +478,60 @@
     font-size: 1.1rem;
     padding: 5px;
     text-align: left;
+}
+
+/* search filter */
+
+#service-tab .service-tab-filter {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+#service-tab .service-tab-search-status {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10xp;
+    padding-left: 6px;
+    min-width: 230px;
+    height: 35px;
+    background-color: #fff;
+    border: 1px solid #495057;
+    color: #ced4da;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+}
+
+#service-tab .service-tab-search-status-active {
+    color: #343a40;
+}
+
+#service-tab .service-tab-search-status:hover .service-status-list:not(.hidden) {
+    display: block;
+}
+
+#service-tab .service-tab-search-status .service-status-list {
+    position: absolute;
+    top: 35px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    list-style: none;
+    padding: 10px;
+    margin-top: 1px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+#service-tab .service-status-list-item {
+    font-size: 1.1rem;
+    color: #343a40;
+    padding-bottom: 7px;
+    display: block;
+    cursor: pointer;
+}
+
+#service-tab .service-status-list-item:hover {
+    color: #5390d9;
 }
