@@ -85,13 +85,16 @@
                     <button id="menu-close-button" class="fas fa-times"> </button>
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link"> Home </a>
+                        <!-- <a href="#" class="nav-link" data-target="login-main-section"> Trang chủ </a> -->
+                        <button class="nav-link" data-target="hero-section"> Trang chủ </button>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link"> Menu </a>
+                        <!-- <a href="#" class="nav-link" data-target="about-section"> Giới thiệu </a> -->
+                        <button class="nav-link" data-target="about-section"> Giới thiệu </button>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link"> About </a>
+                        <!-- <a href="#" class="nav-link" data-target="testimonials-section"> Thành viên </a> -->
+                        <button class="nav-link" data-target="testimonials-section"> Thành viên </button>
                     </li>
                 </ul>
                 <button id="menu-open-button" class="fas fa-bars"> </button>
@@ -136,7 +139,7 @@
                         <a href="#"> Quên mật khẩu? </a>
                     </div>
                     <button type="submit" class="form-login-button"> Đăng nhập </button>
-                    <div class="register-link">
+                    <div class="register-link register-button">
                         <p> Không có tài khoản?
                             <a href="#"> Đăng ký ngay </a>
                         </p>
@@ -210,15 +213,15 @@
             </div>
         </div>
         <main id="login-main-section">
-            <section class="hero-section">
+            <section class="hero-section" id="hero-section">
                 <div class="section-content">
                     <div class="hero-details">
                         <h2 class="title"> Wép xai nhà làm </h2>
                         <h3 class="subtitle"> Make beautiful day </h3>
                         <p class="description"> Welcome to our paradise, let's play </p>
                         <div class="buttons">
-                            <a href="#" class="button login-button"> Login </a>
-                            <a href="#" class="button contact-us"> Contact us </a>
+                            <a href="#" class="button login-button"> Đăng nhập </a>
+                            <a href="#" class="button register-button"> Đăng ký </a>
                         </div>
                     </div>
                     <div class="hero-image-wrapper">
@@ -227,13 +230,13 @@
                 </div>
             </section>
 
-            <section class="about-section">
+            <section class="about-section" id="about-section">
                 <div class="section-content">
                     <div class="about-image-wrapper">
                         <img src="/images/about-image.jpg" alt="About" class="about-image">
                     </div>
                     <div class="about-details">
-                        <h2 class="section-title"> About us </h2>
+                        <h2 class="section-title"> Giới thiệu </h2>
                         <p class="text"> Lorem ipsum dolor sit amet
                             consectetur adipisicing elit. Necessitatibus sunt cumque, fugit dolorum veniam quibusdam
                             quidem
@@ -256,8 +259,8 @@
 
             </section>
 
-            <section class="testimonials-section">
-                <h2 class="section-title"> Testimonials </h2>
+            <section class="testimonials-section" id="testimonials-section">
+                <h2 class="section-title"> THÀNH VIÊN NHÓM </h2>
                 <div class="section-content">
                     <div class="section-container swiper">
                         <div class="slide-wrapper">
@@ -265,32 +268,32 @@
                                 <li class="testimonial swiper-slide">
                                     <img src=" /images/user-1.jpg" alt="User" class="user-image">
                                     <h3 class="name"> Nguyễn Văn Minh Hồng </h3>
-                                    <i class="feedback"> "abcd" </i>
+                                    <i class="MSSV"> 20224856 </i>
                                 </li>
                                 <li class="testimonial swiper-slide">
                                     <img src=" /images/user-2.jpg" alt="User" class="user-image">
-                                    <h3 class="name"> Tô Huy Thế Anh </h3>
-                                    <i class="feedback"> "abcd" </i>
+                                    <h3 class="name"> Cao Thị Ngọc Huyền </h3>
+                                    <i class="MSSV"> "abcd" </i>
                                 </li>
                                 <li class="testimonial swiper-slide">
                                     <img src=" /images/user-3.jpg" alt="User" class="user-image">
-                                    <h3 class="name"> Thái Đức Nam </h3>
-                                    <i class="feedback"> "abcd"" </i>
-                                </li>
-                                <li class="testimonial swiper-slide">
-                                    <img src=" /images/user-5.jpg" alt="User" class="user-image">
-                                    <h3 class="name"> Bùi Xuân Tùng </h3>
-                                    <i class="feedback"> "abcd" </i>
-                                </li>
-                                <li class="testimonial swiper-slide">
-                                    <img src="/images/user-5.jpg" alt="User" class="user-image">
-                                    <h3 class="name"> Cao Thị Ngọc Huyền </h3>
-                                    <i class="feedback"> "abcd" </i>
-                                </li>
-                                <li class="testimonial swiper-slide">
-                                    <img src="/images/user-5.jpg" alt="User" class="user-image">
                                     <h3 class="name"> Đặng Thị Hòa </h3>
-                                    <i class="feedback"> "abcd" </i>
+                                    <i class="MSSV"> "abcd"" </i>
+                                </li>
+                                <li class="testimonial swiper-slide">
+                                    <img src=" /images/user-4.jpg" alt="User" class="user-image">
+                                    <h3 class="name"> Bùi Xuân Tùng </h3>
+                                    <i class="MSSV"> "abcd" </i>
+                                </li>
+                                <li class="testimonial swiper-slide">
+                                    <img src="/images/user-5.jpg" alt="User" class="user-image">
+                                    <h3 class="name"> Tô Huy Thế Anh </h3>
+                                    <i class="MSSV"> 20224825 </i>
+                                </li>
+                                <li class="testimonial swiper-slide">
+                                    <img src="/images/user-6.jpg" alt="User" class="user-image">
+                                    <h3 class="name"> Thái Đức Nam </h3>
+                                    <i class="MSSV"> "abcd" </i>
                                 </li>
                             </ul>
                             <div class="swiper-pagination"></div>

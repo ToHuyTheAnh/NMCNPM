@@ -60,13 +60,13 @@ loginModalClose.addEventListener('click', function (e) {
 // Đóng mở mục đăng ký tài khoản
 
 const registerModalContainer = document.querySelector('.register-container');
-const registerModalOpen = document.querySelector('.register-link');
+const registerModalOpen = document.querySelectorAll('.register-button');
 const registerModalClose = document.querySelector('.register-close-icon');
 
-registerModalOpen.addEventListener('click', function (e) {
+registerModalOpen.forEach(btn => btn.addEventListener('click', function (e) {
     loginModalContainer.classList.remove('login-modal-open');
     registerModalContainer.classList.add('register-modal-open');
-});
+}));
 
 registerModalClose.addEventListener('click', function (e) {
     registerModalContainer.classList.remove('register-modal-open');
@@ -105,6 +105,7 @@ function registerAction(data, callback) {
         });
 }
 const registerButton = document.querySelector('.form-register-button');
+
 registerButton.addEventListener('click', function (e) {
     let userName = document.querySelector('.register-user-name').value.trim();
     let password = document.querySelector('.register-password').value.trim();
@@ -182,3 +183,16 @@ loginButton.addEventListener('click', function (e) {
         }
     });
 });
+
+// Chuyển mục 
+
+var sectionList = document.querySelectorAll('.nav-link');
+
+sectionList.forEach(section => section.addEventListener('click', function () {
+    let targetId = this.getAttribute('data-target');
+    let targetElement = document.getElementById(targetId);
+    if (targetElement) {
+        console.log(targetElement);
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+}));

@@ -188,13 +188,13 @@
 }
 
 #login-tab .hero-section .hero-details .button:hover,
-#login-tab .hero-section .hero-details .contact-us {
+#login-tab .hero-section .hero-details .register-button {
     color: var(--white-color);
     border-color: var(--white-color);
     background: transparent;
 }
 
-#login-tab .hero-section .hero-details .contact-us:hover {
+#login-tab .hero-section .hero-details .register-button:hover {
     color: var(--primary-color);
     border-color: var(--secondary-color);
     background: var(--secondary-color);
