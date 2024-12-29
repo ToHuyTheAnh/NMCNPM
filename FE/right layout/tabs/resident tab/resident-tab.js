@@ -25,6 +25,8 @@ tmpAbsenceModalClose.addEventListener('click', function (e) {
 })
 tmpAbsenceModalSave.addEventListener('click', function (e) {
     tmpAbsenceContainer.classList.remove('resident-tmp-absence-modal-open');
+    let residentDeathValue = document.querySelector('.resident-tmp-absence input');
+    residentDeathValue.value = Number(residentDeathValue.value || 0) + 1;
 });
 
 // Đóng mở mục khai tử
@@ -40,6 +42,8 @@ deathModalClose.addEventListener('click', function (e) {
 })
 deathModalSave.addEventListener('click', function (e) {
     deathContainer.classList.remove('resident-death-modal-open');
+    let residentDeathValue = document.querySelector('.resident-death input');
+    residentDeathValue.value = Number(residentDeathValue.value || 0) + 1;
 });
 
 // Đóng mở mục tạo mới nhân khẩu
@@ -101,6 +105,9 @@ var code = 0;
 function start() {
     getResidents(renderResidents);
     handleCreateNewResident();
+    document.querySelector('.number-of-resident input').value = listResidents.length;
+    document.querySelector('.resident-tmp-absence input').value = 0;
+    document.querySelector('.resident-death input').value = 0;
 }
 start();
 function getResidents(callback = () => { }) {
@@ -115,6 +122,7 @@ function getResidents(callback = () => { }) {
         .then(function (data) {
             if (data.code === 200) {
                 listResidents = data.result;
+                document.querySelector('.number-of-resident input').value = listResidents.length;
                 callback(listResidents);
             }
         })
@@ -243,7 +251,8 @@ function handleCreateNewResident() {
 
                     })
                 }
-
+                let ressidentValue = document.querySelector('.number-of-resident input');
+                ressidentValue.value = Number(ressidentValue.value) + 1;
             } else {
                 alert("Vui lòng điền đầy đủ thông tin!");
             }
@@ -305,12 +314,14 @@ function handleDeleteResident(id) {
                             let listApartment = document.querySelector('.buildings-table tbody');
                             listApartment.innerHTML = '';
                             getApartments(renderApartments);
+
                         } else {
                             alert("Lỗi: Không thể thêm căn hộ. Vui lòng điền đầy đủ thông tin!");
                         }
-
                     })
                 }
+                let ressidentValue = document.querySelector('.number-of-resident input');
+                ressidentValue.value = Number(ressidentValue.value) - 1;
                 residentSelect.remove();
             }
         });

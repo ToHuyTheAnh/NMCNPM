@@ -486,7 +486,8 @@
 }
 
 /* login modal */
-#login-tab .login-container {
+#login-tab .login-container,
+#login-tab .register-container {
     background-color: rgba(0, 0, 0, 0.3);
     position: fixed;
     display: flex;
@@ -502,16 +503,18 @@
     z-index: 50;
 }
 
-#login-tab .login-modal-open {
+#login-tab .login-modal-open,
+#login-tab .register-modal-open {
     opacity: 1;
     pointer-events: auto;
 }
 
-#login-tab .login-modal {
+#login-tab .login-modal,
+#login-tab .register-modal {
     display: flex;
     margin: auto;
     width: 400px;
-    height: 450px;
+    height: auto;
     background: #fff;
     border-radius: 20px;
     display: flex;
@@ -520,28 +523,34 @@
 
 #login-tab form {
     margin: auto;
+    margin-top: 40px;
+    margin-bottom: 10px;
 }
 
-#login-tab .login-modal h2 {
+#login-tab .login-modal h2,
+#login-tab .register-modal h2 {
     font-size: 2rem;
     font-weight: 650;
     color: #003566;
     text-align: center;
 }
 
-#login-tab .login-close-icon {
+#login-tab .login-close-icon,
+#login-tab .register-close-icon {
     margin-left: 285px;
     cursor: pointer;
 }
 
-#login-tab .login-modal .input-box {
+#login-tab .login-modal .input-box,
+#login-tab .register-modal .input-box {
     position: relative;
     width: 310px;
     margin: 30px 0;
     border-bottom: 2px solid #000814;
 }
 
-#login-tab .login-modal .input-box label {
+#login-tab .login-modal .input-box label,
+#login-tab .register-modal .input-box label {
     position: absolute;
     top: 50%;
     left: 34px;
@@ -552,12 +561,19 @@
     transition: .5s;
 }
 
+#login-tab .register-modal .input-box .password-label {
+    left: 66px;
+}
+
 #login-tab .login-modal .input-box input:focus~label,
-#login-tab .login-modal .input-box input:valid~label {
+#login-tab .login-modal .input-box input:valid~label,
+#login-tab .register-modal .input-box input:focus~label,
+#login-tab .register-modal .input-box input:valid~label {
     top: -5px;
 }
 
-#login-tab .login-modal .input-box input {
+#login-tab .login-modal .input-box input,
+#login-tab .register-modal .input-box input {
     width: 100%;
     height: 50px;
     background: transparent;
@@ -568,7 +584,8 @@
     color: #274c77;
 }
 
-#login-tab .login-modal .input-box .icon {
+#login-tab .login-modal .input-box .icon,
+#login-tab .register-modal .input-box .icon {
     position: absolute;
     right: 8px;
     color: #001d3d;
@@ -603,7 +620,8 @@
     text-decoration: underline;
 }
 
-#login-tab .login-modal button {
+#login-tab .login-modal button,
+#login-tab .register-modal button {
     width: 100%;
     height: 40px;
     background: #0077b6;
@@ -616,17 +634,45 @@
     color: #fff;
 }
 
-#login-tab .register-link {
+#login-tab .register-link,
+#login-tab .login-link {
     font-size: 1rem;
     color: #023e8a;
     text-align: center;
     margin: 25px 0 10px;
 }
 
-#login-tab .register-link p a {
+#login-tab .register-link p a,
+#login-tab .login-link p a {
     font-weight: 600;
 }
 
-#login-tab .register-link p a:hover {
+#login-tab .register-link p a:hover,
+#login-tab .login-link p a:hover {
     text-decoration: underline;
+}
+
+#login-tab .login-with {
+    display: block;
+    padding: 7px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#login-tab .login-with p {
+    font-size: 1.2rem;
+    padding-bottom: 10px;
+    padding-top: 20px;
+}
+
+#login-tab .login-with-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: 110px;
+}
+
+#login-tab .login-with img {
+    width: 30px;
+    cursor: pointer;
 }

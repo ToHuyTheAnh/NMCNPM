@@ -97,7 +97,7 @@
 #resident-tab .resident-death-modal,
 #resident-tab .edit-resident-modal {
     background: #fff;
-    width: 790px;
+    width: 800px;
     max-width: 100%;
     max-height: 550px;
     overflow: auto;
@@ -238,6 +238,12 @@
     margin-bottom: 11px;
 }
 
+#resident-tab .resident-input-apartment-role,
+.resident-input-sex {
+    display: flex;
+    gap: 5px;
+}
+
 #resident-tab .resident-input-sex .resident-input-sex-body,
 #resident-tab .resident-input-apartment-role .resident-input-apartment-role-body,
 #resident-tab .resident-death-sex-input .resident-death-sex-input-body {
@@ -351,4 +357,46 @@ th {
 
 #resident-tab .table-icons .table-icon:hover {
     fill: #5e60ce;
+}
+
+#resident-tab .resident-statistical-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 40px 70px;
+}
+
+#resident-tab .resident-statistical-item-content {
+    background-color: #ffff;
+    border-radius: 10px;
+    padding: 5px 40px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+}
+
+#resident-tab .resident-statistical-item {
+    display: block;
+    text-align: center;
+}
+
+#resident-tab .resident-statistical-item-title {
+    font-size: 1.2rem;
+    padding: 5px 10px;
+}
+
+#resident-tab .resident-statistical-item-number input {
+    margin: 12px 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    text-align: center;
+}
+
+#resident-tab .resident-statistical-item:nth-child(3) .resident-statistical-item-number {
+    color: #f72585;
+}
+
+#resident-tab .resident-statistical-item-footer {
+    font-size: 1rem;
+    padding: 5px 10px;
 }

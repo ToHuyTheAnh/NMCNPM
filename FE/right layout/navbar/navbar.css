@@ -41,6 +41,10 @@
 }
 
 #nav .nav-user {
+    position: relative;
+}
+
+#nav .nav-user .user-img {
     display: flex;
     align-items: center;
 }
@@ -53,4 +57,50 @@
 #nav .nav-user .nav-user-icon {
     width: 25px;
     cursor: pointer;
+}
+
+#nav .user-list-options {
+    position: absolute;
+    display: block;
+    top: 116%;
+    left: -215px;
+    width: 300px;
+    background-color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+#nav .user-list-info {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    gap: 10px;
+    padding: 5px;
+}
+
+#nav .user-options {
+    display: block;
+}
+
+
+#nav .user-options-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 3px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#nav .user-options-item:hover {
+    background-color: #e9ecef;
+}
+
+#nav .user-options-item-left-side {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
