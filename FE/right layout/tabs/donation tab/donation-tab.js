@@ -334,16 +334,24 @@ function handleUpdateDonationCharge(id) {
                 let chargeEditedTable = document.getElementById('donation-charge-' + id);
                 chargeEditedTable.querySelector('.apartmentName').textContent = apartmentDonationNameInput;
                 chargeEditedTable.querySelector('.chargeName').textContent = chargeDonationNameInput;
+                chargeEditedTable.querySelector('.chargeName').setAttribute('name', chargeTypeIdInput);
                 chargeEditedTable.querySelector('.amountPaid').textContent = aparmentDonationAmountPaidInput;
-                chargeEditedTable.querySelector('.paymentMethod').textContent = nameMethodListEN[paymentMethodDonationInput];
+                let paymentMethodIP = chargeEditedTable.querySelector('.paymentMethod');
+                paymentMethodIP.textContent = nameMethodListEN[paymentMethodDonationInput];
+                paymentMethodIP.setAttribute('name', paymentMethodDonationInput);
+                // console.log(typeof paymentMethodIP.getAttribute('name'), typeof paymentMethodDonationInput);
                 listAtrributes.apartmentName = apartmentDonationNameInput;
                 listAtrributes.chargeName = chargeDonationNameInput;
                 listAtrributes.amountPaid = aparmentDonationAmountPaidInput;
                 listAtrributes.paymentMethod = paymentMethodDonationInput;
+                // getAllCharges();
+                // getAllChargeType();
             } else {
                 alert("Cập nhật thất bại: " + response.message);
             }
+
         })
+
     };
 
 }
