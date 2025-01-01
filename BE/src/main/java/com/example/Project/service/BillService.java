@@ -4,10 +4,12 @@ import com.example.Project.dto.request.bill.BillRequest;
 import com.example.Project.dto.request.bill.BillSearchRequest;
 import com.example.Project.entity.ApartmentCharge;
 import com.example.Project.entity.Bill;
+import com.example.Project.entity.Charge;
 import com.example.Project.enums.Enums.BillStatus;
 import com.example.Project.entity.Apartment;
 import com.example.Project.mapper.ApartmentChargeMapper;
 import com.example.Project.mapper.BillMapper;
+import com.example.Project.repository.ApartmentChargeRepository;
 import com.example.Project.repository.BillRepository;
 import com.example.Project.utils.PredicateBuilder;
 
@@ -50,6 +52,9 @@ public class BillService {
 
     @PersistenceContext
     private EntityManager entityManager;
+
+    @Autowired
+    private ChargeService chargeService;
 
     @Transactional
     public Bill create(BillRequest request) {
@@ -108,15 +113,20 @@ public class BillService {
             throw new NoSuchElementException("Mã căn hộ không tồn tại");
         }
         bill.setApartmentName(apartment.getApartmentName());
+        BigDecimal totalPaymentAmount = BigDecimal.ZERO;
         for (int i = 0;i < apartmentChargeList.size();i++)
         {
             ApartmentCharge apartmentCharge = apartmentChargeList.get(i);
+            Charge charge = apartmentCharge.getCharge();
             ApartmentChargeRequest apartmentChargeRequest = apartmentChargeRequestList.get(i);
             apartmentChargeMapper.mapApartmentCharge(apartmentCharge, apartmentChargeRequest);
+            apartmentCharge.setChargeAmount(apartmentCharge.getUnitQuantity().multiply(charge.getUnitAmount()));
             updateApartmentChargeList.add(apartmentCharge);
+            totalPaymentAmount = totalPaymentAmount.add(apartmentCharge.getUnitQuantity().multiply(charge.getUnitAmount()));
         }
         bill.setApartmentChargeList(updateApartmentChargeList);
         billMapper.mapBill(bill, request);
+        bill.setTotalPaymentAmount(totalPaymentAmount);
         if(bill.getTotalAmountPaid().compareTo(bill.getTotalPaymentAmount()) < 0) {
             if(bill.getTotalAmountPaid().compareTo(BigDecimal.ZERO) > 0)
                 bill.setStatus(BillStatus.PARTIAL);
