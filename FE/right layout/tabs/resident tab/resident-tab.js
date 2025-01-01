@@ -419,6 +419,37 @@ function updateAction(id) {
             residentEditedTable.querySelector('.resident-name').textContent = response.result.residentName;
             residentEditedTable.querySelector('.resident-role').textContent = residentRoles[response.result.role];
             residentEditedTable.querySelector('.resident-phone-number').textContent = response.result.phoneNumber;
+            if (response.result.role === "OWNER") {
+                var updateApart = {};
+                let apartmentSelect = listApartments.forEach(function (apart) {
+                    if (apart.id === response.result.apartmentId) {
+                        updateApart = {
+                            apartmentName: apart.apartmentName,
+                            floorNumber: apart.floorNumber,
+                            apartmentNumber: apart.apartmentNumber,
+                            area: apart.area,
+                            status: "OCCUPIED",
+                            ownerId: response.result.id,
+                        }
+                    }
+                });
+                updateApartment(response.result.apartmentId, updateApart, function (rp) {
+                    console.log(rp);
+                    if (rp.code === 200) {
+                        apartmentSelect = document.getElementById(`apartment-${response.result.apartmentId}`);
+                        apartmentSelect.querySelector('.row-apartment-name').textContent = updateApart.apartmentName;
+                        apartmentSelect.querySelector('.row-floor-number').textContent = updateApart.floorNumber;
+                        apartmentSelect.querySelector('.row-apartment-number').textContent = updateApart.apartmentNumber;
+                        apartmentSelect.querySelector('.row-apartment-area').textContent = updateApart.area;
+                        let listApartment = document.querySelector('.buildings-table tbody');
+                        listApartment.innerHTML = '';
+                        getApartments(renderApartments);
+                    } else {
+                        alert("Vui lòng điền đầy đủ thông tin!");
+                    }
+
+                })
+            }
             getResidents();
         } else {
             alert("Lỗi: Không thể thêm căn hộ. Vui lòng điền đầy đủ thông tin!");
