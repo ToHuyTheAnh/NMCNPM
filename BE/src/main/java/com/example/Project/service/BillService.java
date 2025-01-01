@@ -114,16 +114,26 @@ public class BillService {
         }
         bill.setApartmentName(apartment.getApartmentName());
         BigDecimal totalPaymentAmount = BigDecimal.ZERO;
-        for (int i = 0;i < apartmentChargeList.size();i++)
-        {
+        for (int i = 0; i < apartmentChargeList.size(); i++) {
             ApartmentCharge apartmentCharge = apartmentChargeList.get(i);
             Charge charge = apartmentCharge.getCharge();
-            ApartmentChargeRequest apartmentChargeRequest = apartmentChargeRequestList.get(i);
-            apartmentChargeMapper.mapApartmentCharge(apartmentCharge, apartmentChargeRequest);
-            apartmentCharge.setChargeAmount(apartmentCharge.getUnitQuantity().multiply(charge.getUnitAmount()));
-            updateApartmentChargeList.add(apartmentCharge);
-            totalPaymentAmount = totalPaymentAmount.add(apartmentCharge.getUnitQuantity().multiply(charge.getUnitAmount()));
+        
+            ApartmentChargeRequest matchingRequest = null;
+            for (ApartmentChargeRequest request2 : apartmentChargeRequestList) {
+                if (request2.getChargeId().equals(charge.getId())) {
+                    matchingRequest = request2;
+                    break;
+                }
+            }
+        
+            if (matchingRequest != null) {
+                apartmentChargeMapper.mapApartmentCharge(apartmentCharge, matchingRequest);
+                apartmentCharge.setChargeAmount(apartmentCharge.getUnitQuantity().multiply(charge.getUnitAmount()));
+                updateApartmentChargeList.add(apartmentCharge);
+                totalPaymentAmount = totalPaymentAmount.add(apartmentCharge.getChargeAmount());
+            }
         }
+        
         bill.setApartmentChargeList(updateApartmentChargeList);
         billMapper.mapBill(bill, request);
         bill.setTotalPaymentAmount(totalPaymentAmount);
